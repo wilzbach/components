@@ -1,12 +1,22 @@
 import VueLazyload from 'vue-lazyload'
 import VueClipboard from 'vue-clipboard2'
+import { vueUse } from './utils/plugins'
+
+// Styles
+// import './assets/vendor/font-awesome/css/font-awesome.css'
+// import './assets/vendor/nucleo/css/nucleo.css'
+// import './assets/vendor/gilroy/gilroy.css'
+
+// Custom
+import './styles/index.scss'
+
+// Bootstrap
+import 'bootstrap/scss/bootstrap.scss'
+
+// Components
 import * as components from './components'
 import * as extraComponents from './extra-components'
 import * as directives from './directives'
-import { vueUse } from './utils/plugins'
-import './assets/vendor/gilroy/gilroy.css'
-import 'bootstrap/scss/bootstrap.scss'
-// import './styles/index.scss'
 
 const VuePlugin = {
   install: function (Vue) {

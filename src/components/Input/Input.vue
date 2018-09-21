@@ -111,8 +111,8 @@ export default {
     },
     slotData() {
       return {
-        focused: this.focused,
-        ...this.listeners
+        ...this.listeners,
+        focused: this.focused
       };
     },
     hasIcon() {
@@ -141,6 +141,3 @@ export default {
   }
 };
 </script>
-<style>
-
-</style>

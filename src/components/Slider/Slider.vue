@@ -57,10 +57,10 @@ export default {
   methods: {
     createSlider() {
       noUiSlider.create(this.$refs.slider, {
+        ...this.options,
         start: this.value,
         connect: this.connect,
         range: this.range,
-        ...this.options
       });
       const slider = this.$refs.slider.noUiSlider;
       slider.on("slide", () => {

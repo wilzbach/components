@@ -26,7 +26,7 @@
 */
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/379c31");
+@import url("http://hello.myfonts.net/count/379c31");
 
 /* Regular */
 @font-face {

@@ -82,7 +82,7 @@ export default {
       img {
         max-width: 180px;
         border-radius: $border-radius;
-        @extend .shadow;
+        box-shadow: $box-shadow;
         transform: translate(-50%, -30%);
         position: absolute;
         left: 50%;
