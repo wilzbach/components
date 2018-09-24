@@ -1,4 +1,30 @@
+// Styles
+// @import "../assets/fonts/font-awesome/font-awesome";
+// @import "../assets/fonts/nucleo/css/nucleo";
+// @import "../assets/fonts/gilroy/gilroy";
+
+// Globals
 @import "./variables";
 @import "./functions";
 @import "./mixins";
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap.scss';
+
+// Custom
 @import "./utilities";
+@import "./avatars";
+@import "./custom-forms";
+@import "./forms";
+@import "./footer";
+@import "./global";
+@import "./grid";
+@import "./icons";
+@import "./input-group";
+@import "./list-group";
+@import "./nav";
+@import "./navbar";
+@import "./popover";
+@import "./reboot";
+@import "./section";
+@import "./type";
