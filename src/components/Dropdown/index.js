@@ -1,8 +1,8 @@
-import aButton from './Button.vue'
+import aDropdown from './Dropdown.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aButton
+  aDropdown
 }
 
 const VuePlugin = {

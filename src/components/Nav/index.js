@@ -1,8 +1,8 @@
-import aButton from './Button.vue'
+import aNav from './Nav.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aButton
+  aNav
 }
 
 const VuePlugin = {

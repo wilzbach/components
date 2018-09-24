@@ -1,8 +1,8 @@
-import aButton from './Button.vue'
+import aProgress from './Progress.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aButton
+  aProgress
 }
 
 const VuePlugin = {

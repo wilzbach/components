@@ -1,8 +1,8 @@
-import aButton from './Button.vue'
+import aCloseButton from './CloseButton.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aButton
+  aCloseButton
 }
 
 const VuePlugin = {

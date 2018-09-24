@@ -1,12 +1,45 @@
-import Vue from 'vue'
-import Lib from './lib'
+import VueLazyload from 'vue-lazyload'
+import VueClipboard from 'vue-clipboard2'
+import { vueUse } from './utils/plugins'
 
-import App from './App.vue'
+// Fonts
+// import './assets/fonts/font-awesome/font-awesome.css'
+// import './assets/fonts/nucleo/css/nucleo.css'
+// import './assets/fonts/gilroy/gilroy.css'
 
-Vue.use(Lib)
+// Styles
+import './styles/index.scss'
 
-Vue.config.productionTip = false
+// Components
+import * as components from './components'
+import * as extraComponents from './extra-components'
+import * as directives from './directives'
 
-new Vue({
-  render: h => h(App)
-}).$mount('#app')
+const VuePlugin = {
+  install: function (Vue) {
+    if (Vue._asyncy_vue_installed) {
+      return
+    }
+
+    Vue._asyncy_vue_installed = true
+
+    for (let item in components) {
+      Vue.use(components[item])
+    }
+
+    for (let item in extraComponents) {
+      Vue.use(extraComponents[item])
+    }
+
+    for (let item in directives) {
+      Vue.use(directives[item])
+    }
+
+    Vue.use(VueLazyload)
+    Vue.use(VueClipboard)
+  }
+}
+
+vueUse(VuePlugin)
+
+export default VuePlugin

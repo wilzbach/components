@@ -1,8 +1,14 @@
-import aButton from './Button.vue'
+import aTab from './Tab.vue'
+import aTabPane from './TabPane.vue'
+import aTabs from './Tabs.vue'
+import aTabsLayout from './TabsLayout.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aButton
+  aTab,
+  aTabPane,
+  aTabs,
+  aTabsLayout
 }
 
 const VuePlugin = {

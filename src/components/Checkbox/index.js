@@ -1,8 +1,8 @@
-import aButton from './Button.vue'
+import aCheckbox from './Checkbox.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aButton
+  aCheckbox
 }
 
 const VuePlugin = {

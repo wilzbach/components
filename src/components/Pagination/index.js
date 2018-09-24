@@ -1,8 +1,8 @@
-import aButton from './Button.vue'
+import aPagination from './Pagination.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aButton
+  aPagination
 }
 
 const VuePlugin = {
