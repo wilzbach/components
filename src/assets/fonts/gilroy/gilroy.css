@@ -26,36 +26,36 @@
 */
 
 /* @import must be at top of file, otherwise CSS will not work */
-@import url("http://hello.myfonts.net/count/379c31");
+@import url("//hello.myfonts.net/count/379c31");
 
 /* Regular */
 @font-face {
   font-family: "gilroy";
-  src: url("webfonts/379C31_1_0.eot");
-  src: url("webfonts/379C31_1_0.eot?#iefix") format("embedded-opentype"),
-    url("webfonts/379C31_1_0.woff2") format("woff2"),
-    url("webfonts/379C31_1_0.woff") format("woff"),
-    url("webfonts/379C31_1_0.ttf") format("truetype");
+  src: url("./webfonts/379C31_1_0.eot");
+  src: url("./webfonts/379C31_1_0.eot?#iefix") format("embedded-opentype"),
+    url("./webfonts/379C31_1_0.woff2") format("woff2"),
+    url("./webfonts/379C31_1_0.woff") format("woff"),
+    url("./webfonts/379C31_1_0.ttf") format("truetype");
 }
 
 /* Medium */
 @font-face {
   font-family: "gilroy";
-  src: url("webfonts/379C31_2_0.eot");
-  src: url("webfonts/379C31_2_0.eot?#iefix") format("embedded-opentype"),
-    url("webfonts/379C31_2_0.woff2") format("woff2"),
-    url("webfonts/379C31_2_0.woff") format("woff"),
-    url("webfonts/379C31_2_0.ttf") format("truetype");
+  src: url("./webfonts/379C31_2_0.eot");
+  src: url("./webfonts/379C31_2_0.eot?#iefix") format("embedded-opentype"),
+    url("./webfonts/379C31_2_0.woff2") format("woff2"),
+    url("./webfonts/379C31_2_0.woff") format("woff"),
+    url("./webfonts/379C31_2_0.ttf") format("truetype");
   font-weight: 500;
 }
 
 /* SemiBold */
 @font-face {
   font-family: "gilroy";
-  src: url("webfonts/379C31_0_0.eot");
-  src: url("webfonts/379C31_0_0.eot?#iefix") format("embedded-opentype"),
-    url("webfonts/379C31_0_0.woff2") format("woff2"),
-    url("webfonts/379C31_0_0.woff") format("woff"),
-    url("webfonts/379C31_0_0.ttf") format("truetype");
+  src: url("./webfonts/379C31_0_0.eot");
+  src: url("./webfonts/379C31_0_0.eot?#iefix") format("embedded-opentype"),
+    url("./webfonts/379C31_0_0.woff2") format("woff2"),
+    url("./webfonts/379C31_0_0.woff") format("woff"),
+    url("./webfonts/379C31_0_0.ttf") format("truetype");
   font-weight: 600;
 }
