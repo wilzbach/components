@@ -15,52 +15,52 @@
 </template>
 <script>
 export default {
-  name: "a-checkbox",
+  name: 'a-checkbox',
   model: {
-    prop: "checked"
+    prop: 'checked'
   },
   props: {
     checked: {
       type: [Array, Boolean],
-      description: "Whether checkbox is checked"
+      description: 'Whether checkbox is checked'
     },
     disabled: {
       type: Boolean,
-      description: "Whether checkbox is disabled"
+      description: 'Whether checkbox is disabled'
     },
     inline: {
       type: Boolean,
-      description: "Whether checkbox is inline"
+      description: 'Whether checkbox is inline'
     }
   },
-  data() {
+  data () {
     return {
-      cbId: "",
+      cbId: '',
       touched: false
-    };
+    }
   },
   computed: {
     model: {
-      get() {
-        return this.checked;
+      get () {
+        return this.checked
       },
-      set(check) {
+      set (check) {
         if (!this.touched) {
-          this.touched = true;
+          this.touched = true
         }
-        this.$emit("input", check);
+        this.$emit('input', check)
       }
     },
-    inlineClass() {
+    inlineClass () {
       if (this.inline) {
-        return `form-check-inline`;
+        return `form-check-inline`
       }
     }
   },
-  created() {
+  created () {
     this.cbId = Math.random()
       .toString(16)
-      .slice(2);
+      .slice(2)
   }
-};
+}
 </script>

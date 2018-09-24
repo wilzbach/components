@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Alert from './Alert.vue';
+import Vue from 'vue'
+import Alert from './Alert.vue'
 import { mount } from '@vue/test-utils'
 
 describe('Test suite for Alert', () => {
@@ -10,8 +10,8 @@ describe('Test suite for Alert', () => {
         dismissible: true
       }
     })
-    expect(wrapper.props().type).toBe('warn');
-    expect(wrapper.props().dismissible).toBe(true);
-    expect(wrapper.props().icon).toBe('');
-  });
-});
+    expect(wrapper.props().type).toBe('warn')
+    expect(wrapper.props().dismissible).toBe(true)
+    expect(wrapper.props().icon).toBe('')
+  })
+})

@@ -26,50 +26,50 @@
 </template>
 <script>
 export default {
-  name: "a-progress",
+  name: 'a-progress',
   props: {
     striped: {
       type: Boolean,
-      description: "Whether progress is striped"
+      description: 'Whether progress is striped'
     },
     animated: {
       type: Boolean,
       description:
-        "Whether progress is animated (works only with `striped` prop together)"
+        'Whether progress is animated (works only with `striped` prop together)'
     },
     label: {
       type: String,
-      description: "Progress label (shown on the left above progress)"
+      description: 'Progress label (shown on the left above progress)'
     },
     height: {
       type: Number,
       default: 8,
-      description: "Progress line height"
+      description: 'Progress line height'
     },
     type: {
       type: String,
-      default: "default",
-      description: "Progress type (e.g danger, primary etc)"
+      default: 'default',
+      description: 'Progress type (e.g danger, primary etc)'
     },
     value: {
       type: Number,
       default: 0,
       validator: value => {
-        return value >= 0 && value <= 100;
+        return value >= 0 && value <= 100
       },
-      description: "Progress value"
+      description: 'Progress value'
     }
   },
   computed: {
-    computedClasses() {
+    computedClasses () {
       return [
-        { "progress-bar-striped": this.striped },
-        { "progress-bar-animated": this.animated },
+        { 'progress-bar-striped': this.striped },
+        { 'progress-bar-animated': this.animated },
         { [`bg-${this.type}`]: this.type }
-      ];
+      ]
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

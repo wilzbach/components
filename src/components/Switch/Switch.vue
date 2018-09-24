@@ -9,24 +9,24 @@
 </template>
 <script>
 export default {
-  name: "a-switch",
+  name: 'a-switch',
   inheritAttrs: false,
   props: {
     value: {
       type: Boolean,
       default: false,
-      description: "Switch value"
+      description: 'Switch value'
     }
   },
   computed: {
     model: {
-      get() {
-        return this.value;
+      get () {
+        return this.value
       },
-      set(value) {
-        this.$emit("input", value);
+      set (value) {
+        this.$emit('input', value)
       }
     }
   }
-};
+}
 </script>

@@ -38,11 +38,11 @@
 
           </li>
 
-          <div v-if="tabShape==='links'" 
-               class="border-decorator-container" 
-               :style="{ 
-                 width: tabDecoratorWidth, 
-                 marginLeft: tabDecoratorMargin 
+          <div v-if="tabShape==='links'"
+               class="border-decorator-container"
+               :style="{
+                 width: tabDecoratorWidth,
+                 marginLeft: tabDecoratorMargin
                 }">
             <div class="border-decorator"></div>
           </div>
@@ -59,233 +59,229 @@
 </template>
 
 <script>
-import PillsLayout from "./PillsLayout.vue";
-import TabsLayout from "./TabsLayout.vue";
+import PillsLayout from './PillsLayout.vue'
+import TabsLayout from './TabsLayout.vue'
 
 export default {
-  name: "a-tabs",
+  name: 'a-tabs',
   components: {
     TabsLayout,
     PillsLayout,
     TabItemContent: {
-      props: ["tab"],
-      render(h) {
-        return h("div", [this.tab.$slots.title || this.tab.title]);
+      props: ['tab'],
+      render (h) {
+        return h('div', [this.tab.$slots.title || this.tab.title])
       }
     }
   },
   props: {
     type: {
       type: String,
-      default: "",
+      default: '',
       validator: value => {
         let acceptedValues = [
-          "",
-          "primary",
-          "info",
-          "success",
-          "warning",
-          "danger"
-        ];
-        return acceptedValues.indexOf(value) !== -1;
+          '',
+          'primary',
+          'info',
+          'success',
+          'warning',
+          'danger'
+        ]
+        return acceptedValues.indexOf(value) !== -1
       },
-      description: "Tabs type (primary|info|danger|default|warning|success)"
+      description: 'Tabs type (primary|info|danger|default|warning|success)'
     },
     tabShape: {
       type: String,
       default: 'pills',
-      description: "Tabs shape (pills|tabs|links|icon-only)"
+      description: 'Tabs shape (pills|tabs|links|icon-only)'
     },
     circle: {
       type: Boolean,
       default: false,
-      description: "Whether tabs are circle"
+      description: 'Whether tabs are circle'
     },
     fill: {
       type: Boolean,
       default: false,
-      description: "Whether to fill each tab"
+      description: 'Whether to fill each tab'
     },
     center: {
       type: Boolean,
       default: false,
-      description: "Whether to center the tabs"
+      description: 'Whether to center the tabs'
     },
     bold: {
       type: Boolean,
       default: false,
-      description: "Whether tab letters are bold"
+      description: 'Whether tab letters are bold'
     },
     activeTab: {
       type: String,
-      default: "",
-      description: "Default active tab name"
+      default: '',
+      description: 'Default active tab name'
     },
     tabNavWrapperClasses: {
       type: [String, Object],
-      default: "",
-      description: "Tab Nav wrapper (div) css classes"
+      default: '',
+      description: 'Tab Nav wrapper (div) css classes'
     },
     tabNavClasses: {
       type: [String, Object],
-      default: "",
-      description: "Tab Nav (ul) css classes"
+      default: '',
+      description: 'Tab Nav (ul) css classes'
     },
     tabNavLinkClasses: {
       type: [String, Object],
-      default: "",
-      description: "Tab Nav (a) css classes"
+      default: '',
+      description: 'Tab Nav (a) css classes'
     },
     tabContentClasses: {
       type: [String, Object],
-      default: "",
-      description: "Tab content css classes"
+      default: '',
+      description: 'Tab content css classes'
     },
     icons: {
       type: Boolean,
-      description: "Whether tabs should be of icon type (small no text)"
+      description: 'Whether tabs should be of icon type (small no text)'
     },
     centered: {
       type: Boolean,
-      description: "Whether tabs are centered"
+      description: 'Whether tabs are centered'
     },
     value: {
       type: String,
-      description: "Initial value (active tab)"
+      description: 'Initial value (active tab)'
     }
   },
-  provide() {
+  provide () {
     return {
       addTab: this.addTab,
       removeTab: this.removeTab
-    };
+    }
   },
-  data() {
+  data () {
     return {
       tabs: [],
       activeTabIndex: 0,
-      tabsWidth:[], // store tabs width,
+      tabsWidth: [], // store tabs width,
       tabsContainerWidth: 0, // store tabs container width(<ul>)
       tabsWidthSum: 0
-    };
+    }
   },
   computed: {
-    layoutComponent() {
-      return this.pills ? "pills-layout" : "tabs-layout";
+    layoutComponent () {
+      return this.pills ? 'pills-layout' : 'tabs-layout'
     },
-    slotData() {
+    slotData () {
       return {
         activeTabIndex: this.activeTabIndex,
         tabs: this.tabs
-      };
-    },
-    /* For border-bottom decorate in "links" shaped tab */
-    tabDecoratorWidth: function() {      
-      if (this.tabsWidth.length > 0) {
-
-        // If tabs are overriding it's container - hide decoration
-        if (this.tabsWidthSum > this.tabsContainerWidth) {
-          return '0';
-        } else {
-          return this.tabsWidth[this.activeTabIndex] + 'px';
-        }
-      } else {
-        return '0';
       }
     },
-    tabDecoratorMargin: function() {
+    /* For border-bottom decorate in "links" shaped tab */
+    tabDecoratorWidth: function () {
       if (this.tabsWidth.length > 0) {
-
-        
-        let margin = (this.tabsContainerWidth - this.tabsWidthSum) / 2;
+        // If tabs are overriding it's container - hide decoration
+        if (this.tabsWidthSum > this.tabsContainerWidth) {
+          return '0'
+        } else {
+          return this.tabsWidth[this.activeTabIndex] + 'px'
+        }
+      } else {
+        return '0'
+      }
+    },
+    tabDecoratorMargin: function () {
+      if (this.tabsWidth.length > 0) {
+        let margin = (this.tabsContainerWidth - this.tabsWidthSum) / 2
         /* sumup the tabs width before active tab */
-        for (let i = 0; i < this.activeTabIndex; i ++) {
-          margin += this.tabsWidth[i];
+        for (let i = 0; i < this.activeTabIndex; i++) {
+          margin += this.tabsWidth[i]
         }
 
-        return margin + 'px';
-      } 
-      else {
-        return '0';
+        return margin + 'px'
+      } else {
+        return '0'
       }
     }
   },
   methods: {
-    findAndActivateTab(title) {
-      let tabToActivate = this.tabs.find(t => t.title === title);
+    findAndActivateTab (title) {
+      let tabToActivate = this.tabs.find(t => t.title === title)
       if (tabToActivate) {
-        this.activateTab(tabToActivate);
+        this.activateTab(tabToActivate)
       }
     },
-    activateTab(tab) {
+    activateTab (tab) {
       if (this.handleClick) {
-        this.handleClick(tab);
+        this.handleClick(tab)
       }
-      this.deactivateTabs();
-      tab.active = true;
-      this.activeTabIndex = this.tabs.findIndex(t => t.active);
+      this.deactivateTabs()
+      tab.active = true
+      this.activeTabIndex = this.tabs.findIndex(t => t.active)
     },
-    deactivateTabs() {
+    deactivateTabs () {
       this.tabs.forEach(tab => {
-        tab.active = false;
-      });
+        tab.active = false
+      })
     },
-    addTab(tab) {
+    addTab (tab) {
       if (this.activeTab === tab.name) {
-        tab.active = true;
+        tab.active = true
       }
-      this.tabs.push(tab);
+      this.tabs.push(tab)
     },
-    removeTab(tab) {
-      const tabs = this.tabs;
-      const index = tabs.indexOf(tab);
+    removeTab (tab) {
+      const tabs = this.tabs
+      const index = tabs.indexOf(tab)
       if (index > -1) {
-        tabs.splice(index, 1);
+        tabs.splice(index, 1)
       }
     },
-    getTabsAndContainerWidth() {
+    getTabsAndContainerWidth () {
       /**
-       * get the tabs width & container width  - need this data for border-bottom 
-       * decoration for "links" shaped 
+       * get the tabs width & container width  - need this data for border-bottom
+       * decoration for "links" shaped
        */
-      this.tabsWidth = [];
-      let sum = 0;
+      this.tabsWidth = []
+      let sum = 0
       for (let i = 0; i < this.$refs.tabs.length; i++) {
-        this.tabsWidth.push(this.$refs.tabs[i].clientWidth);
-        sum += this.$refs.tabs[i].clientWidth;
+        this.tabsWidth.push(this.$refs.tabs[i].clientWidth)
+        sum += this.$refs.tabs[i].clientWidth
       }
-      this.tabsWidthSum = sum;
+      this.tabsWidthSum = sum
 
-      this.tabsContainerWidth = this.$refs.tabsContainer.clientWidth;
+      this.tabsContainerWidth = this.$refs.tabsContainer.clientWidth
     },
-    handleResize() {
-      this.getTabsAndContainerWidth();
+    handleResize () {
+      this.getTabsAndContainerWidth()
     }
   },
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       if (this.value) {
-        this.findAndActivateTab(this.value);
+        this.findAndActivateTab(this.value)
       } else {
         if (this.tabs.length > 0) {
-          this.activateTab(this.tabs[0]);
+          this.activateTab(this.tabs[0])
         }
       }
 
       // Calculate tabs & container width
-      this.getTabsAndContainerWidth();
+      this.getTabsAndContainerWidth()
 
       // Handle Resize event to recalculate the size of tabs & container width
-      window.addEventListener('resize', this.handleResize);
-    });
+      window.addEventListener('resize', this.handleResize)
+    })
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.handleResize)
   },
   watch: {
-    value(newVal) {
-      this.findAndActivateTab(newVal);
+    value (newVal) {
+      this.findAndActivateTab(newVal)
     }
   }
-};
+}
 </script>

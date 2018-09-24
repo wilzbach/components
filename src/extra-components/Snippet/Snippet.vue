@@ -45,72 +45,72 @@
 
 <script>
 export default {
-  name: "a-snippet",
+  name: 'a-snippet',
   props: {
     type: {
       String,
-      default: "default",
-      description: "Snippet type(e.g default, primary etc)"
+      default: 'default',
+      description: 'Snippet type(e.g default, primary etc)'
     },
     effect: {
       type: String,
-      default: "dark",
-      description: "Effect of the snippet (light|dark)"
+      default: 'dark',
+      description: 'Effect of the snippet (light|dark)'
     },
     round: {
       type: Boolean,
       default: false,
-      description: "Whether snippet has rounded corners"
+      description: 'Whether snippet has rounded corners'
     },
     transparent: {
       type: Boolean,
       default: false,
-      description: "Whether snippet is transparent"
+      description: 'Whether snippet is transparent'
     },
     prependText: {
       type: String,
-      default: "",
-      description: "Pepend text of snippet"
+      default: '',
+      description: 'Pepend text of snippet'
     },
     prependClasses: {
       type: [String, Object],
-      default: "",
-      description: "Prepend add-on classes for <span></span>"
+      default: '',
+      description: 'Prepend add-on classes for <span></span>'
     },
     appendText: {
       type: String,
-      default: "",
-      description: "Append text of snippet"
+      default: '',
+      description: 'Append text of snippet'
     },
     appendClasses: {
       type: [String, Object],
-      default: "",
-      description: "Append add-on classes for <span></span>"
+      default: '',
+      description: 'Append add-on classes for <span></span>'
     },
     center: {
       type: Boolean,
       default: true,
-      description: "Whether code snippet is centered"
+      description: 'Whether code snippet is centered'
     },
     size: {
       type: String,
-      default: "default",
-      description: "Size of the snippet (sm|default|lg}"
+      default: 'default',
+      description: 'Size of the snippet (sm|default|lg}'
     },
     value: {
       type: String,
-      default: "",
-      description: "The main code snippet text"
+      default: '',
+      description: 'The main code snippet text'
     },
     readOnly: {
       type: Boolean,
       default: true,
-      description: "Whether code snippet is read-only"
+      description: 'Whether code snippet is read-only'
     },
     fixedHeight: {
       type: Boolean,
       default: true,
-      description: "Whether snippet has fixed"
+      description: 'Whether snippet has fixed'
     }
   },
   data () {

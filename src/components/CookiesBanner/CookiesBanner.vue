@@ -29,7 +29,7 @@
 <script>
 export default {
   props: ['forceActive'],
-  data() {
+  data () {
     return {
       active: this.forceActive,
       show: false,
@@ -38,60 +38,59 @@ export default {
     }
   },
   methods: {
-    checkRevoke() {
-      if (window.location.search === "?revoked=true") {
-        this.onRevoke();
+    checkRevoke () {
+      if (window.location.search === '?revoked=true') {
+        this.onRevoke()
       }
     },
-    allowAllCookies() {
-      this.show = false;
-      this.showThanks = true;
+    allowAllCookies () {
+      this.show = false
+      this.showThanks = true
       setTimeout(() => {
         this.showThanks = false
-      }, 3000);
-      const expiry = new Date();
-      expiry.setFullYear(expiry.getFullYear() + 1);
+      }, 3000)
+      const expiry = new Date()
+      expiry.setFullYear(expiry.getFullYear() + 1)
       document.cookie = `cookie-consent-received=true;expires=${expiry.toGMTString()}`
-      this.$emit('cookie-consent-received');
+      this.$emit('cookie-consent-received')
     },
-    revokeConsent() {
-      this.clearAllCookies();
-      window.location.search = "?revoked=true";
+    revokeConsent () {
+      this.clearAllCookies()
+      window.location.search = '?revoked=true'
     },
-    onRevoke() {
-      window.scrollTo(0, document.body.scrollHeight);
+    onRevoke () {
+      window.scrollTo(0, document.body.scrollHeight)
 
-      this.show = true;
-      this.showRevoked = true;
+      this.show = true
+      this.showRevoked = true
 
       setTimeout(() => {
-        this.showRevoked = false;
-      }, 3000);
+        this.showRevoked = false
+      }, 3000)
 
-      this.$emit('cookie-consent-revoked');
+      this.$emit('cookie-consent-revoked')
     },
-    clearAllCookies() {
-      document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+    clearAllCookies () {
+      document.cookie.split(';').forEach(function (c) { document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/') })
     }
   },
-  mounted() {
+  mounted () {
     const consent = document.cookie.split(';').find((item) => {
-      return item.includes('cookie-consent-received=true');
-    });
+      return item.includes('cookie-consent-received=true')
+    })
 
-    this.checkRevoke();
+    this.checkRevoke()
 
     if (!consent) {
-      this.show = true;
+      this.show = true
     } else {
-      this.$emit('cookie-consent-received');
+      this.$emit('cookie-consent-received')
     }
   }
 }
 </script>
 
 <style scoped>
-
 
 .cookies-banner {
   display: flex;
