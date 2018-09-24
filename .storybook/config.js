@@ -5,7 +5,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 // Fonts
 import '../src/assets/fonts/font-awesome/font-awesome.css'
-import '../src/assets/fonts/nucleo/css/nucleo.css'
+import '../src/assets/fonts/nucleo/nucleo.css'
 import '../src/assets/fonts/gilroy/gilroy.css'
 
 // Styles

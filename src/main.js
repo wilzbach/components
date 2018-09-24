@@ -3,9 +3,9 @@ import VueClipboard from 'vue-clipboard2'
 import { vueUse } from './utils/plugins'
 
 // Fonts
-// import './assets/fonts/font-awesome/font-awesome.css'
-// import './assets/fonts/nucleo/css/nucleo.css'
-// import './assets/fonts/gilroy/gilroy.css'
+import './assets/fonts/font-awesome/font-awesome.css'
+import './assets/fonts/nucleo/nucleo.css'
+import './assets/fonts/gilroy/gilroy.css'
 
 // Styles
 import './styles/index.scss'
