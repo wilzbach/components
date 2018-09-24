@@ -1,8 +1,8 @@
-import aCookie from './Cookie.vue'
+import aButton from './Button.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aCookie
+  aButton
 }
 
 const VuePlugin = {

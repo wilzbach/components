@@ -1,8 +1,8 @@
-import aRadio from './Radio.vue'
+import aButton from './Button.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aRadio
+  aButton
 }
 
 const VuePlugin = {

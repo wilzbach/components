@@ -1,8 +1,8 @@
-import aBadge from './Badge.vue'
+import aButton from './Button.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aBadge
+  aButton
 }
 
 const VuePlugin = {
