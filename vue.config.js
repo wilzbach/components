@@ -5,12 +5,11 @@ module.exports = {
       sass: {
         data: `
           @import "~bootstrap/scss/functions";
-          @import "./src/styles/functions";
           @import "~bootstrap/scss/variables";
-          @import "./src/styles/variables";
           @import "~bootstrap/scss/mixins";
-          @import "./src/styles/mixins";
-        `
+          @import "./src/styles/index";
+        `,
+        includePaths: ['./', './node_modules/', './node_modules/bootstrap']
       }
     }
   }

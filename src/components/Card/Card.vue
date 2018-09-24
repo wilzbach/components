@@ -1,32 +1,30 @@
 <template>
-    <div class="card"
-         v-bind:class="[
-         {'card-lift--hover': hover},
-         {'shadow': shadow},
-         {[`shadow-${shadowSize}`]: shadowSize},
-         {[`bg-gradient-${gradient}`]: gradient},
-         {[`bg-${type}`]: type}
-       ]">
-        <div class="card-header" v-bind:class="headerClasses" v-if="$slots.header">
-            <slot name="header">
-            </slot>
-        </div>
-        <div class="card-body" v-bind:class="bodyClasses" v-if="!noBody">
-            <slot></slot>
-        </div>
-
-        <slot v-if="noBody"></slot>
-
-        <div class="card-footer" v-bind:class="footerClasses" v-if="$slots.footer">
-            <slot name="footer"></slot>
-        </div>
+  <div class="card" v-bind:class="{
+      'card-lift--hover': hover,
+      'shadow': shadow,
+      [`shadow-${shadowSize}`]: shadowSize,
+      [`bg-gradient-${gradient}`]: gradient,
+      [`bg-${state}`]: state}">
+    <div class="card-header" v-bind:class="headerClasses" v-if="$slots.header">
+      <slot name="header">
+      </slot>
     </div>
+    <div class="card-body" v-bind:class="bodyClasses" v-if="!noBody">
+      <slot></slot>
+    </div>
+
+    <slot v-if="noBody"></slot>
+
+    <div class="card-footer" v-bind:class="footerClasses" v-if="$slots.footer">
+      <slot name="footer"></slot>
+    </div>
+  </div>
 </template>
 <script>
 export default {
   name: 'a-card',
   props: {
-    type: {
+    state: {
       type: String,
       description: 'Card type'
     },

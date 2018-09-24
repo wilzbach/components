@@ -1,0 +1,50 @@
+$white:    #fff;
+$black:    #000;
+
+$grays: (
+  100: #f8f9fa,
+  200: #e9ecef,
+  300: #dee2e6,
+  400: #ced4da,
+  500: #adb5bd,
+  600: #6c757d,
+  700: #495057,
+  800: #343a40,
+  900: #212529,
+);
+
+@function gray($gray) {
+  @return map-get($grays, $gray);
+}
+
+$colors: (
+  blue:    #001fff,
+  indigo:  #5603ad,
+  purple:  #a100ff,
+  pink:    #ff107d,
+  red:     #f72d2d,
+  orange:  #ff7900,
+  yellow:  #ffce00,
+  green:   #86e028,
+  teal:    #2de5ea,
+  cyan:    #2bffc6,
+);
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+$states: (
+  primary: map-get($colors, purple),
+  secondary: map-get($colors, blue),
+  info: map-get($colors, teal),
+  success: map-get($colors, green),
+  warning: map-get($colors, orange),
+  danger: map-get($colors, red),
+  default: $black,
+  neutral: $white,
+);
+
+@function state($state) {
+  @return map-get($states, $state);
+}

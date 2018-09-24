@@ -1,0 +1,11 @@
+$easing: ease-in-out;
+
+$durations: (
+  s: .4s,
+  m: .6s,
+  l: 1.2s
+);
+
+@function duration($duration) {
+  @return map-get($durations, $duration);
+}

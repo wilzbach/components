@@ -1,31 +1,21 @@
 <template>
-    <fade-transition>
-        <div class="alert" v-bind:class="[`alert-${type}`, {'alert-dismissible': dismissible}]" role="alert" v-if="visible">
-            <slot v-if="!dismissible">
-                <span v-if="icon" class="alert-inner--icon">
-                    <i v-bind:class="icon"></i>
-                </span>
-                <span v-if="$slots.text" class="alert-inner--text">
-                    <slot name="text"></slot>
-                </span>
-            </slot>
-            <template v-else>
-                <slot>
-                    <span v-if="icon" class="alert-inner--icon">
-                     <i v-bind:class="icon"></i>
-                    </span>
-                    <span v-if="$slots.text" class="alert-inner--text">
-                    <slot name="text"></slot>
-                </span>
-                </slot>
-                <slot name="dismiss-icon">
-                    <button type="button" data-dismiss="alert" aria-label="Close" class="close" @click="dismissAlert">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </slot>
-            </template>
-        </div>
-    </fade-transition>
+  <fade-transition>
+    <div class="alert" v-bind:class="[`alert--${state}`, {'alert-dismissible': dismissible}]" role="alert" v-if="visible">
+      <slot>
+        <span v-if="icon" class="alert__icon">
+          <i v-bind:class="icon"></i>
+        </span>
+        <span v-if="$slots.text" class="alert__text">
+          <slot name="text"></slot>
+        </span>
+      </slot>
+      <slot name="dismiss-icon" v-if="dismissible">
+        <button type="button" data-dismiss="alert" aria-label="Close" class="alert__close" @click="dismiss">
+          <i class="fa fa-close"></i>
+        </button>
+      </slot>
+    </div>
+  </fade-transition>
 </template>
 <script>
 import { FadeTransition } from 'vue2-transitions'
@@ -36,7 +26,7 @@ export default {
     FadeTransition
   },
   props: {
-    type: {
+    state: {
       type: String,
       default: 'default',
       description: 'Alert type'
@@ -58,7 +48,7 @@ export default {
     }
   },
   methods: {
-    dismissAlert () {
+    dismiss () {
       this.visible = false
     }
   }
@@ -67,78 +57,117 @@ export default {
 
 <style lang="scss" scoped>
 .alert {
-  padding: $alert-padding-y $alert-padding-x;
-  border: 0;
-  font-size: $font-size-sm;
-  @include border-radius($alert-border-radius);
+  display: flex;
+  padding: 1.2rem 1.5rem;
+  border-radius: 0.25rem;
+  justify-content: space-between;
+  font-size: fontSize(m);
+  align-items: center;
 
-  .alert-inner--icon {
-    font-size: 1.25rem;
-    margin-right: 1.25rem;
-    display: inline-block;
-    vertical-align: middle;
-
-    i.ni {
-      position: relative;
-      top: 1px;
+  @each $state, $value in $states {
+    &.alert--#{$state} {
+      @include gradient-bg(lighten(desaturate($value, 10%), 5%));
+      color: $white;
+      border-color: $value;
     }
   }
-  .alert-inner--text {
+
+  .alert__icon {
     display: inline-block;
-    vertical-align: middle;
   }
-}
 
-.alert:not(.alert-secondary) {
-  color: $white;
-}
+  .alert__text {
+    flex-grow: 1;
+    margin: 0 1.25rem;
+  }
 
-[class*="alert-"] {
-  .alert-link {
+  .alert__close {
+    background-color: transparent;
+    border: 0;
     color: $white;
-    border-bottom: 1px dotted rgba($white, 0.5);
-  }
-}
-
-.alert-heading {
-  font-weight: $font-weight-bold;
-  font-size: $h4-font-size;
-  margin-top: 0.15rem;
-}
-
-.alert-dismissible {
-  .close {
-    top: 50%;
-    right: $alert-padding-x;
-    padding: 0;
-    transform: translateY(-50%);
+    cursor: pointer;
     color: rgba($white, 0.6);
-    opacity: 1;
+    transition: all duration(s) $easing;
 
-    &:hover,
-    &:focus {
+    &:hover {
       color: rgba($white, 0.9);
-      opacity: 1 !important;
-    }
-
-    @include media-breakpoint-down(xs) {
-      top: 1rem;
-      right: 0.5rem;
-    }
-
-    & > span:not(.sr-only) {
-      font-size: 1.5rem;
-      background-color: transparent;
-      color: rgba($white, 0.6);
-    }
-
-    &:hover,
-    &:focus {
-      & > span:not(.sr-only) {
-        background-color: transparent;
-        color: rgba($white, 0.9);
-      }
     }
   }
 }
+
+// .alert {
+//   padding: $alert-padding-y $alert-padding-x;
+//   border: 0;
+//   font-size: $font-size-sm;
+//   @include border-radius($alert-border-radius);
+
+//   .alert-inner--icon {
+//     font-size: 1.25rem;
+//     margin-right: 1.25rem;
+//     display: inline-block;
+//     vertical-align: middle;
+
+//     i.ni {
+//       position: relative;
+//       top: 1px;
+//     }
+//   }
+//   .alert-inner--text {
+//     display: inline-block;
+//     vertical-align: middle;
+//   }
+// }
+
+// .alert:not(.alert-secondary) {
+//   color: $white;
+// }
+
+// [class*="alert-"] {
+//   .alert-link {
+//     color: $white;
+//     border-bottom: 1px dotted rgba($white, 0.5);
+//   }
+// }
+
+// .alert-heading {
+//   font-weight: $font-weight-bold;
+//   font-size: $h4-font-size;
+//   margin-top: 0.15rem;
+// }
+
+// .alert-dismissible {
+//   .close {
+//     top: 50%;
+//     right: $alert-padding-x;
+//     padding: 0;
+//     transform: translateY(-50%);
+//     color: rgba($white, 0.6);
+//     opacity: 1;
+
+//     &:hover,
+//     &:focus {
+//       color: rgba($white, 0.9);
+//       opacity: 1 !important;
+//     }
+
+//     @include media-breakpoint-down(xs) {
+//       top: 1rem;
+//       right: 0.5rem;
+//     }
+
+//     & > span:not(.sr-only) {
+//       font-size: 1.5rem;
+//       background-color: transparent;
+//       color: rgba($white, 0.6);
+//     }
+
+//     &:hover,
+//     &:focus {
+//       & > span:not(.sr-only) {
+//         background-color: transparent;
+//         color: rgba($white, 0.9);
+//       }
+//     }
+//   }
+// }
 </style>

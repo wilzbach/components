@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/main.js",
+    "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/lib.js",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -c .storybook -o dist_storybook",

@@ -1,0 +1,20 @@
+$fonts: (
+  base: 'gilroy',
+  icon: 'nucleo',
+  code: 'monospace'
+);
+
+@function fonts($font) {
+  @return map-get($fonts, $font);
+}
+
+
+$fontSizes: (
+  s: 0.75rem,
+  m: 0.875rem,
+  l: 1.25rem
+);
+
+@function fontSize($fontSize) {
+  @return map-get($fontSizes, $fontSize);
+}
