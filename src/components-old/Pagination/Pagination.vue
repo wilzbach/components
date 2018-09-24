@@ -19,121 +19,149 @@
 </template>
 <script>
 export default {
-  name: 'a-pagination',
+  name: "a-pagination",
   props: {
     pageCount: {
       type: Number,
       default: 0,
       description:
-        'Pagination page count. This should be specified in combination with perPage'
+        "Pagination page count. This should be specified in combination with perPage"
     },
     perPage: {
       type: Number,
       default: 10,
       description:
-        'Pagination per page. Should be specified with total or pageCount'
+        "Pagination per page. Should be specified with total or pageCount"
     },
     total: {
       type: Number,
       default: 0,
       description:
-        'Can be specified instead of pageCount. The page count in this case will be total/perPage'
+        "Can be specified instead of pageCount. The page count in this case will be total/perPage"
     },
     value: {
       type: Number,
       default: 1,
-      description: 'Pagination value'
+      description: "Pagination value"
     },
     size: {
       type: String,
-      default: '',
-      description: 'Pagination size'
+      default: "",
+      description: "Pagination size"
     },
     align: {
       type: String,
-      default: '',
-      description: 'Pagination alignment (e.g center|start|end)'
+      default: "",
+      description: "Pagination alignment (e.g center|start|end)"
     }
   },
   computed: {
-    totalPages () {
-      if (this.pageCount > 0) return this.pageCount
+    totalPages() {
+      if (this.pageCount > 0) return this.pageCount;
       if (this.total > 0) {
-        return Math.ceil(this.total / this.perPage)
+        return Math.ceil(this.total / this.perPage);
       }
-      return 1
+      return 1;
     },
-    pagesToDisplay () {
+    pagesToDisplay() {
       if (this.totalPages > 0 && this.totalPages < this.defaultPagesToDisplay) {
-        return this.totalPages
+        return this.totalPages;
       }
-      return this.defaultPagesToDisplay
+      return this.defaultPagesToDisplay;
     },
-    minPage () {
+    minPage() {
       if (this.value >= this.pagesToDisplay) {
-        const pagesToAdd = Math.floor(this.pagesToDisplay / 2)
-        const newMaxPage = pagesToAdd + this.value
+        const pagesToAdd = Math.floor(this.pagesToDisplay / 2);
+        const newMaxPage = pagesToAdd + this.value;
         if (newMaxPage > this.totalPages) {
-          return this.totalPages - this.pagesToDisplay + 1
+          return this.totalPages - this.pagesToDisplay + 1;
         }
-        return this.value - pagesToAdd
+        return this.value - pagesToAdd;
       } else {
-        return 1
+        return 1;
       }
     },
-    maxPage () {
+    maxPage() {
       if (this.value >= this.pagesToDisplay) {
-        const pagesToAdd = Math.floor(this.pagesToDisplay / 2)
-        const newMaxPage = pagesToAdd + this.value
+        const pagesToAdd = Math.floor(this.pagesToDisplay / 2);
+        const newMaxPage = pagesToAdd + this.value;
         if (newMaxPage < this.totalPages) {
-          return newMaxPage
+          return newMaxPage;
         } else {
-          return this.totalPages
+          return this.totalPages;
         }
       } else {
-        return this.pagesToDisplay
+        return this.pagesToDisplay;
       }
     }
   },
-  data () {
+  data() {
     return {
       defaultPagesToDisplay: 5
-    }
+    };
   },
   methods: {
-    range (min, max) {
-      let arr = []
+    range(min, max) {
+      let arr = [];
       for (let i = min; i <= max; i++) {
-        arr.push(i)
+        arr.push(i);
       }
-      return arr
+      return arr;
     },
-    changePage (item) {
-      this.$emit('input', item)
+    changePage(item) {
+      this.$emit("input", item);
     },
-    nextPage () {
+    nextPage() {
       if (this.value < this.totalPages) {
-        this.$emit('input', this.value + 1)
+        this.$emit("input", this.value + 1);
       }
     },
-    prevPage () {
+    prevPage() {
       if (this.value > 1) {
-        this.$emit('input', this.value - 1)
+        this.$emit("input", this.value - 1);
       }
     }
   },
   watch: {
-    perPage () {
-      this.$emit('input', 1)
+    perPage() {
+      this.$emit("input", 1);
     },
-    total () {
-      this.$emit('input', 1)
+    total() {
+      this.$emit("input", 1);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
+// $pagination-padding-y:              .5rem;
+// $pagination-padding-x:              .75rem;
+// $pagination-padding-y-sm:           .25rem;
+// $pagination-padding-x-sm:           .5rem;
+// $pagination-padding-y-lg:           .75rem;
+// $pagination-padding-x-lg:           1.5rem;
+// $pagination-line-height:            1.25;
+
+$pagination-color: $gray-600;
+$pagination-bg: $white;
+$pagination-border-width: $border-width;
+$pagination-border-color: $gray-300;
+
+//$pagination-focus-box-shadow:       $btn-hover-box-shadow;
+
+$pagination-hover-color: $gray-600;
+$pagination-hover-bg: $gray-300;
+$pagination-hover-border-color: $gray-300;
+
+$pagination-active-color: $component-active-color;
+$pagination-active-bg: $component-active-bg;
+$pagination-active-border-color: $pagination-active-bg;
+$pagination-active-box-shadow: $btn-hover-box-shadow;
+
+$pagination-disabled-color: $gray-600;
+$pagination-disabled-bg: $white;
+$pagination-disabled-border-color: $gray-300;
+
 .page-item {
   &.active .page-link {
     box-shadow: $pagination-active-box-shadow;
