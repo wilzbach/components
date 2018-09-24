@@ -62,12 +62,12 @@ export default {
   border-radius: 0.25rem;
   line-height: 1.5;
   border: 1px solid transparent;
-  cursor: pointer;
+  box-shadow: $btn-box-shadow;
   transition: all duration(s) $easing;
-  @include box-shadow($btn-box-shadow);
+  cursor: pointer;
 
   @include hover {
-    @include box-shadow($btn-hover-box-shadow);
+    box-shadow: $btn-hover-box-shadow;
     transform: translateY(-1px);
   }
 
