@@ -3,7 +3,7 @@ import { configure, setAddon, addDecorator } from '@storybook/vue'
 import { setOptions } from '@storybook/addon-options'
 import JSXAddon from 'storybook-addon-jsx'
 
-import '../node_modules/bootstrap/scss/bootstrap.scss'
+import 'bootstrap/scss/bootstrap.scss'
 import '../src/styles/index.scss'
 
 import AsyncSuite from '../src/main'
