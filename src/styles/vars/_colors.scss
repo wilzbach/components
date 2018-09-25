@@ -27,7 +27,10 @@ $colors: (
   yellow:  #ffce00,
   green:   #86e028,
   teal:    #2de5ea,
-  cyan:    #2bffc6,
+  cyan:    #2de5ea,
+  magenta: #ff107d,
+  dark:    #30323d,
+  light:   #f0f2f6
 );
 
 @function color($color) {
