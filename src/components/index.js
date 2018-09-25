@@ -6,7 +6,7 @@ import Link from './Link'
 // import CookiesBanner from './CookiesBanner'
 // import Cookie from './Cookie'
 // import Dropdown from './Dropdown'
-// import Input from './Input'
+import Input from './Input'
 // import Nav from './Nav'
 // import Pagination from './Pagination'
 // import Progress from './Progress'
@@ -25,12 +25,12 @@ export {
   Badge,
   Alert,
   Button,
-  Link
+  Link,
   // Checkbox,
   // CookiesBanner,
   // Cookie,
   // Dropdown,
-  // Input,
+  Input
   // Nav,
   // Pagination,
   // Progress,

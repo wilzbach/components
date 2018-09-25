@@ -63,6 +63,7 @@ export default {
   line-height: 1.5;
   border: 1px solid transparent;
   box-shadow: $btn-box-shadow;
+  outline: none;
   transition: all duration(s) $easing;
   cursor: pointer;
 

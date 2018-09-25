@@ -15,7 +15,7 @@
 export default {
   name: 'a-button',
   props: {
-    type: {
+    state: {
       type: String,
       default: 'default',
       description: 'Button type (e,g primary, danger etc)'
