@@ -9,6 +9,10 @@
   background: linear-gradient(180deg, lighten($color, 0%), darken($color, 10%)) repeat-x;
 }
 
+@mixin gradient-bgi($color) {
+  background: linear-gradient(180deg, darken($color, 0%), lighten($color, 10%)) repeat-x;
+}
+
 
 @function color-yiq($color) {
   $yiq-contrasted-threshold: 150;
