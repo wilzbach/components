@@ -4,7 +4,7 @@ $fonts: (
   code: 'monospace'
 );
 
-@function fonts($font) {
+@function font($font) {
   @return get($fonts, $font);
 }
 
