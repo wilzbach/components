@@ -10,4 +10,8 @@
   @each $font, $value in $fonts {
     --font-#{$font}: #{$value};
   }
+
+  @each $breakpoint, $value in $breakpoints {
+    --bp-#{$breakpoint}: #{$value};
+  }
 }

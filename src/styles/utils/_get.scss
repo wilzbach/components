@@ -1,0 +1,6 @@
+@function get($options, $option) {
+  @if not map-has-key($options, $option) {
+    @error '"#{$option}" is not a valid option. The available options are: #{map-keys($options)}.';
+  }
+  @return map-get($options, $option);
+}

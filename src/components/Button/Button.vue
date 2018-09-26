@@ -78,7 +78,7 @@ export default {
 
   @each $state, $value in $states {
     &.btn--#{$state} {
-      @include gradient-bg($value);
+      @include bg-gradient($value);
       color: $white;
       border-color: $value;
 
@@ -86,7 +86,7 @@ export default {
         color: $value;
 
         @include hover {
-          @include gradient-bg($value);
+          @include bg-gradient($value);
           color: $white;
         }
       }

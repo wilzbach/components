@@ -7,5 +7,5 @@ $durations: (
 );
 
 @function duration($duration) {
-  @return map-get($durations, $duration);
+  @return get($durations, $duration);
 }

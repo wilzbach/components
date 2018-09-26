@@ -1,11 +1,14 @@
+// Utilities
+@import "./utils/_get";
+@import "./utils/_color";
+@import "./utils/_breakpoint";
+
+// Variables
 @import './vars/_colors';
 @import './vars/_fonts';
 @import './vars/_transitions';
 @import './vars/_misc';
 @import './vars/_breakpoints';
-
-@import "./utils/_color";
-@import "./utils/_breakpoint";
 
 @import "_root";
 @import "_base";
