@@ -4,8 +4,8 @@ $fonts: (
   code: 'monospace'
 );
 
-@function fonts($font) {
-  @return map-get($fonts, $font);
+@function font($font) {
+  @return get($fonts, $font);
 }
 
 
@@ -16,5 +16,5 @@ $fontSizes: (
 );
 
 @function fontSize($fontSize) {
-  @return map-get($fontSizes, $fontSize);
+  @return get($fontSizes, $fontSize);
 }

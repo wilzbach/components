@@ -5,7 +5,7 @@
 //   @return map-get($map, $key);
 // }
 
-@mixin gradient-bg($color) {
+@mixin bg-gradient($color) {
   background: linear-gradient(180deg, lighten($color, 0%), darken($color, 10%)) repeat-x;
 }
 
