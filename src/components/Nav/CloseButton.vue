@@ -32,32 +32,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.close {
-  @if $enable-transitions {
-    transition: $transition-base;
-  }
-  & > span:not(.sr-only) {
-    background-color: $close-bg;
-    color: $close-color;
-    line-height: 17px;
-    height: 1.25rem;
-    width: 1.25rem;
-    border-radius: 50%;
-    font-size: 1.25rem;
+.navbar-toggler {
+  background: transparent;
+  outline: none;
+  border: none;
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+
+  & > span {
     display: block;
-    @if $enable-transitions {
-      transition: $transition-base;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    opacity: 1;
+    background-color: rgba(color(dark), .95);
+    border-radius: 35%;
+
+    &:nth-child(1) {
+      transform: rotate(135deg)
     }
-  }
 
-  &:hover,
-  &:focus {
-    background-color: $close-hover-bg;
-    color: $close-hover-color;
-    outline: none;
-
-    span:not(.sr-only) {
-      background-color: $close-hover-bg;
+    &:nth-child(2) {
+      transform: rotate(-135deg)
     }
   }
 }

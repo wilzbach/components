@@ -66,8 +66,27 @@ export default {
 
   @each $state, $value in $states {
     &.alert--#{$state} {
-      @include bg-gradient(lighten(desaturate($value, 10%), 5%));
-      color: $white;
+      background-color: $value;
+      &, & > * {
+        color: color(light);
+      }
+      border-color: $value;
+    }
+  }
+
+  @each $color, $value in $colors {
+    &.alert--#{$color} {
+      background-color: $value;
+      @if $color == 'light' {
+        &, & > * {
+          color: color(dark);
+        }
+      }
+      @else {
+        &, & > * {
+          color: color(light);
+        }
+      }
       border-color: $value;
     }
   }
@@ -84,13 +103,11 @@ export default {
   .alert__close {
     background-color: transparent;
     border: 0;
-    color: $white;
     cursor: pointer;
-    color: rgba($white, 0.6);
     transition: all duration(s) $easing;
 
     &:hover {
-      color: rgba($white, 0.9);
+      opacity: .65
     }
   }
 }

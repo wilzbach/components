@@ -1,46 +1,78 @@
 <template>
-    <nav class="navbar"
-         v-bind:class="[
-            {'navbar-expand-lg': expand},
-            {[`navbar-${effect}`]: effect},
-            {'navbar-transparent': transparent},
-            {[`bg-${type}`]: type},
-            {'rounded': round}
-         ]">
-        <div class="container">
-            <slot name="container-pre"></slot>
-            <slot name="brand">
-                <a class="navbar-brand" href="#" @click.prevent="onTitleClick">
-                    {{title}}
-                    <img v-if="logo" :src="logo" alt="asyncy logo"/>
-                    <div v-if="isBeta" style="margin-left: 0.5rem; float:right">
-                      <a-badge type="primary">Beta</a-badge>
-                    </div>
-                </a>
-            </slot>
-            <a-navbar-toggle-button :toggled="toggled"
-                                  :target="contentId"
-                                  @click.native.stop="toggled = !toggled">
-            </a-navbar-toggle-button>
-
-            <slot name="container-after"></slot>
-
-            <div class="collapse navbar-collapse" v-bind:class="{show: toggled}" v-bind:id="contentId" v-click-outside="closeMenu">
-                <div class="navbar-collapse-header">
-                    <slot name="content-header" v-bind:close-menu="closeMenu"></slot>
-                </div>
-                <slot v-bind:close-menu="closeMenu"></slot>
-            </div>
+  <nav
+    class="navbar"
+    :class="[
+      {'expand-lg': expand},
+      {[`navbar-${effect}`]: effect},
+      {'transparent': transparent},
+      {[`bg--${type}`]: type && !transparent },
+      {'rounded': round}
+    ]">
+    <div class="container">
+      <span
+        class="navbar-brand"
+        @click.prevent="onBrandClick">
+        {{title}}
+        <a-logo
+          v-if="logo"
+          icon />
+        <div v-if="tag">
+          <a-badge state="primary">{{ tag }}</a-badge>
         </div>
-    </nav>
+      </span>
+      <a-navbar-toggle-button
+        :toggled="toggled"
+        :target="contentId"
+        @click.native.stop="toggled = !toggled"
+        :dark="transparent" />
+      <transition name="navbar-collapse">
+        <div
+          class="navbar-collapse"
+          v-show="toggled"
+          :id="contentId">
+          <div class="navbar-collapse-header">
+            <div class="collapse-brand">
+              <router-link to="/">Asyncy</router-link>
+            </div>
+            <div class="collapse-close">
+              <a-close-button
+                :target="contentId"
+                @click="close" />
+            </div>
+          </div>
+          <ul
+            class="navbar-nav ml-lg-auto"
+            v-click-outside="close">
+            <a-nav-item
+              v-for="(item, idx) of items"
+              :key="`nav-${id}-list-items-${idx}`"
+              :name="item.name"
+              :children="item.children"
+              :icon="item.icon"
+              :iconRight="item.iconRight"
+              :link="item.link"
+              :hideDecoration="item.hideDecoration"
+              :color="item.color"
+              :dark="effect === 'dark'"
+              :right="item.right" />
+          </ul>
+        </div>
+      </transition>
+    </div>
+  </nav>
 </template>
+
 <script>
-import aNavbarToggleButton from '../NavbarToggleButton/NavbarToggleButton.vue'
+import aNavbarToggleButton from './NavbarToggleButton.vue'
+import aCloseButton from './CloseButton.vue'
+import aNavItem from './NavItem'
 
 export default {
   name: 'a-nav',
   components: {
-    aNavbarToggleButton
+    aNavbarToggleButton,
+    aCloseButton,
+    aNavItem
   },
   props: {
     type: {
@@ -48,14 +80,19 @@ export default {
       default: 'primary',
       description: 'Navbar type (e.g default, primary etc)'
     },
+    id: {
+      type: [String, Number],
+      default: Math.random().toString(),
+      description: 'Explicit id for the nav. By default it\'s a generated random number'
+    },
     title: {
       type: String,
       default: '',
       description: 'Title of navbar'
     },
     logo: {
-      type: String,
-      default: null,
+      type: Boolean,
+      default: false,
       description: 'Logo of navbar'
     },
     contentId: {
@@ -84,24 +121,166 @@ export default {
       default: false,
       description: 'Whether navbar should contain `navbar-expand-lg` class'
     },
-    isBeta: {
-      type: Boolean,
-      default: false,
-      description: 'Whether navbar should show `beta` badge'
-    }
-  },
-  data () {
-    return {
-      toggled: false
-    }
-  },
-  methods: {
-    onTitleClick (evt) {
-      this.$emit('title-click', evt)
+    tag: {
+      type: String,
+      default: undefined,
+      description: 'Whether navbar should show a badge with the tag text'
     },
-    closeMenu () {
+    items: {
+      type: Array,
+      description: "Items to display in the menu. e.g.: { name: 'Item', link: '/', icon: 'fa fa-icon', iconRight: 'fa fa-icon', right: /* dropdown-menu-right */true, children: [{ name: 'Sub', link: '/' }, { type: 'divider' }], hideDecoration: true, color: '(primary|pink|...)' }"
+    }
+  },
+  data: () => ({
+    toggled: false
+  }),
+  methods: {
+    onBrandClick: function (evt) {
+      this.$emit('brand-click', evt)
+    },
+    close: function () {
       this.toggled = false
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  &.rounded {
+    border-radius: 0.25rem;
+  }
+  &.expand-lg {
+    @include breakpoint(m) {
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+    }
+  }
+  .container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    @include breakpoint(m) { flex-wrap: nowrap; }
+    .navbar-brand {
+      color: $white;
+      margin-left: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: .875rem;
+      letter-spacing: .05px;
+      margin-right: 1rem;
+      line-height: inherit;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      svg {
+        height: 2rem;
+      }
+      div {
+        margin-left: 1rem;
+        span {
+          color: color(light);
+        }
+      }
+    }
+    .navbar-toggler {
+      @include breakpoint(m) { display: none; }
+    }
+    .navbar-collapse {
+      flex-basis: 100%;
+      align-items: center;
+      flex-grow: 1;
+      @include breakpoint(m) { display: flex !important; flex-basis: auto; }
+      @include breakpoint((max, m)) {
+        padding: 1.5rem;
+        border-radius: 0.25rem;
+        background: $white;
+        box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1), 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: calc(100% - 1.4rem);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+        margin: .7rem;
+        overflow-y: auto;
+        height: auto !important;
+        opacity: 1;
+      }
+      .navbar-collapse-header {
+        display: flex;
+        @include breakpoint(m) { display: none; }
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        .collapse-brand {
+          a {
+            text-decoration: none;
+            color: color(dark);
+          }
+          svg {
+            height: 36px;
+          }
+        }
+        .collapse-close {
+          text-align: right;
+        }
+      }
+    }
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin: 0;
+      @include breakpoint(m) { flex-direction: row; }
+      @include breakpoint((max, m)) { padding-left: 0; }
+    }
+  }
+}
+
+.navbar-collapse-enter, .navbar-collapse-enter-active {
+  animation: show-navbar-collapse .2s ease forwards;
+}
+
+.navbar-collapse-leave-active, .navbar-collapse-leave-to {
+  animation: hide-navbar-collapse .2s ease forwards;
+}
+
+@keyframes show-navbar-collapse {
+    0% {
+        opacity: 0;
+        transform: scale(.95);
+        transform-origin: 100% 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hide-navbar-collapse {
+    from {
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: 100% 0;
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(.95);
+    }
+}
+</style>

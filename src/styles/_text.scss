@@ -1,11 +1,11 @@
 @each $color, $value in $colors {
   .text--#{$color} {
-    color: #{$value};
+    color: #{$value} !important;
   }
 }
 
 @each $state, $value in $states {
   .text--#{$state} {
-    color: #{$value};
+    color: #{$value} !important;
   }
 }

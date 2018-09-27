@@ -36,10 +36,10 @@
     $value: nth($first, 2);
 
     // Subtract 1px on max-width so queries don't conflict
-    $value: $value - 1px;
+    $value: bp($value) - 1px;
 
 
-    @media (max-width: bp($value) ) {
+    @media (max-width: $value ) {
       @content;
     }
   }

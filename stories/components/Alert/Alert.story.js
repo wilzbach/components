@@ -34,6 +34,16 @@ storiesOf('Components/', module).addWithJSX('Alert', () => ({
       <a-alert state="danger" icon="ni ni-support-16" dismissible>
         <span slot="text"><strong>Danger!</strong> This is an error alert—check it out!</span>
       </a-alert>
+
+      <div class="mb-3"></div>
+      <a-alert state="dark" icon="ni ni-like-2" dismissible>
+        <span slot="text"><strong>Dark!</strong> This is a dark alert—check it out!</span>
+      </a-alert>
+
+      <div class="mb-3"></div>
+      <a-alert state="light" icon="ni ni-like-2" dismissible>
+        <span slot="text"><strong>Light!</strong> This is a light alert—check it out!</span>
+      </a-alert>
     </div>
     `
 }))

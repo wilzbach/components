@@ -1,8 +1,8 @@
-import aCloseButton from './CloseButton.vue'
+import aLogo from './Logo.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aCloseButton
+  aLogo
 }
 
 const VuePlugin = {

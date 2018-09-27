@@ -7,7 +7,8 @@ import Link from './Link'
 // import Cookie from './Cookie'
 // import Dropdown from './Dropdown'
 import Input from './Input'
-// import Nav from './Nav'
+import Nav from './Nav'
+import Logo from './Logo'
 // import Pagination from './Pagination'
 // import Progress from './Progress'
 // import Radio from './Radio'
@@ -17,7 +18,6 @@ import Input from './Input'
 // import CloseButton from './CloseButton'
 // import Icon from './Icon'
 // import Modal from './Modal'
-// import NavbarToggleButton from './NavbarToggleButton'
 // import Tabs from './Tabs'
 // import Tooltip from './Tooltip'
 
@@ -30,8 +30,9 @@ export {
   // CookiesBanner,
   // Cookie,
   // Dropdown,
-  Input
-  // Nav,
+  Input,
+  Nav,
+  Logo
   // Pagination,
   // Progress,
   // Radio,
@@ -41,7 +42,6 @@ export {
   // CloseButton,
   // Icon,
   // Modal,
-  // NavbarToggleButton,
   // Tabs,
   // Tooltip
 }
