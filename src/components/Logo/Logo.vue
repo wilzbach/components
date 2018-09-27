@@ -6,14 +6,15 @@
       :height="icon ? '45' : '33'"
       :viewBox="icon ? '0 0 45 45' : '0 0 113.06 33'">
       <defs>
-        <linearGradient id="colorful" x1="1623.97" y1="1918.5" x2="1737.03" y2="1918.5" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#001fff"/>
-          <stop offset="0.173" stop-color="#2de5ea"/>
-          <stop offset="0.34" stop-color="#86e028"/>
-          <stop offset="0.51" stop-color="#ffce00"/>
-          <stop offset="0.68" stop-color="#ff7900"/>
-          <stop offset="0.85" stop-color="#f72d2d"/>
-          <stop offset="1" stop-color="#ff107d"/>
+        <linearGradient id="colorful" y1="263.46" x2="1835.87" y2="263.46" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#fc644c"/>
+          <stop offset="0.14" stop-color="#ff9f2d"/>
+          <stop offset="0.29" stop-color="#fe97c4"/>
+          <stop offset="0.43" stop-color="#f92773"/>
+          <stop offset="0.57" stop-color="#c568ba"/>
+          <stop offset="0.71" stop-color="#3c79c7"/>
+          <stop offset="0.86" stop-color="#74d3dd"/>
+          <stop offset="1" stop-color="#a4f69b"/>
         </linearGradient>
       </defs>
       <path v-if="icon" id="Asyncy_logomark" data-name="Asyncy logomark" :class="`fill--${variant}`" d="M1413.5,789.137l-17.77-35.522a4.734,4.734,0,0,0-8.47,0l-17.75,35.522a4.733,4.733,0,0,0,4.23,6.856h0a4.731,4.731,0,0,0,4.24-2.619l13.51-27.042,13.53,27.044a4.731,4.731,0,0,0,4.24,2.617h0A4.742,4.742,0,0,0,1413.5,789.137Z" transform="translate(-1369 -751)"/>

@@ -4,10 +4,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/lib.js",
+    "copy:files": "cpx ./src/styles/ ./dist",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -c .storybook -o dist_storybook",
-    "build": "yarn build:lib && yarn build:storybook"
+    "build": "yarn build:lib && yarn build:storybook && yarn copy:files"
   },
   "dependencies": {
     "asyncy-player": "^0.0.1",
@@ -21,6 +22,7 @@
     "vue2-transitions": "^0.2.3"
   },
   "devDependencies": {
+    "cpx": "^1.5.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@storybook/addon-actions": "^3.4.11",

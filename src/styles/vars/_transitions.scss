@@ -9,3 +9,7 @@ $durations: (
 @function duration($duration) {
   @return get($durations, $duration);
 }
+
+@mixin transition($prop, $duration: m) {
+  transition: $prop get($durations, $duration, $easing);
+}
