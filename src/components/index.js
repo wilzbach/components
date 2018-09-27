@@ -14,11 +14,11 @@ import Logo from './Logo'
 // import Radio from './Radio'
 // import Slider from './Slider'
 // import Switch from './Switch'
-// import Card from './Card'
+import Card from './Card'
 // import CloseButton from './CloseButton'
 // import Icon from './Icon'
 // import Modal from './Modal'
-// import Tabs from './Tabs'
+import Tabs from './Tabs'
 // import Tooltip from './Tooltip'
 
 export {
@@ -32,16 +32,16 @@ export {
   // Dropdown,
   Input,
   Nav,
-  Logo
+  Logo,
   // Pagination,
   // Progress,
   // Radio,
   // Slider,
   // Switch,
-  // Card,
+  Card,
   // CloseButton,
   // Icon,
   // Modal,
-  // Tabs,
+  Tabs
   // Tooltip
 }
