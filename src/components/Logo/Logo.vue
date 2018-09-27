@@ -6,7 +6,7 @@
       :height="icon ? '45' : '33'"
       :viewBox="icon ? '0 0 45 45' : '0 0 113.06 33'">
       <defs>
-        <linearGradient id="colorful" y1="263.46" x2="1835.87" y2="263.46" gradientUnits="userSpaceOnUse">
+        <linearGradient id="colorful" x1="1623.97" y1="1918.5" x2="1737.03" y2="1918.5" gradientUnits="userSpaceOnUse">
           <stop offset="0" stop-color="#fc644c"/>
           <stop offset="0.14" stop-color="#ff9f2d"/>
           <stop offset="0.29" stop-color="#fe97c4"/>
