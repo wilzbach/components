@@ -44,3 +44,15 @@
     }
   }
 }
+
+
+// Examples:
+
+// (min-width)
+// @include breakpoint(s) {}
+
+// (min-width and max-width)
+// @include breakpoint(m, xl) {}
+
+// (max-width)
+// @include breakpoint(max l) {}
