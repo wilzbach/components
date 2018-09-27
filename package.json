@@ -17,6 +17,7 @@
     "vue": "^2.5.17",
     "vue-clipboard2": "^0.2.1",
     "vue-lazyload": "^1.2.6",
+    "vue-router": "^3.0.1",
     "vue2-transitions": "^0.2.3"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "storybook-addon-jsx": "^5.4.0",
+    "storybook-vue-router": "^1.0.1",
     "vue-template-compiler": "^2.5.17"
   }
 }

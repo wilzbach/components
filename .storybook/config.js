@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { configure, setAddon, addDecorator } from '@storybook/vue'
+import StoryRouter from 'storybook-vue-router'
 import { setOptions } from '@storybook/addon-options'
 import JSXAddon from 'storybook-addon-jsx'
 
@@ -34,6 +35,13 @@ const PaddingDecoration = () => ({
 })
 
 addDecorator(PaddingDecoration)
+addDecorator(StoryRouter({}, {
+  routes: [
+    { path: '/' },
+    { path: '/about' }
+  ]
+}))
+
 
 const req = require.context('../stories', true, /\.story\.js$/)
 
