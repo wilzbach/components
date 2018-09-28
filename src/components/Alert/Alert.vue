@@ -9,14 +9,13 @@
           <slot name="text"></slot>
         </span>
       </slot>
-      <slot name="dismiss-icon" v-if="dismissible">
-        <button type="button" data-dismiss="alert" aria-label="Close" class="alert__close" @click="dismiss">
-          <i class="fa fa-close"></i>
-        </button>
-      </slot>
+      <button type="button" v-if="dismissible" data-dismiss="alert" aria-label="Close" class="alert__close" @click="dismiss">
+        <i class="fa fa-close"></i>
+      </button>
     </div>
   </fade-transition>
 </template>
+
 <script>
 import { FadeTransition } from 'vue2-transitions'
 
@@ -64,30 +63,31 @@ export default {
   font-size: fontSize(m);
   align-items: center;
 
+  > * + * {
+    margin-left: 1.25rem;
+  }
+
   @each $state, $value in $states {
     &.alert--#{$state} {
       background-color: $value;
-      &, & > * {
-        color: color(light);
-      }
       border-color: $value;
+      color: color-yiq($value);
+
+      > * {
+        color: color-yiq($value);
+      }
     }
   }
 
   @each $color, $value in $colors {
     &.alert--#{$color} {
       background-color: $value;
-      @if $color == 'light' {
-        &, & > * {
-          color: color(dark);
-        }
-      }
-      @else {
-        &, & > * {
-          color: color(light);
-        }
-      }
       border-color: $value;
+      color: color-yiq($value);
+
+      > * {
+        color: color-yiq($value);
+      }
     }
   }
 
@@ -97,7 +97,6 @@ export default {
 
   .alert__text {
     flex-grow: 1;
-    margin: 0 1.25rem;
   }
 
   .alert__close {
@@ -107,7 +106,7 @@ export default {
     transition: all duration(s) $easing;
 
     &:hover {
-      opacity: .65
+      opacity: 0.65;
     }
   }
 }

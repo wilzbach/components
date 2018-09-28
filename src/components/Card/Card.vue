@@ -1,21 +1,15 @@
 <template>
-  <div
-    class="card"
-    :class="{
+  <div class="card" :class="{
       shadow,
       [`bg${gradient ? '-gradient' : ''}--${state}`]: state
     }">
-    <div
-      class="card-header"
-      v-if="$slots.header">
+    <div class="card-header" v-if="$slots.header">
       <slot name="header" />
     </div>
     <div class="card-body">
       <slot />
     </div>
-    <div
-      class="card-footer"
-      v-if="$slots.footer">
+    <div class="card-footer" v-if="$slots.footer">
       <slot name="footer" />
     </div>
   </div>
@@ -45,9 +39,9 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
-  padding: .75rem;
-  // border: .1rem solid $gray-300;
-  border-radius: .25rem;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+
   &.shadow {
     box-shadow: $box-shadow;
   }

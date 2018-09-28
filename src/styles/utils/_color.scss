@@ -1,10 +1,3 @@
-// @function get($key, $map) {
-//   @if not map-has-key($map, $key) {
-//     @error '"#{$key}" is not a valid key. The available options are: #{map-keys($map)}.';
-//   }
-//   @return map-get($map, $key);
-// }
-
 @mixin bg-gradient($color) {
   background: linear-gradient(180deg, lighten($color, 0%), darken($color, 10%)) repeat-x;
 }
@@ -15,7 +8,7 @@
 
 
 @function color-yiq($color) {
-  $yiq-contrasted-threshold: 150;
+  $yiq-contrasted-threshold: 200;
 
   $r: red($color);
   $g: green($color);
@@ -24,8 +17,8 @@
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
   @if ($yiq >= $yiq-contrasted-threshold) {
-    @return $black;
+    @return color(dark);
   } @else {
-    @return $white;
+    @return color(light);
   }
 }
