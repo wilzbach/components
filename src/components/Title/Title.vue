@@ -1,5 +1,5 @@
 <template>
-  <component v-bind:is="tag">
+  <component v-bind:is="tag" class="title" :class="`title--${size}`">
     <slot></slot>
   </component>
 </template>
@@ -14,20 +14,22 @@ export default {
       type: Number,
       default: 1,
       description: 'Title size'
-    },
-    display: {
-      type: Boolean,
-      default: false,
-      description: 'Title display style'
     }
   },
   computed: {
     tag() {
-      return `h${size}`
+      return `h${this.size}`
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.title {
+  @each $size, $value in $titleSizes {
+    &.title--#{$size} {
+      font-size: $value;
+    }
+  }
+}
 </style>
