@@ -20,10 +20,10 @@
     background-color: #{$value} !important;
   }
   .bg-gradient--#{$color} {
-    @include gradient-bg($value);
+    @include bg-gradient($value);
   }
   .bg-gradient--#{$color}--invert {
-    @include gradient-bgi($value);
+    @include bg-gradient-inverted($value);
   }
 }
 
@@ -35,9 +35,9 @@
     background-color: #{$value} !important;
   }
   .bg-gradient--#{$state} {
-    @include gradient-bg($value);
+    @include bg-gradient($value);
   }
   .bg-gradient--#{$state}--invert {
-    @include gradient-bgi($value);
+    @include bg-gradient-inverted($value);
   }
 }

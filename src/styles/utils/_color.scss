@@ -2,7 +2,7 @@
   background: linear-gradient(180deg, lighten($color, 0%), darken($color, 10%)) repeat-x;
 }
 
-@mixin gradient-bgi($color) {
+@mixin bg-gradient-inverted($color) {
   background: linear-gradient(180deg, darken($color, 0%), lighten($color, 10%)) repeat-x;
 }
 

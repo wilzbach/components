@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
-storiesOf('Brands/', module).addWithJSX(
-  'Typography',
-  () => ({
-    template: `
+storiesOf('Brands/', module).addWithJSX('Typography', () => ({
+  template: `
     <div class="container">
       <!-- Typography -->
       <h2 class="mt-lg mb-5">
@@ -15,6 +13,7 @@ storiesOf('Brands/', module).addWithJSX(
               <small class="text-uppercase text-muted font-weight-bold">Heading 1</small>
           </div>
           <div class="col-sm-9">
+              <a-title>Asyncy Design System</a-title>
               <h1 class="mb-0">Asyncy Design System</h1>
           </div>
       </div>
@@ -204,5 +203,4 @@ storiesOf('Brands/', module).addWithJSX(
       </div>
     </div>
     `
-  })
-)
+}))
