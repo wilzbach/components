@@ -1,13 +1,14 @@
 {
-  "name": "asyncy-lib",
-  "version": "0.1.0",
+  "name": "asyncy-vue",
+  "version": "0.2.0",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/main.js",
+    "build": "yarn build:lib && yarn build:storybook",
     "lint": "vue-cli-service lint",
+    "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/main.js",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -c .storybook -o dist_storybook",
-    "build": "yarn build:lib && yarn build:storybook"
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "asyncy-player": "^0.0.1",
@@ -30,9 +31,12 @@
     "@storybook/vue": "^3.4.11",
     "@vue/cli-plugin-babel": "^3.0.3",
     "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-plugin-unit-jest": "^3.0.4",
     "@vue/cli-service": "^3.0.3",
     "@vue/eslint-config-standard": "^3.0.3",
-    "babel-core": "^6.26.3",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.0.1",
     "babel-loader": "^8.0.2",
     "babel-preset-vue": "^2.0.2",
     "node-sass": "^4.9.3",
