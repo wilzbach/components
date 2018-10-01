@@ -1,7 +1,11 @@
 <template>
-  <component v-bind:is="tag" class="badge" v-bind:class="[
-      state && `badge--${state}`
-    ]">
+  <component
+    :is="tag"
+    class="badge"
+    :class="{
+      [`badge--${state}`]: state,
+      lower
+    }">
     <slot></slot>
   </component>
 </template>
@@ -19,6 +23,11 @@ export default {
       type: String,
       default: 'default',
       description: 'Badge state'
+    },
+    lower: {
+      type: Boolean,
+      default: false,
+      description: 'Let the value as is. Default: uppercase'
     }
   }
 }
@@ -33,7 +42,11 @@ export default {
   line-height: 1;
   white-space: nowrap;
   border-radius: 0.25rem;
-  text-transform: uppercase;
+  text-transform: none;
+
+  &:not(.lower) {
+    text-transform: uppercase;
+  }
 
   &:empty {
     display: none;
@@ -41,8 +54,15 @@ export default {
 
   @each $state, $value in $states {
     &.badge--#{$state} {
-      background-color: rgba(lighten($value, 25%), 0.5);
-      color: saturate(darken($value, 10%), 10);
+      background-color: rgba($value, 0.8);
+      color: darken($value, 10%);
+    }
+  }
+
+  @each $color, $value in $colors {
+    &.badge--#{$color} {
+      background-color: rgba($value, 0.8);
+      color: darken($value, 10%);
     }
   }
 }

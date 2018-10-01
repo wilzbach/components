@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/vue'
-import logo from '../../static/img/logo.svg'
 
 storiesOf('Components/', module).addWithJSX('Navs', () => ({
   template: `
@@ -40,8 +39,9 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
         <a-nav
             expand
             effect="light"
-            :logo="logo"
+            logo="primary"
             tag="Beta"
+            tag-state="yellow"
             transparent
             class="mt-4"
             :items="[{ name: 'Platform' }, { name: 'Documentation', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
@@ -66,8 +66,7 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
         { type: 'warning' },
         { type: 'info' },
         { type: 'cyan' }
-      ],
-      logo: logo
+      ]
     }
   }
 }))

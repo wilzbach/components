@@ -15,9 +15,12 @@
         {{title}}
         <a-logo
           v-if="logo"
-          icon />
+          icon
+          :variant="logo" />
         <div v-if="tag">
-          <a-badge state="primary">{{ tag }}</a-badge>
+          <a-badge
+            :state="tagState"
+            lower>{{ tag }}</a-badge>
         </div>
       </span>
       <a-navbar-toggle-button
@@ -41,7 +44,7 @@
             </div>
           </div>
           <ul
-            class="navbar-nav ml-lg-auto"
+            class="navbar-nav"
             v-click-outside="close">
             <a-nav-item
               v-for="(item, idx) of items"
@@ -91,9 +94,9 @@ export default {
       description: 'Title of navbar'
     },
     logo: {
-      type: Boolean,
-      default: false,
-      description: 'Logo of navbar'
+      type: String,
+      default: undefined,
+      description: 'Logo of navbar. If defined, the value is the color of the logo (state|color)'
     },
     contentId: {
       type: [String, Number],
@@ -125,6 +128,11 @@ export default {
       type: String,
       default: undefined,
       description: 'Whether navbar should show a badge with the tag text'
+    },
+    tagState: {
+      type: String,
+      default: 'primary',
+      description: 'The state color of the tag. Default: primary'
     },
     items: {
       type: Array,
@@ -166,7 +174,9 @@ export default {
   .container {
     position: relative;
     display: flex;
+    flex-grow: 1;
     flex-wrap: wrap;
+    max-width: 1440px;
     align-items: center;
     justify-content: space-between;
     @include breakpoint(m) { flex-wrap: nowrap; }
@@ -244,7 +254,7 @@ export default {
       flex-direction: column;
       list-style: none;
       margin: 0;
-      @include breakpoint(m) { flex-direction: row; }
+      @include breakpoint(m) { flex-direction: row; margin-left: auto; }
       @include breakpoint((max, m)) { padding-left: 0; }
     }
   }
