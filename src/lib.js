@@ -8,6 +8,7 @@ import './assets/fonts/nucleo/nucleo.css'
 import './assets/fonts/gilroy/gilroy.css'
 
 // Styles
+import 'bootstrap/scss/bootstrap-reboot.scss'
 import './styles/index.scss'
 
 // Components

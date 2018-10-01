@@ -7,6 +7,7 @@ import JSXAddon from 'storybook-addon-jsx'
 import 'bootstrap/scss/bootstrap-reboot.scss'
 import 'bootstrap/scss/bootstrap-grid.scss'
 import 'bootstrap/scss/utilities/_spacing.scss'
+import 'bootstrap/scss/utilities/_sizing.scss'
 
 // Fonts
 import '../src/assets/fonts/font-awesome/font-awesome.css'
@@ -35,13 +36,14 @@ const PaddingDecoration = () => ({
 })
 
 addDecorator(PaddingDecoration)
-addDecorator(StoryRouter({}, {
-  routes: [
-    { path: '/' },
-    { path: '/about' }
-  ]
-}))
-
+addDecorator(
+  StoryRouter(
+    {},
+    {
+      routes: [{ path: '/' }, { path: '/about' }]
+    }
+  )
+)
 
 const req = require.context('../stories', true, /\.story\.js$/)
 

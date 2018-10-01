@@ -6,36 +6,48 @@ storiesOf('Components/', module).addWithJSX('Button', () => ({
       <h3 class="h3 font-weight-bold mb-4">Buttons</h3>
       <div>
 
-        <div class="mb-3 mt-5">Content</div>
-        <a-button state="primary">Button</a-button>
-        <a-button state="primary">
-          <span slot="icon" class="ni ni-bag-17"></span>
-          Button
-        </a-button>
-        <a-button state="primary">
-          <span slot="icon" class="ni ni-bag-17"></span>
-        </a-button>
+        <div class="mb-3 mt-5">
+          <p>Sizes</p>
+          <a-button state="primary">Button</a-button>
+          <a-button state="primary">
+            <i slot="icon" class="ni ni-bag-17"></i>
+            Button
+          </a-button>
+          <a-button state="primary" iconRight>
+            <i slot="icon" class="ni ni-bag-17"></i>
+            Button
+          </a-button>
+          <a-button state="primary">
+            <i slot="icon" class="ni ni-bag-17"></i>
+          </a-button>
+        </div>
 
-        <div class="mb-3 mt-5">Sizes</div>
-        <a-button state="primary" size="s">Small</a-button>
-        <a-button state="primary">Regular</a-button>
-        <a-button state="primary" size="l">Large Button</a-button>
+        <div class="mb-3 mt-5">
+          <p>Sizes</p>
+          <a-button state="primary" size="s">Small</a-button>
+          <a-button state="primary">Regular</a-button>
+          <a-button state="primary" size="l">Large Button</a-button>
+        </div>
 
-        <div class="mb-3 mt-5">States</div>
-        <a-button state="primary">Primary</a-button>
-        <a-button state="info">Info</a-button>
-        <a-button state="success">Success</a-button>
-        <a-button state="warning">Warning</a-button>
-        <a-button state="danger">Danger</a-button>
-        <a-button state="neutral">Neutral</a-button>
+        <div class="mb-3 mt-5">
+          <p>States</p>
+          <a-button state="primary">Primary</a-button>
+          <a-button state="info">Info</a-button>
+          <a-button state="success">Success</a-button>
+          <a-button state="warning">Warning</a-button>
+          <a-button state="danger">Danger</a-button>
+          <a-button state="neutral">Neutral</a-button>
+        </div>
 
-        <div class="mb-3 mt-5">Outline</div>
-        <a-button outline state="primary">Outline Primary</a-button>
-        <a-button outline state="info">Outline Info</a-button>
-        <a-button outline state="success">Outline Success</a-button>
-        <a-button outline state="warning">Outline Warning</a-button>
-        <a-button outline state="danger">Outline Danger</a-button>
-        <a-button outline state="neutral">Outline Neutral</a-button>
+        <div class="mb-3 mt-5">
+          <p>Outline</p>
+          <a-button outline state="primary">Outline Primary</a-button>
+          <a-button outline state="info">Outline Info</a-button>
+          <a-button outline state="success">Outline Success</a-button>
+          <a-button outline state="warning">Outline Warning</a-button>
+          <a-button outline state="danger">Outline Danger</a-button>
+          <a-button outline state="neutral">Outline Neutral</a-button>
+        </div>
 
       </div>
     </div>
