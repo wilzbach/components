@@ -3,7 +3,9 @@
     <div>
       <slot></slot>
     </div>
-    <pre v-html="$slots.default[0]"></pre>
+    <!-- <div v-for="slot in $slots.default" :key="slot">
+      <div>{{ slot }}</div>
+    </div> -->
   </div>
 </template>
 
@@ -11,11 +13,6 @@
 export default {
   name: 'preview',
   components: {}
-  // beforeMount () {
-  //   this.$slots.default.forEach(vnode => {
-  //     console.log(vnode)
-  //   })
-  // }
 }
 </script>
 
