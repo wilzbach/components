@@ -179,6 +179,7 @@ export default {
     max-width: 1440px;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
     @include breakpoint(m) { flex-wrap: nowrap; }
     .navbar-brand {
       color: $white;
