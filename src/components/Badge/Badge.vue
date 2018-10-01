@@ -1,12 +1,8 @@
 <template>
-  <component v-bind:is="tag" class="badge" v-bind:class="
-                 [`badge-${type}`,
-                  rounded ? `badge-pill` : '',
-                  circle && 'badge-circle'
-                 ]">
-    <slot>
-      <i v-if="icon" v-bind:class="icon"></i>
-    </slot>
+  <component v-bind:is="tag" class="badge" v-bind:class="[
+      state && `badge--${state}`
+    ]">
+    <slot></slot>
   </component>
 </template>
 
@@ -19,25 +15,10 @@ export default {
       default: 'span',
       description: 'Html tag to use for the badge.'
     },
-    rounded: {
-      type: Boolean,
-      default: false,
-      description: 'Whether badge is of pill type'
-    },
-    circle: {
-      type: Boolean,
-      default: false,
-      description: 'Whether badge is circle'
-    },
-    icon: {
-      type: String,
-      default: '',
-      description: 'Icon name. Will be overwritten by slot if slot is used'
-    },
-    type: {
+    state: {
       type: String,
       default: 'default',
-      description: 'Badge type (primary|info|danger|default|warning|success)'
+      description: 'Badge state'
     }
   }
 }
@@ -45,72 +26,23 @@ export default {
 
 <style lang='scss'>
 .badge {
-  text-transform: $badge-text-transfom;
-
-  a {
-    color: #fff;
-  }
-}
-
-.badge + .badge {
-  margin-left: 3px;
-}
-
-// Variations
-.badge-pill {
-  padding-right: $badge-pill-padding-x;
-  padding-left: $badge-pill-padding-x;
-}
-
-.badge-circle {
-  text-align: center;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  font-size: 0.875rem;
-}
+  overflow: hidden;
+  padding: 0.35rem 0.375rem;
+  font-size: fontSize(s);
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
 
-// Multiple inline badges
-.badge-inline {
-  margin-right: 0.625rem;
-}
+  &:empty {
+    display: none;
+  }
 
-.badge-inline + span {
-  top: 2px;
-  position: relative;
-}
-
-.badge-inline + span > a {
-  text-decoration: underline;
-}
-
-// Sizes
-.badge-md {
-  padding: 0.65em 1em;
-}
-
-.badge-lg {
-  padding: 0.85em 1.375em;
-}
-
-// Color variations
-
-.badge-secondary {
-  color: $gray-800;
-}
-
-// Link badges
-
-.btn {
-  .badge {
-    &:not(:first-child) {
-      margin-left: 0.5rem;
-    }
-    &:not(:last-child) {
-      margin-right: 0.5rem;
+  @each $state, $value in $states {
+    &.badge--#{$state} {
+      background-color: rgba(lighten($value, 25%), 0.5);
+      color: saturate(darken($value, 10%), 10);
     }
   }
 }

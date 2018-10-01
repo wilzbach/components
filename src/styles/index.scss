@@ -1,32 +1,15 @@
-// Styles
-// @import "../assets/fonts/font-awesome/font-awesome";
-// @import "../assets/fonts/nucleo/nucleo";
-// @import "../assets/fonts/gilroy/gilroy";
+// Utilities
+@import "./utils/_get";
+@import "./utils/_color";
+@import "./utils/_breakpoint";
 
-// Globals
-@import "./variables";
-@import "./functions";
-@import "./mixins";
+// Variables
+@import './vars/_colors';
+@import './vars/_fonts';
+@import './vars/_transitions';
+@import './vars/_misc';
+@import './vars/_breakpoints';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap.scss';
-
-// Custom
-@import "./utilities";
-@import "./avatars";
-@import "./custom-forms";
-@import "./forms";
-@import "./footer";
-@import "./global";
-@import "./grid";
-@import "./icons";
-@import "./input-group";
-@import "./list-group";
-@import "./nav";
-@import "./navbar";
-@import "./popover";
-@import "./reboot";
-@import "./section";
-@import "./type";
-
-
+@import "_root";
+@import "_base";
+@import "_classes";

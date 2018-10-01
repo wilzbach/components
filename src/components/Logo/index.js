@@ -1,10 +1,8 @@
-import aTabPane from './TabPane.vue'
-import aTabs from './Tabs.vue'
+import aLogo from './Logo.vue'
 import { registerComponents, vueUse } from '../../utils/plugins'
 
 const components = {
-  aTabPane,
-  aTabs,
+  aLogo
 }
 
 const VuePlugin = {

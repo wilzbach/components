@@ -83,7 +83,7 @@ export default {
   flex-direction: column;
   box-shadow: 0 -4px 4px rgba(#111, 0.04);
 
-  @media (min-width: 768px) {
+  @include bp(m) {
     flex-direction: row;
   }
 
@@ -109,7 +109,7 @@ export default {
     margin: 0 auto;
     padding: 0 30px;
 
-    @media (min-width: 768px) {
+    @include bp(m) {
       flex-direction: row;
     }
   }
@@ -120,7 +120,7 @@ export default {
     font-size: 0.9rem;
     color: #fff;
 
-    @media (min-width: 768px) {
+    @include bp(m) {
       margin-right: 10px;
       margin-bottom: 0;
     }
@@ -132,7 +132,7 @@ export default {
     flex-direction: column;
     width: 100%;
 
-    @media (min-width: 768px) {
+    @include bp(m) {
       flex-direction: row;
       width: auto;
     }

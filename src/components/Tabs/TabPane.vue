@@ -1,26 +1,34 @@
 <template>
-  <div class="tab-pane fade"
-       v-bind:id="id || label"
-       v-bind:class="{'active show': active}"
+  <div class="tab-pane"
+       :id="title"
        v-show="active"
-       v-bind:aria-expanded="active">
-    <slot></slot>
+       :aria-expanded="active">
+    <slot />
   </div>
 </template>
 <script>
 export default {
   name: 'a-tab-pane',
-  props: ['label', 'id', 'title'],
-  inject: ['addTab', 'removeTab'],
-  data () {
-    return {
-      active: false
+  props: {
+    title: {
+      type: String,
+      required: true,
+      description: 'Tab title'
+    },
+    icon: {
+      type: String,
+      default: undefined,
+      description: 'Tab title icon'
     }
   },
-  mounted () {
+  inject: ['addTab', 'removeTab'],
+  data: () => ({
+    active: false
+  }),
+  mounted: function () {
     this.addTab(this)
   },
-  destroyed () {
+  destroyed: function () {
     if (this.$el && this.$el.parentNode) {
       this.$el.parentNode.removeChild(this.$el)
     }
@@ -28,5 +36,3 @@ export default {
   }
 }
 </script>
-<style>
-</style>

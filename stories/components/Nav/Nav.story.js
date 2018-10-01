@@ -11,92 +11,13 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
                 <div class="mb-3">
                     <small class="text-uppercase font-weight-bold">With text</small>
                 </div>
-                <a-nav expand effect="dark" type="primary" round title="Menu">
-                    <div class="row" slot="content-header" slot-scope="{closeMenu}">
-                        <div class="col-6 collapse-brand">
-                            <a href="./index.html">
-                                Asyncy
-                            </a>
-                        </div>
-                        <div class="col-6 collapse-close">
-                            <a-close-button target="nav-inner-primary" v-on:click="closeMenu">
-
-                            </a-close-button>
-                        </div>
-                    </div>
-
-                    <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Discover
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="nav-inner-primary_dropdown_1"
-                               role="button" data-toggle="dropdown" aria-haspopup="true"
-                               aria-expanded="false">Settings</a>
-                            <div class="dropdown-menu dropdown-menu-right"
-                                 aria-labelledby="nav-inner-primary_dropdown_1">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </a-nav>
+                <a-nav expand effect="dark" type="primary" round title="Menu" :items="[{ name: 'Discover', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '/' }, { name: 'Others', hideDecoration: true, color: 'pink' }]" />
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
                 <div class="mb-3">
                     <small class="text-uppercase font-weight-bold">With icons</small>
                 </div>
-                <a-nav expand effect="dark" type="success" round title="Menu">
-                    <div class="row" slot="content-header" slot-scope="{closeMenu}">
-                        <div class="col-6 collapse-brand">
-                            <a href="./index.html">
-                                Asyncy
-                            </a>
-                        </div>
-                        <div class="col-6 collapse-close">
-                            <a-close-button target="nav-inner-primary" v-on:click="closeMenu">
-
-                            </a-close-button>
-                        </div>
-                    </div>
-
-                    <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-icon" href="#">
-                                <i class="ni ni-favourite-28"></i>
-                                <span class="nav-link-inner--text d-lg-none">Discover</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-icon" href="#">
-                                <i class="ni ni-notification-70"></i>
-                                <span class="nav-link-inner--text d-lg-none">Profile</span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link nav-link-icon" href="#"
-                               id="nav-inner-success_dropdown_1" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ni ni-settings-gear-65"></i>
-                                <span class="nav-link-inner--text d-lg-none">Settings</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right"
-                                 aria-labelledby="nav-inner-success_dropdown_1">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </a-nav>
+                <a-nav expand effect="dark" type="success" round title="Menu" :items="[{ name: 'Discover', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '/' }, { name: 'Others', hideDecoration: true, color: 'pink' }]" />
             </div>
         </div>
       </div>
@@ -113,128 +34,25 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
                   :type="menu.type"
                   effect="dark"
                   expand
-                  title="Default Color"
-                  class="mt-4">
-            <div class="row" slot="content-header" slot-scope="{closeMenu}">
-                <div class="col-6 collapse-brand">
-                    <a href="./index.html">
-                        <img src="img/brand/blue.png">
-                    </a>
-                </div>
-                <div class="col-6 collapse-close">
-                    <close-button @click="closeMenu">
-
-                    </close-button>
-                </div>
-            </div>
-            <div class="row" slot="content-header" slot-scope="{closeMenu}">
-                <div class="col-6 collapse-brand">
-                    <a href="./index.html">
-                        Asyncy
-                    </a>
-                </div>
-                <div class="col-6 collapse-close">
-                    <a-close-button target="nav-inner-primary" v-on:click="closeMenu">
-
-                    </a-close-button>
-                </div>
-            </div>
-
-            <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="#">
-                        <i class="ni ni-favourite-28"></i>
-                        <span class="nav-link-inner--text d-lg-none">Discover</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="#">
-                        <i class="ni ni-notification-70"></i>
-                        <span class="nav-link-inner--text d-lg-none">Profile</span>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link nav-link-icon" href="#"
-                        id="nav-inner-success_dropdown_1" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span class="nav-link-inner--text d-lg-none">Settings</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="nav-inner-success_dropdown_1">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-        </a-nav>
+                  :title="menu.type"
+                  class="mt-4"
+                  :items="[{ name: 'Discover', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '/', children: [{ name: 'Action' }] }, { name: 'Others', hideDecoration: true, color: 'pink' }]" />
         <a-nav
-        :logo="logo"
-        :isBeta="true"
-        effect="light"
-        expand
-        type="secondary"
-        >
-        <div class="row" slot="content-header" slot-scope="{closeMenu}">
-                <div class="col-6 collapse-brand">
-                    <a href="./index.html">
-                        <img src="img/brand/blue.png">
-                    </a>
-                </div>
-                <div class="col-6 collapse-close">
-                    <close-button @click="closeMenu">
-
-                    </close-button>
-                </div>
-            </div>
-            <div class="row" slot="content-header" slot-scope="{closeMenu}">
-                <div class="col-6 collapse-brand">
-                    <a href="./index.html">
-                        Asyncy
-                    </a>
-                </div>
-                <div class="col-6 collapse-close">
-                    <a-close-button target="nav-inner-primary" v-on:click="closeMenu">
-
-                    </a-close-button>
-                </div>
-            </div>
-
-            <ul class="navbar-nav ml-lg-auto">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="#">
-                        Platform
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        Documentation
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        About
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        Events
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link color-orange" href="#">
-                        Contact
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link hide-decoration color-pink" href="#">
-                        We are Hiring!
-                    </a>
-                </li>
-            </ul>
-        </a-nav>
+            expand
+            effect="light"
+            :logo="logo"
+            tag="Beta"
+            transparent
+            class="mt-4"
+            :items="[{ name: 'Platform' }, { name: 'Documentation', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
+        <div>
+            <p>
+                The menu items are passed as a prop array: <br />
+                <pre class="code">
+{ name: 'Item', link: '/', icon: 'fa fa-icon', iconRight: 'fa fa-icon', right: /* dropdown-menu-right */true, children: [{ name: 'Sub', link: '/' }, { type: 'divider' }], hideDecoration: true, color: '(primary|pink|...)' }
+                </pre>
+            </p>
+        </div>
     </div>
     `,
   data () {
@@ -242,10 +60,12 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
       menus: [
         { type: 'default' },
         { type: 'primary' },
+        { type: 'secondary' },
         { type: 'success' },
         { type: 'danger' },
         { type: 'warning' },
-        { type: 'info' }
+        { type: 'info' },
+        { type: 'cyan' }
       ],
       logo: logo
     }

@@ -1,23 +1,19 @@
 <template>
-    <component v-bind:is="tag"
-               v-bind:type="tag === 'button' ? nativeType: ''"
-               @click="handleClick"
-               class="btn"
-               v-bind:class="classes">
-    <span class="btn-inner--icon" v-if="$slots.icon || icon && $slots.default">
-      <slot name="icon">
-        <i :class="icon"></i>
-      </slot>
+  <component v-bind:is="tag" class="btn" v-bind:class="{
+      [`btn--${state}`]: state,
+      [`btn--${size}`]: size,
+      'btn--block': block,
+      'btn--outline': outline
+    }" @click="handleClick">
+    <span v-if="$slots.icon">
+      <slot name="icon"></slot>
     </span>
-        <i v-if="!$slots.default" :class="icon"></i>
-        <span class="btn-inner--text" v-if="$slots.icon || icon && $slots.default">
-          <slot>
-            {{text}}
-          </slot>
+    <span v-if="$slots.default">
+      <slot></slot>
     </span>
-        <slot v-if="!$slots.icon && !icon"></slot>
-    </component>
+  </component>
 </template>
+
 <script>
 export default {
   name: 'a-button',
@@ -27,72 +23,25 @@ export default {
       default: 'button',
       description: 'Button tag (default -> button)'
     },
-    type: {
+    state: {
       type: String,
       default: 'default',
-      description: 'Button type (e,g primary, danger etc)'
+      description: 'Button state'
     },
     size: {
       type: String,
       default: '',
       description: 'Button size lg|sm'
     },
-    textColor: {
-      type: String,
-      default: '',
-      description: 'Button text color (e.g primary, danger etc)'
-    },
-    nativeType: {
-      type: String,
-      default: 'button',
-      description: 'Button native type (e.g submit,button etc)'
-    },
-    icon: {
-      type: String,
-      default: '',
-      description: 'Button icon'
-    },
-    text: {
-      type: String,
-      default: '',
-      description: 'Button text in case not provided via default slot'
-    },
     outline: {
       type: Boolean,
       default: false,
       description: 'Whether button style is outline'
     },
-    rounded: {
-      type: Boolean,
-      default: false,
-      description: 'Whether button style is rounded'
-    },
-    iconOnly: {
-      type: Boolean,
-      default: false,
-      description: 'Whether button contains only an icon'
-    },
     block: {
       type: Boolean,
       default: false,
       description: 'Whether button is of block type'
-    }
-  },
-  computed: {
-    classes () {
-      let btnClasses = [
-        { 'btn-block': this.block },
-        { 'rounded-circle': this.rounded },
-        { 'btn-icon-only': this.iconOnly },
-        { [`text-${this.textColor}`]: this.textColor },
-        { 'btn-icon': this.icon || this.$slots.icon },
-        this.type && !this.outline ? `btn-${this.type}` : '',
-        this.outline ? `btn-outline-${this.type}` : ''
-      ]
-      if (this.size) {
-        btnClasses.push(`btn-${this.size}`)
-      }
-      return btnClasses
     }
   },
   methods: {
@@ -104,168 +53,67 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// General
-
 .btn {
-  position: relative;
-  transition: $transition-base;
-  will-change: transform;
-  letter-spacing: $btn-letter-spacing;
-  font-size: $input-btn-font-size;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.025rem;
+  font-size: fontSize(m);
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  box-shadow: $btn-box-shadow;
+  outline: none;
+  transition: all duration(s) $easing;
+  cursor: pointer;
 
-  &:hover {
-    @include box-shadow($btn-hover-box-shadow);
+  @include hover {
+    box-shadow: $btn-hover-box-shadow;
     transform: translateY(-1px);
   }
 
-  &:not(:last-child) {
-    margin-right: 0.5rem;
-  }
-}
-
-.btn-group,
-.input-group {
-  .btn {
-    margin-right: 0;
-    transform: translateY(0);
-  }
-}
-
-// Sizes
-
-.btn-sm {
-  font-size: $input-btn-font-size-sm;
-}
-
-.btn-lg {
-  font-size: $input-btn-font-size-lg;
-}
-
-// Fixes
-
-[class*="btn-outline-"] {
-  border-width: 1px;
-}
-.btn-outline-secondary {
-  color: darken(theme-color("secondary"), 50%);
-}
-
-.btn-inner--icon {
-  i:not(.fa) {
-    position: relative;
-    top: 2px;
-  }
-}
-
-.btn-link {
-  font-weight: $btn-font-weight;
-  box-shadow: none;
-
-  &:hover {
-    box-shadow: none;
-    transform: none;
-  }
-}
-
-.btn-neutral {
-  color: theme-color("primary");
-  &:hover,
-  &:active {
-    color: theme-color("primary") !important;
-  }
-
-  &:active {
-    border-color: darken(theme-color("neutral"), 10%) !important;
-  }
-}
-
-// Icons
-
-.btn svg:not(:first-child),
-.btn i:not(:first-child) {
-  margin-left: 0.5rem;
-}
-
-.btn svg:not(:last-child),
-.btn i:not(:last-child) {
-  margin-right: 0.5rem;
-}
-
-// Icon labels
-
-.btn-icon-label {
-  position: relative;
-
-  .btn-inner--icon {
-    position: absolute;
-    height: 100%;
-    line-height: 1;
-    border-radius: 0;
-    text-align: center;
-    margin: 0;
-    width: 3em;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  .btn-inner--icon:not(:first-child) {
-    right: 0;
-    top: 0;
-    border-top-right-radius: inherit;
-    border-bottom-right-radius: inherit;
-  }
-  .btn-inner--icon:not(:last-child) {
-    left: 0;
-    top: 0;
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
-  }
-  .btn-inner--icon svg {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .btn-inner--text:not(:first-child) {
-    padding-left: 3em;
-  }
-  .btn-inner--text:not(:last-child) {
-    padding-right: 3em;
-  }
-}
-
-// Icons
-
-.btn-icon {
-  .btn-inner--icon {
-    img {
-      width: 20px;
-    }
-  }
-  .btn-inner--text:not(:first-child) {
+  span + span {
     margin-left: 0.75em;
   }
-  .btn-inner--text:not(:last-child) {
-    margin-right: 0.75em;
+
+  @each $state, $value in $states {
+    &.btn--#{$state} {
+      @include bg-gradient($value);
+      color: $white;
+      border-color: $value;
+
+      &.btn--outline {
+        color: $value;
+
+        @include hover {
+          @include bg-gradient($value);
+          color: $white;
+        }
+      }
+    }
   }
-}
 
-.btn-icon-only {
-  width: 2.375rem;
-  height: 2.375rem;
-  padding: 0;
-}
-a.btn-icon-only {
-  line-height: 2.5;
-}
-.btn-icon-only.btn-sm {
-  width: 2rem;
-  height: 2rem;
-}
+  &.btn--neutral {
+    background: $white !important;
+    color: state(primary) !important;
+  }
 
-// Brand buttons
+  &.btn--outline {
+    background: transparent;
+  }
 
-@each $color, $value in $brand-colors {
-  .btn-#{$color} {
-    @include button-variant($value, $value);
+  &.btn--block {
+    display: flex;
+    width: 100%;
+  }
+
+  &.btn--s {
+    font-size: fontSize(s);
+    padding: 0.25rem 0.5rem;
+  }
+
+  &.btn--l {
+    padding: 0.875rem 1rem;
   }
 }
 </style>

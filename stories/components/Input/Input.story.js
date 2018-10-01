@@ -17,21 +17,21 @@ storiesOf('Components/', module).addWithJSX(
 
                     </a-input>
                     <a-input placeholder="Search"
-                                addon-left-icon="ni ni-zoom-split-in">
+                                addon-left-icon="fa fa-search">
                     </a-input>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a-input placeholder="Regular" disabled>
                     </a-input>
                     <a-input placeholder="Birthday"
-                                addon-right-icon="ni ni-zoom-split-in">
+                                addon-right-icon="fa fa-calendar">
                     </a-input>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a-input placeholder="Success" :valid="true">
                     </a-input>
 
-                    <a-input placeholder="Success" :valid="false">
+                    <a-input placeholder="Error" :valid="false" error="Input error">
                     </a-input>
                 </div>
             </div>
@@ -50,7 +50,7 @@ storiesOf('Components/', module).addWithJSX(
                         </a-input>
                         <a-input alternative
                                     placeholder="Search"
-                                    addon-left-icon="ni ni-zoom-split-in">
+                                    addon-left-icon="fa fa-search">
                         </a-input>
                     </div>
                     <div class="col-lg-4 col-sm-6">
@@ -59,7 +59,7 @@ storiesOf('Components/', module).addWithJSX(
                         </a-input>
                         <a-input alternative
                                     placeholder="Birthday"
-                                    addon-right-icon="ni ni-zoom-split-in">
+                                    addon-right-icon="fa fa-calendar">
                         </a-input>
                     </div>
                     <div class="col-lg-4 col-sm-6">
@@ -68,7 +68,7 @@ storiesOf('Components/', module).addWithJSX(
                         </a-input>
 
                         <a-input alternative
-                                    placeholder="Success" :valid="false">
+                                    placeholder="Error" :valid="false">
                         </a-input>
                     </div>
                 </div>
