@@ -45,6 +45,16 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
             transparent
             class="mt-4"
             :items="[{ name: 'Platform' }, { name: 'Documentation', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
+        <div class="bg--dark">
+        <a-nav
+            effect="dark"
+            logo="light"
+            tag="Beta"
+            tag-state="yellow"
+            transparent
+            class="mt-4"
+            :items="[{ name: 'Platform' }, { name: 'Documentation', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
+        </div>
         <div>
             <p>
                 The menu items are passed as a prop array: <br />

@@ -27,7 +27,7 @@
         :toggled="toggled"
         :target="contentId"
         @click.native.stop="toggled = !toggled"
-        :dark="transparent" />
+        :dark="effect !== 'dark'" />
       <transition name="navbar-collapse">
         <div
           class="navbar-collapse"
