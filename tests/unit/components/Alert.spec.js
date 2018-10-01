@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import Alert from '@/components/Alert/Alert'
+import Alert from '@/components/Alert/Alert.vue'
 
 describe('Alert.vue', () => {
   it('renders the good type when passed', () => {

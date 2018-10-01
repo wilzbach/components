@@ -1,8 +1,6 @@
 const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = (baseConfig, env, defaultConfig) => {
-  defaultConfig.plugins.push(new VueLoaderPlugin())
 
   defaultConfig.module.rules.push({
     test: /\.scss$/,

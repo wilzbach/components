@@ -24,12 +24,12 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "@storybook/addon-actions": "^3.4.11",
-    "@storybook/addon-links": "^3.4.11",
-    "@storybook/addon-notes": "^3.4.11",
-    "@storybook/addon-options": "^3.4.11",
-    "@storybook/addons": "^3.4.11",
-    "@storybook/vue": "^3.4.11",
+    "@storybook/addon-actions": "^4.0.0-alpha.23",
+    "@storybook/addon-links": "^4.0.0-alpha.23",
+    "@storybook/addon-notes": "^4.0.0-alpha.23",
+    "@storybook/addon-options": "^4.0.0-alpha.23",
+    "@storybook/addons": "^4.0.0-alpha.23",
+    "@storybook/vue": "^4.0.0-alpha.23",
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-plugin-unit-jest": "^3.0.4",
@@ -50,7 +50,9 @@
   },
   "main": "dist/asyncy-vue.common.js",
   "web": "dist/asyncy-vue.umd.min.js",
-  "author": "Asyncy",
+  "bugs": {
+    "url": "https://github.com/asyncy/vue/issues"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -62,7 +64,5 @@
   "homepage": "https://github.com/asyncy/vue#readme",
   "style": "dist/asyncy-vue.css",
   "description": "Shared vue components for Asyncy",
-  "bugs": {
-    "url": "https://github.com/asyncy/vue/issues"
-  }
+  "author": "Asyncy"
 }
