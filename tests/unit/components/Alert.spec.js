@@ -3,11 +3,11 @@ import Alert from '@/components/Alert/Alert'
 
 describe('Alert.vue', () => {
   it('renders the good type when passed', () => {
-    const type = 'primary'
+    const state = 'primary'
     const wrapper = shallowMount(Alert, {
-      propsData: { type }
+      propsData: { state }
     })
-    const alertDiv = wrapper.find('.alert-primary')
+    const alertDiv = wrapper.find(`.alert--${state}`)
     expect(alertDiv.is('div')).toBe(true)
   })
 })
