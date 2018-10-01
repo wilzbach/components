@@ -2,7 +2,7 @@
   "name": "@asyncy/vue",
   "author": "Asyncy",
   "description": "Shared vue components for Asyncy",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "style": "dist/asyncy-vue.css",
   "main": "dist/asyncy-vue.common.js",
   "web": "dist/asyncy-vue.umd.min.js",
