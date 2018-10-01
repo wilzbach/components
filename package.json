@@ -23,7 +23,7 @@
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -c .storybook -o dist_storybook",
-    "build": "yarn build:lib && yarn build:storybook && yarn copy:files"
+    "build": "yarn build:lib && yarn build:storybook && yarn copy:files",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
