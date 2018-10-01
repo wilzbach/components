@@ -1413,7 +1413,7 @@
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-3.0.4.tgz#6d5640021906d35e5572c186c3f35b4e7a93c247"
 
-"@vue/cli-plugin-babel@^3.0.3":
+"@vue/cli-plugin-babel@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-3.0.4.tgz#f2e4a12f498e285fdc605ad29df4b9b0d4a0eb10"
   dependencies:
@@ -1421,7 +1421,7 @@
     "@vue/babel-preset-app" "^3.0.4"
     babel-loader "^8.0.0-0"
 
-"@vue/cli-plugin-eslint@^3.0.3":
+"@vue/cli-plugin-eslint@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-eslint/-/cli-plugin-eslint-3.0.4.tgz#0c62607c44a3b63fc730fdc0dd0ad5165bc559f6"
   dependencies:
@@ -1443,7 +1443,7 @@
     jest-transform-stub "^1.0.0"
     vue-jest "^2.6.0"
 
-"@vue/cli-service@^3.0.3":
+"@vue/cli-service@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-3.0.4.tgz#0084569470a742a3c9adf32e8815c4760eaafd96"
   dependencies:
@@ -1528,7 +1528,7 @@
     source-map "^0.5.6"
     vue-template-es2015-compiler "^1.6.0"
 
-"@vue/eslint-config-standard@^3.0.3":
+"@vue/eslint-config-standard@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@vue/eslint-config-standard/-/eslint-config-standard-3.0.4.tgz#e7bb75f880d9996bbc5185f6733df95fb44282d2"
   dependencies:
@@ -1542,7 +1542,7 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@vue/preload-webpack-plugin/-/preload-webpack-plugin-1.1.0.tgz#d768dba004261c029b53a77c5ea2d5f9ee4f3cce"
 
-"@vue/test-utils@^1.0.0-beta.20":
+"@vue/test-utils@^1.0.0-beta.25":
   version "1.0.0-beta.25"
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.25.tgz#4703076de3076bac42cdd242cd53e6fb8752ed8c"
   dependencies:
@@ -2332,7 +2332,7 @@ babel-loader@^7.1.4:
     loader-utils "^1.0.2"
     mkdirp "^0.5.1"
 
-babel-loader@^8.0.0-0, babel-loader@^8.0.2:
+babel-loader@^8.0.0-0, babel-loader@^8.0.4:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.4.tgz#7bbf20cbe4560629e2e41534147692d3fecbdce6"
   dependencies:
