@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/vue'
 storiesOf('Brands/', module).addWithJSX('Typography', () => ({
   template: `
     <div class="container">
-      <!-- Typography -->
       <h2 class="mt-lg mb-5">
         <span>Typography</span>
       </h2>

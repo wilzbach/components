@@ -2,7 +2,7 @@
   "name": "asyncy-lib",
   "version": "0.1.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ./showcase/main.js",
     "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/lib.js",
     "copy:files": "cpx ./src/styles/ ./dist",
     "lint": "vue-cli-service lint",
