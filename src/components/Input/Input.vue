@@ -153,7 +153,7 @@ input {
 .form-group {
   display: flex;
   flex: auto;
-  width: 100%;
+  width: auto;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;

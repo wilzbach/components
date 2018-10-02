@@ -138,7 +138,7 @@ export default {
   }
 
   &.btn--light {
-    background: transparent;
+    background: color(light);
     color: color(dark);
     @include hover {
       transform: none;
