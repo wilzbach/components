@@ -3,7 +3,9 @@
       [`btn--${state}`]: state,
       [`btn--${size}`]: size,
       'btn--block': block,
-      'btn--outline': outline
+      'btn--outline': outline,
+      'btn--no-animation': noAnimation,
+      'btn--no-shadow': noShadow
     }" @click="handleClick">
     <span v-if="$slots.icon">
       <slot name="icon"></slot>
@@ -42,6 +44,16 @@ export default {
       type: Boolean,
       default: false,
       description: 'Whether button is of block type'
+    },
+    noShadow: {
+      type: Boolean,
+      default: false,
+      description: 'Deactivate shadow on button'
+    },
+    noAnimation: {
+      type: Boolean,
+      default: false,
+      description: 'Deactivate animations on hover'
     }
   },
   methods: {
@@ -91,6 +103,41 @@ export default {
         }
       }
     }
+  }
+
+  &.btn--light {
+    background: transparent;
+    color: color(dark);
+    @include hover {
+      transform: none;
+    }
+  }
+
+  &.btn--dark {
+    background: color(dark);
+    color: color(light);
+
+    &.btn--outline {
+      color: color(dark);
+      border-color: color(dark);
+      background: transparent;
+
+      @include hover {
+        background: color(dark);
+        color: color(light);
+      }
+    }
+  }
+
+  &.btn--no-animation {
+    transition: none;
+    @include hover {
+      transform: none;
+    }
+  }
+
+  &.btn--no-shadow {
+    box-shadow: none;
   }
 
   &.btn--neutral {

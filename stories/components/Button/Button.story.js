@@ -27,6 +27,8 @@ storiesOf('Components/', module).addWithJSX('Button', () => ({
         <a-button state="success">Success</a-button>
         <a-button state="warning">Warning</a-button>
         <a-button state="danger">Danger</a-button>
+        <a-button state="light">Light</a-button>
+        <a-button state="dark">Dark</a-button>
         <a-button state="neutral">Neutral</a-button>
 
         <div class="mb-3 mt-5">Outline</div>
@@ -35,8 +37,12 @@ storiesOf('Components/', module).addWithJSX('Button', () => ({
         <a-button outline state="success">Outline Success</a-button>
         <a-button outline state="warning">Outline Warning</a-button>
         <a-button outline state="danger">Outline Danger</a-button>
+        <a-button outline state="dark">Outline Dark</a-button>
         <a-button outline state="neutral">Outline Neutral</a-button>
 
+        <div class="mb-3 mt-5">Properties</div>
+        <a-button state="primary" outline no-animation>No animation</a-button>
+        <a-button state="primary" no-shadow>No shadow</a-button>
       </div>
     </div>
     `

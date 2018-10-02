@@ -154,15 +154,15 @@ input {
 
 .form-group {
   display: flex;
-  flex: 1;
+  flex: auto;
   width: 100%;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
   color: color(dark);
 
-  &:not(:last-child) {
-    margin-bottom: 1rem;
+  & + .form-group {
+    margin-top: 1rem;
   }
 
   &.focused {
@@ -213,7 +213,7 @@ input {
     border: 0.1rem solid $gray-300;
     border-radius: 0.5rem;
     height: 3rem;
-    background-color: $white;
+    background-color: transparent;
   }
 
   .input-group-prepend, .input-group-append {

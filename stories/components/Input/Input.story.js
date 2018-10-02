@@ -34,6 +34,12 @@ storiesOf('Components/', module).addWithJSX(
                     <a-input placeholder="Error" :valid="false" error="Input error">
                     </a-input>
                 </div>
+                <div class="col-12" style="flex-direction: row;
+                display: flex;
+                align-items: center;">
+                    <a-input placeholder="Regular" />
+                    <a-button state="neutral" style="margin-left: .3rem">Submit</a-button>
+                </div>
             </div>
         </div>
         <div class="py-5 bg-secondary">
