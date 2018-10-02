@@ -87,7 +87,6 @@ export default {
   font-size: fontSize(m);
   padding: .85rem 1rem;
   border-radius: 0.5rem;
-  line-height: 1;
   box-shadow: shadow(button);
   outline: none;
   border: 0;
