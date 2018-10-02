@@ -6,7 +6,8 @@
       {'input-group-alternative': alternative},
       {'has-label': label || $slots.label},
       {'has-success': valid === true},
-      {'has-danger': valid === false}
+      {'has-danger': valid === false},
+      {[`size-${size}`]: size }
     ]">
     <slot name="label">
       <label v-if="label" :class="labelClasses">
@@ -94,6 +95,12 @@ export default {
     addonLeftIcon: {
       type: String,
       description: 'Addont left icon'
+    },
+    size: {
+      type: String,
+      default: undefined,
+      validator: (v) => ['s', 'l'].includes(v),
+      description: 'size of the input. default: regular (s|l)'
     }
   },
   data () {
@@ -158,6 +165,31 @@ input {
   justify-content: flex-start;
   flex-wrap: wrap;
   color: color(dark);
+  font-size: fontSize(m);
+
+  &.size-s {
+    font-size: fontSize(s);
+    .input-group-prepend,
+    .input-group-append,
+    .form-control {
+      height: 1.75rem;
+    }
+    .form-control {
+      padding: 0.25rem .75rem;
+    }
+  }
+
+  &.size-l {
+    font-size: fontSize(l);
+    .input-group-prepend,
+    .input-group-append,
+    .form-control {
+      height: 4rem;
+    }
+    .form-control {
+      padding: 0.75rem 1.5rem;
+    }
+  }
 
   & + .form-group {
     margin-top: 1rem;
@@ -231,7 +263,6 @@ input {
   }
 
   .form-control {
-    padding: 0.5rem 0.75rem;
     display: flex;
     width: min-content;
     flex: 1 1 auto;

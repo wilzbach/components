@@ -205,7 +205,7 @@ export default {
 
   &.btn--l {
     font-size: fontSize(l);
-    padding: 1rem 1.2rem;
+    padding: 1.167rem 1.2rem;
 
     svg {
       width: fontSize(l);

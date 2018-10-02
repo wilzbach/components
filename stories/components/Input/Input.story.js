@@ -34,6 +34,11 @@ storiesOf('Components/', module).addWithJSX(
                     <a-input placeholder="Error" :valid="false" error="Input error">
                     </a-input>
                 </div>
+                <div class="col-lg-12 mb-5">
+                    <a-input placeholder="Small" size="s" />
+                    <a-input placeholder="Regular" />
+                    <a-input placeholder="Large" size="l" />
+                </div>
                 <div class="col-12" style="flex-direction: row;
                 display: flex;
                 align-items: center;">
