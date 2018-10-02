@@ -7,11 +7,18 @@ storiesOf('Components/', module).addWithJSX('Button', () => ({
       <div>
 
         <div class="mb-3 mt-5">
-          <p>Sizes</p>
+          <p>Icons</p>
           <a-button state="primary">Button</a-button>
           <a-button state="primary">
-            <i slot="icon" class="ni ni-bag-17"></i>
+            <a-logo slot="icon" icon variant="light" />
             Button
+          </a-button>
+          <a-button state="primary" size="l" iconRight>
+            <a-logo slot="icon" icon variant="light" />
+            Button
+          </a-button>
+          <a-button state="primary">
+            <a-logo slot="icon" icon variant="light" />
           </a-button>
           <a-button state="primary" iconRight>
             <i slot="icon" class="ni ni-bag-17"></i>

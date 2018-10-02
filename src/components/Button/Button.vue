@@ -85,7 +85,7 @@ export default {
   justify-content: center;
   letter-spacing: 0.025rem;
   font-size: fontSize(m);
-  padding: 0.5rem 2rem;
+  padding: .85rem 1rem;
   border-radius: 0.5rem;
   line-height: 1;
   box-shadow: shadow(button);
@@ -94,9 +94,23 @@ export default {
   transition: all duration(s) $easing;
   cursor: pointer;
   transform: translateY(0);
+  font-weight: 500;
+
+  & + .btn {
+    margin-left: .5rem;
+  }
 
   @include hover {
     box-shadow: shadow(button, hover);
+  }
+
+  svg {
+    width: fontSize(m);
+    height: fontSize(m);
+  }
+
+  i {
+    vertical-align: middle;
   }
 
   span + span {
@@ -105,7 +119,7 @@ export default {
 
   @each $state, $value in $states {
     &.btn--#{$state} {
-      background-color: darken($value, 5%);
+      background-color: $value;
       color: $white;
 
       @include hover {
@@ -178,7 +192,12 @@ export default {
 
   &.btn--s {
     font-size: fontSize(s);
-    padding: 0.3rem 1rem;
+    padding: 0.6rem .8rem;
+
+    svg {
+      width: fontSize(s);
+      height: fontSize(s);
+    }
 
     span + span {
       margin-left: 0.25em;
@@ -187,7 +206,12 @@ export default {
 
   &.btn--l {
     font-size: fontSize(l);
-    padding: 0.7rem 2.5rem;
+    padding: 1.2rem 1.5rem;
+
+    svg {
+      width: fontSize(l);
+      height: fontSize(l);
+    }
 
     span + span {
       margin-left: 0.75em;
