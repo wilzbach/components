@@ -85,7 +85,7 @@ export default {
   justify-content: center;
   letter-spacing: 0.025rem;
   font-size: fontSize(m);
-  padding: .85rem 1rem;
+  padding: .5rem 1rem;
   border-radius: 0.5rem;
   box-shadow: shadow(button);
   outline: none;
@@ -191,7 +191,7 @@ export default {
 
   &.btn--s {
     font-size: fontSize(s);
-    padding: 0.6rem .8rem;
+    padding: 0.35rem .65rem;
 
     svg {
       width: fontSize(s);
@@ -205,7 +205,7 @@ export default {
 
   &.btn--l {
     font-size: fontSize(l);
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.2rem;
 
     svg {
       width: fontSize(l);
