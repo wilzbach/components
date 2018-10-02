@@ -8,6 +8,7 @@ import Nav from './Nav'
 import Logo from './Logo'
 import Card from './Card'
 import Tabs from './Tabs'
+import Categories from './Categories'
 // import Checkbox from './Checkbox'
 // import CookiesBanner from './CookiesBanner'
 // import Cookie from './Cookie'
@@ -22,4 +23,16 @@ import Tabs from './Tabs'
 // import Modal from './Modal'
 // import Tooltip from './Tooltip'
 
-export { Badge, Alert, Button, Title, Link, Input, Nav, Logo, Card, Tabs }
+export {
+  Badge,
+  Alert,
+  Button,
+  Title,
+  Link,
+  Input,
+  Nav,
+  Logo,
+  Card,
+  Tabs,
+  Categories
+}

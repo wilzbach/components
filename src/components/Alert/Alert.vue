@@ -58,7 +58,7 @@ export default {
 .alert {
   display: flex;
   padding: 1.2rem 1.5rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   justify-content: space-between;
   font-size: fontSize(m);
   align-items: center;

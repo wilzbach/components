@@ -1,6 +1,5 @@
 <template>
-  <div class="form-group"
-    :class="[
+  <div class="form-group" :class="[
       {'input-group': hasIcon},
       {'has-danger': error},
       {'focused': focused},
@@ -32,21 +31,21 @@
         :class="[{'is-valid': valid === true}, {'is-invalid': valid === false}, {'has-left-icon': (addonLeftIcon || $slots.addonLeft)}, {'has-right-icon': (addonRightIcon || $slots.addonRight || valid !== undefined)}, inputClasses]"
         aria-describedby="addon-right addon-left">
     </slot>
-    <div v-if="addonRightIcon || $slots.addonRight || valid !== undefined" class="input-group-append">
-      <span class="input-group-text">
-        <slot name="addonRight">
-          <i v-if="valid === undefined" :class="addonRightIcon" />
-          <i v-else-if="valid === true" :class="`fa fa-check${alternative ? '-circle' : ''}`" />
-          <i v-else-if="valid === false" :class="`fa fa-times${alternative ? '-circle' : ''}`" />
-        </slot>
-      </span>
-    </div>
-    <slot name="infoBlock"></slot>
-    <slot name="helpBlock">
-      <div class="text--danger invalid-feedback" v-if="error">
-        {{ error }}
+      <div v-if="addonRightIcon || $slots.addonRight || valid !== undefined" class="input-group-append">
+        <span class="input-group-text">
+          <slot name="addonRight">
+            <i v-if="valid === undefined" :class="addonRightIcon" />
+            <i v-else-if="valid === true" :class="`fa fa-check${alternative ? '-circle' : ''}`" />
+            <i v-else-if="valid === false" :class="`fa fa-times${alternative ? '-circle' : ''}`" />
+          </slot>
+        </span>
       </div>
-    </slot>
+      <slot name="infoBlock"></slot>
+      <slot name="helpBlock">
+        <div class="text--danger invalid-feedback" v-if="error">
+          {{ error }}
+        </div>
+      </slot>
   </div>
 </template>
 
@@ -146,7 +145,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 input {
   overflow: visible;
   outline: none;
@@ -166,8 +164,10 @@ input {
   }
 
   &.focused {
-    .input-group-prepend, .input-group-append, .form-control {
-      color: color(dark)
+    .input-group-prepend,
+    .input-group-append,
+    .form-control {
+      color: color(dark);
     }
   }
 
@@ -204,10 +204,12 @@ input {
     display: flex;
     flex: 1 1 100%;
     font-size: fontSize(s);
-    padding: .5rem .7rem .25rem;
+    padding: 0.5rem 0.7rem 0.25rem;
   }
 
-  .input-group-prepend, .input-group-append, .form-control {
+  .input-group-prepend,
+  .input-group-append,
+  .form-control {
     transition: all duration(s) $easing;
     color: $gray-400;
     border: 0.1rem solid $gray-300;
@@ -216,7 +218,8 @@ input {
     background-color: transparent;
   }
 
-  .input-group-prepend, .input-group-append {
+  .input-group-prepend,
+  .input-group-append {
     display: inline-flex;
     flex: 0.4 1 auto;
     width: max-content;
@@ -242,7 +245,8 @@ input {
 
     &:disabled {
       background-color: $gray-200;
-      &, &::placeholder {
+      &,
+      &::placeholder {
         color: $gray-500;
       }
     }
@@ -276,16 +280,19 @@ input {
   }
 
   &.input-group-alternative {
-    box-shadow: $box-shadow-input;
+    box-shadow: shadow(input);
     border-radius: 0.5rem;
-    
-    .input-group-prepend, .input-group-append, .form-control {
+
+    .input-group-prepend,
+    .input-group-append,
+    .form-control {
       border: none;
     }
 
-    .input-group-prepend, .input-group-append {
+    .input-group-prepend,
+    .input-group-append {
       .input-group-text {
-        font-size: 1.25rem;
+        font-size: fontSize(l);
       }
     }
   }

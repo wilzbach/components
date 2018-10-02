@@ -3,23 +3,19 @@ import { storiesOf } from '@storybook/vue'
 storiesOf('Brands/', module).addWithJSX('Colors', () => ({
   template: `
     <div class="container">
-      <h3 class="h4 font-weight-bold mb-5">Colors</h3>
       <a-card class="mb-3">
-        <p class="p-1 text--primary">.text--primary</p>
-        <p class="p-1 text--secondary">.text--secondary</p>
-        <p class="p-1 text--success">.text--success</p>
-        <p class="p-1 text--danger">.text--danger</p>
-        <p class="p-1 text--warning">.text--warning</p>
-        <p class="p-1 text--info">.text--info</p>
-        <p class="p-1 text--light bg--dark">.text--light</p>
-        <p class="p-1 text--dark">.text--dark (base)</p>
-        </a-card>
-      <p>Contextual text classes also work well on anchors with the provided hover and focus states.
-        <strong>
-          Note that the .text-white and .text-muted class has no link styling.
-        </strong>
-      </p>
-      <a-card>
+        <h3 class="h4 font-weight-bold mb-3">Colors</h3>
+        <p class="text--primary">.text--primary</p>
+        <p class="text--secondary">.text--secondary</p>
+        <p class="text--success">.text--success</p>
+        <p class="text--danger">.text--danger</p>
+        <p class="text--warning">.text--warning</p>
+        <p class="text--info">.text--info</p>
+        <p class="text--light bg--dark">.text--light</p>
+        <p class="text--dark">.text--dark (base)</p>
+      </a-card>
+      <a-card class="mb-3">
+        <h3 class="h4 font-weight-bold mb-3">Link Colors</h3>
         <p><a href="#" class="text--primary">Primary link</a></p>
         <p><a href="#" class="text--secondary">Secondary link</a></p>
         <p><a href="#" class="text--success">Success link</a></p>
@@ -29,10 +25,8 @@ storiesOf('Brands/', module).addWithJSX('Colors', () => ({
         <p><a href="#" class="text--dark">Dark link</a></p>
         <p><a href="#" class="text--light">Light link</a></p>
       </a-card>
-      <h3 class="h4 font-weight-bold mb-5">Background color</h3>
-      <p>Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes. Background utilities do not set color, so in some cases you’ll want to use .text-* utilities.
-      </p>
-      <a-card>
+      <a-card class="mb-3">
+        <h3 class="h4 font-weight-bold mb-3">Background color</h3>
         <div class="p-3 mb-2 bg--primary text--light">.bg--primary .text--light</div>
         <div class="p-3 mb-2 bg--secondary text--light">.bg--secondary .text--light</div>
         <div class="p-3 mb-2 bg--success text--dark">.bg--success .text--dark</div>
@@ -42,8 +36,8 @@ storiesOf('Brands/', module).addWithJSX('Colors', () => ({
         <div class="p-3 mb-2 bg--light text--dark">.bg--light .text--dark</div>
         <div class="p-3 mb-2 bg--dark text--light">.bg--dark .text--light</div>
       </a-card>
-      <h3 class="h4 font-weight-bold mb-5">Background gradient</h3>
-      <a-card>
+      <a-card class="mb-3">
+        <h3 class="h4 font-weight-bold mb-3">Background gradient</h3>
         <div class="p-3 mb-2 bg-gradient--primary text--light">.bg-gradient--primary .text--light</div>
         <div class="p-3 mb-2 bg-gradient--secondary text--light">.bg-gradient--secondary .text--light</div>
         <div class="p-3 mb-2 bg-gradient--success text--dark">.bg-gradient--success .text--dark</div>

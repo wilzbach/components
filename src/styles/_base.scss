@@ -7,6 +7,19 @@ body {
   font-size: 16px;
   font-family: font(base);
   color: color(dark);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+i {
+  &,
+  &:before {
+    line-height: 1;
+    display: inline-block;
+    overflow: hidden;
+  }
 }

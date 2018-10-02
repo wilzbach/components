@@ -1,11 +1,22 @@
 @mixin bg-gradient($color) {
-  background: linear-gradient(180deg, lighten($color, 0%), darken($color, 10%)) repeat-x;
+  background: linear-gradient(180deg, lighten($color, 0%), darken($color, 10%))
+    repeat-x;
 }
 
 @mixin bg-gradient-inverted($color) {
-  background: linear-gradient(180deg, darken($color, 0%), lighten($color, 10%)) repeat-x;
+  background: linear-gradient(180deg, darken($color, 0%), lighten($color, 10%))
+    repeat-x;
 }
 
+@function gradient($color1, $color2: false, $invert: false) {
+  @if $color2 {
+    @return linear-gradient(180deg, $color1, $color2);
+  } @else if $invert {
+    @return linear-gradient(180deg, darken($color1, 10%), lighten($color1, 0%));
+  } @else {
+    @return linear-gradient(180deg, lighten($color1, 0%), darken($color1, 10%));
+  }
+}
 
 @function color-yiq($color) {
   $yiq-contrasted-threshold: 200;
