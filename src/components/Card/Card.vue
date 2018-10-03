@@ -41,6 +41,15 @@ export default {
   position: relative;
   padding: 0.75rem;
   border-radius: 0.25rem;
+  width: 100%;
+  min-height: 100px;
+
+  .card-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
 
   &.shadow {
     box-shadow: $box-shadow;
