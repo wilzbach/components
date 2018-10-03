@@ -1,12 +1,12 @@
 {
   "name": "@asyncy/vue",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "yarn build:lib && yarn build:storybook && yarn copy:files",
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/lib.js",
-    "copy:files": "ncp ./src/styles ./dist/styles",
+    "copy:files": "ncp ./src/styles ./dist/sass",
     "build:deploy": "yarn build:lib && yarn copy:files",
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook -c .storybook -o dist_storybook",
@@ -64,6 +64,7 @@
   ],
   "homepage": "https://github.com/asyncy/vue#readme",
   "style": "dist/asyncy-vue.css",
+  "sass": "dist/sass/index.scss",
   "description": "Shared vue components for Asyncy",
   "author": "Asyncy"
 }
