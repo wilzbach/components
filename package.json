@@ -1,6 +1,6 @@
 {
   "name": "@asyncy/vue",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "yarn build:lib && yarn build:storybook && yarn copy:files",
@@ -63,7 +63,7 @@
     "dist"
   ],
   "homepage": "https://github.com/asyncy/vue#readme",
-  "style": "dist/sass/index.scss",
+  "style": "dist/asyncy-vue.css",
   "sass": "dist/sass/index.scss",
   "description": "Shared vue components for Asyncy",
   "author": "Asyncy"
