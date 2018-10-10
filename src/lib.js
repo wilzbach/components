@@ -3,17 +3,18 @@ import VueLazyload from 'vue-lazyload'
 import { vueUse } from './utils/plugins'
 
 // Fonts
-// import './assets/fonts/font-awesome/font-awesome.css'
-// import './assets/fonts/nucleo/nucleo.css'
 import './assets/fonts/gilroy/gilroy.css'
-
-// Styles
-// import './styles/index.scss'
 
 // Components
 import * as components from './components'
 import * as extraComponents from './extra-components'
 import * as directives from './directives'
+
+// fontAwesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faSlack, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const VuePlugin = {
   install: function (Vue) {
@@ -37,6 +38,9 @@ const VuePlugin = {
 
     Vue.use(VueClipboard)
     Vue.use(VueLazyload)
+
+    library.add(faHeart, faGithub, faSlack, faTwitter)
+    Vue.component('font-awesome-icon', FontAwesomeIcon)
   }
 }
 

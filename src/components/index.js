@@ -9,6 +9,8 @@ import Logo from './Logo'
 import Card from './Card'
 import Tabs from './Tabs'
 import Categories from './Categories'
+import Theme from './Theme'
+import Footer from './Footer'
 // import Checkbox from './Checkbox'
 // import CookiesBanner from './CookiesBanner'
 // import Cookie from './Cookie'
@@ -34,5 +36,7 @@ export {
   Logo,
   Card,
   Tabs,
-  Categories
+  Categories,
+  Theme,
+  Footer
 }

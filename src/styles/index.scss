@@ -4,11 +4,13 @@
 @import "./utils/_breakpoint";
 
 // Variables
-@import "./vars/_colors";
-@import "./vars/_fonts";
-@import "./vars/_transitions";
 @import "./vars/_breakpoints";
+@import "./vars/_colors";
+@import "./vars/_columns";
+@import "./vars/_fonts";
+@import "./vars/_paddings";
 @import "./vars/_shadows";
+@import "./vars/_transitions";
 
 @import "_root";
 @import "_base";

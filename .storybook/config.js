@@ -10,8 +10,8 @@ import JSXAddon from 'storybook-addon-jsx'
 // import 'bootstrap/scss/utilities/_sizing.scss'
 
 // Fonts
-import '../src/assets/fonts/font-awesome/font-awesome.css'
-import '../src/assets/fonts/nucleo/nucleo.css'
+// import '../src/assets/fonts/font-awesome/font-awesome.css'
+// import '../src/assets/fonts/nucleo/nucleo.css'
 import '../src/assets/fonts/gilroy/gilroy.css'
 
 // Styles
