@@ -99,7 +99,7 @@ export default {
     margin-left: .5rem;
   }
 
-  @include hover {
+  &:hover {
     box-shadow: shadow(button, hover);
   }
 
@@ -121,7 +121,7 @@ export default {
       background-color: $value;
       color: $white;
 
-      @include hover {
+      &:hover {
         background-color: $value;
       }
 
@@ -129,7 +129,7 @@ export default {
         color: $value;
         border-color: $value;
 
-        @include hover {
+        &:hover {
           background-color: $value;
           color: $white;
         }
@@ -140,7 +140,7 @@ export default {
   &.btn--light {
     background: color(light);
     color: color(dark);
-    @include hover {
+    &:hover {
       transform: none;
     }
   }
@@ -154,7 +154,7 @@ export default {
       border-color: color(dark);
       background: transparent;
 
-      @include hover {
+      &:hover {
         background: color(dark);
         color: color(light);
       }
@@ -163,7 +163,7 @@ export default {
 
   &.btn--no-animation {
     transition: none;
-    @include hover {
+    &:hover {
       transform: none;
     }
   }

@@ -51,7 +51,7 @@ export default {
     border-color: state(primary);
     box-shadow: shadow(base);
 
-    @include hover {
+    &:hover {
       box-shadow: shadow(base, hover);
     }
 
@@ -60,7 +60,7 @@ export default {
     }
   }
 
-  @include hover {
+  &:hover {
     color: state(primary);
   }
 }

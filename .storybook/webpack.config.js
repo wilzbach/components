@@ -11,9 +11,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
         loader: 'sass-loader',
         options: {
           data: `
-            @import "~bootstrap/scss/functions";
-            @import "~bootstrap/scss/variables";
-            @import "~bootstrap/scss/mixins";
             @import "./src/styles/index";
           `,
           includePaths: ['../', '../node-modules/']

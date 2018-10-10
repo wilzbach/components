@@ -4,10 +4,10 @@ import StoryRouter from 'storybook-vue-router'
 import { setOptions } from '@storybook/addon-options'
 import JSXAddon from 'storybook-addon-jsx'
 
-import 'bootstrap/scss/bootstrap-reboot.scss'
-import 'bootstrap/scss/bootstrap-grid.scss'
-import 'bootstrap/scss/utilities/_spacing.scss'
-import 'bootstrap/scss/utilities/_sizing.scss'
+// import 'bootstrap/scss/bootstrap-reboot.scss'
+// import 'bootstrap/scss/bootstrap-grid.scss'
+// import 'bootstrap/scss/utilities/_spacing.scss'
+// import 'bootstrap/scss/utilities/_sizing.scss'
 
 // Fonts
 import '../src/assets/fonts/font-awesome/font-awesome.css'

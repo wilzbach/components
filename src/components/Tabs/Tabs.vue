@@ -209,7 +209,8 @@ export default {
       color: color(dark);
       a {
         padding: .5rem 1rem;
-        color: state(primary);
+        color: color(dark);
+        &.active { color: state(primary) }
         text-decoration: none;
         display: flex;
         align-items: center;

@@ -1,15 +1,14 @@
-import VueLazyload from 'vue-lazyload'
 import VueClipboard from 'vue-clipboard2'
+import VueLazyload from 'vue-lazyload'
 import { vueUse } from './utils/plugins'
 
 // Fonts
-import './assets/fonts/font-awesome/font-awesome.css'
-import './assets/fonts/nucleo/nucleo.css'
+// import './assets/fonts/font-awesome/font-awesome.css'
+// import './assets/fonts/nucleo/nucleo.css'
 import './assets/fonts/gilroy/gilroy.css'
 
 // Styles
-import 'bootstrap/scss/bootstrap-reboot.scss'
-import './styles/index.scss'
+// import './styles/index.scss'
 
 // Components
 import * as components from './components'
@@ -36,8 +35,8 @@ const VuePlugin = {
       Vue.use(directives[item])
     }
 
-    Vue.use(VueLazyload)
     Vue.use(VueClipboard)
+    Vue.use(VueLazyload)
   }
 }
 

@@ -243,8 +243,8 @@ input {
   .input-group-append,
   .form-control {
     transition: all duration(s) $easing;
-    color: $gray-400;
-    border: 0.1rem solid $gray-300;
+    color: gray(400);
+    border: 0.1rem solid gray(300);
     border-radius: 0.5rem;
     height: 3rem;
     background-color: transparent;
@@ -271,14 +271,14 @@ input {
     transition: all transition(s) $easing;
     box-shadow: none;
     &::placeholder {
-      color: $gray-400;
+      color: gray(400);
     }
 
     &:disabled {
-      background-color: $gray-200;
+      background-color: gray(200);
       &,
       &::placeholder {
-        color: $gray-500;
+        color: gray(500);
       }
     }
   }
