@@ -49,7 +49,7 @@ export default {
     transform: translate3d(0, 0, 0);
   }
   15%, 100% {
-    transform: translate3d(-50vw, 130vh, 0);
+    transform: translate3d(-150vw, 170vh, 0);
   }
 }
 
