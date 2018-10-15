@@ -35,8 +35,8 @@ export default {
 
 <style lang="scss" scoped>
 .planet {
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   display: block;
   position: relative;
   background-position: center center;
@@ -47,66 +47,66 @@ export default {
     position: absolute;
   }
 
-  @include breakpoint(max s) { width: 50px; height: 50px }
-  @include breakpoint(max m) { width: 150px; height: 150px }
+  @include breakpoint(max s) { width: 3.125rem; height: 3.125rem }
+  @include breakpoint(max m) { width: 9.375rem; height: 9.375rem }
 
   &.right {
-    right: -100px;
+    right: -6.25rem;
     background-position: center left;
-    @include breakpoint(max s) { right: -25px }
-    @include breakpoint(max m) { right: -75px }
+    @include breakpoint(max s) { right: -1.5625rem }
+    @include breakpoint(max m) { right: -4.6875rem }
   }
   &.left {
-    left: -100px;
+    left: -6.25rem;
     background-position: center right;
-    @include breakpoint(max s) { left: -25px }
-    @include breakpoint(max m) { left: -75px }
+    @include breakpoint(max s) { left: -1.5625rem }
+    @include breakpoint(max m) { left: -4.6875rem }
   }
 
   &.lg {
-    width: 300px;
-    height: 300px;
-    @include breakpoint(max s) { width: 150px; height: 150px }
-    @include breakpoint(max m) { width: 200px; height: 200px }
+    width: 18.75rem;
+    height: 18.75rem;
+    @include breakpoint(max s) { width: 9.375rem; height: 9.375rem }
+    @include breakpoint(max m) { width: 12.5rem; height: 12.5rem }
     &.right {
-      right: -150px;
-      @include breakpoint(max s) { right: -75px }
-      @include breakpoint(max m) { right: -100px }
+      right: -9.375rem;
+      @include breakpoint(max s) { right: -4.6875rem }
+      @include breakpoint(max m) { right: -6.25rem }
     }
     &.left {
-      left: -150px;
-      @include breakpoint(max s) { left: -75px }
-      @include breakpoint(max m) { left: -100px }
+      left: -9.375rem;
+      @include breakpoint(max s) { left: -4.6875rem }
+      @include breakpoint(max m) { left: -6.25rem }
     }
   }
   &.xl {
-    width: 600px;
-    height: 600px;
-    @include breakpoint(max s) { width: 200px; height: 200px }
-    @include breakpoint(max m) { width: 300px; height: 300px }
+    width: 37.5rem;
+    height: 37.5rem;
+    @include breakpoint(max s) { width: 12.5rem; height: 12.5rem }
+    @include breakpoint(max m) { width: 18.75rem; height: 18.75rem }
     &.right {
-      right: -300px;
-      @include breakpoint(max s) { right: -100px }
-      @include breakpoint(max m) { right: -150px }
+      right: -18.75rem;
+      @include breakpoint(max s) { right: -6.25rem }
+      @include breakpoint(max m) { right: -9.375rem }
     }
     &.left {
-      left: -300px;
-      @include breakpoint(max s) { left: -100px }
-      @include breakpoint(max m) { left: -150px }
+      left: -18.75rem;
+      @include breakpoint(max s) { left: -6.25rem }
+      @include breakpoint(max m) { left: -9.375rem }
     }
   }
   &.sm {
-    width: 150px;
-    height: 150px;
+    width: 9.375rem;
+    height: 9.375rem;
     @include breakpoint(max s) { display: none }
-    @include breakpoint(max m) { width: 50px; height: 50px }
+    @include breakpoint(max m) { width: 3.125rem; height: 3.125rem }
     &.right {
-      right: -75px;
-      @include breakpoint(max m) { right: -25px }
+      right: -4.6875rem;
+      @include breakpoint(max m) { right: -1.5625rem }
     }
     &.left {
-      left: -75px;
-      @include breakpoint(max m) { left: -25px }
+      left: -4.6875rem;
+      @include breakpoint(max m) { left: -1.5625rem }
     }
   }
 

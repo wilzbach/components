@@ -54,8 +54,8 @@ export default {
 }
 
 .comet {
-  width: 140px;
-  height: 140px;
+  width: 8.75rem;
+  height: 8.75rem;
   display: block;
   position: relative;
   background-position: center center;
@@ -78,63 +78,63 @@ export default {
     }
   }
 
-  @include breakpoint(max s) { width: 50px; height: 50px }
-  @include breakpoint(max m) { width: 75px; height: 75px }
+  @include breakpoint(max s) { width: 3.125rem; height: 3.125rem }
+  @include breakpoint(max m) { width: 4.688rem; height: 4.688rem }
 
   &.right {
-    right: -70px;
+    right: -4.375rem;
     background-position: center left;
-    @include breakpoint(max s) { right: -25px }
-    @include breakpoint(max m) { right: -37.5px }
+    @include breakpoint(max s) { right: -1.5625rem }
+    @include breakpoint(max m) { right: -2.344rem }
   }
   &.left {
-    left: -70px;
+    left: -4.375rem;
     background-position: center right;
-    @include breakpoint(max s) { left: -25px }
-    @include breakpoint(max m) { left: -37.5px }
+    @include breakpoint(max s) { left: -1.5625rem }
+    @include breakpoint(max m) { left: -2.344rem }
   }
 
   &.xl {
-    width: 400px;
-    height: 400px;
-    @include breakpoint(max s) { width: 140px; height: 140px }
-    @include breakpoint(max m) { width: 250px; height: 250px }
+    width: 25rem;
+    height: 25rem;
+    @include breakpoint(max s) { width: 8.75rem; height: 8.75rem }
+    @include breakpoint(max m) { width: 15.625rem; height: 15.625rem }
     &.right {
-      right: -200px;
-      @include breakpoint(max s) { right: -70px }
-      @include breakpoint(max m) { right: -125px }
+      right: -12.5rem;
+      @include breakpoint(max s) { right: -4.375rem }
+      @include breakpoint(max m) { right: -7.8125rem }
     }
     &.left {
-      left: -200px;
-      @include breakpoint(max s) { left: -70px }
-      @include breakpoint(max m) { left: -125px }
+      left: -12.5rem;
+      @include breakpoint(max s) { left: -4.375rem }
+      @include breakpoint(max m) { left: -7.8125rem }
     }
   }
   &.lg {
-    width: 250px;
-    height: 250px;
-    @include breakpoint(max s) { width: 75px; height: 75px }
-    @include breakpoint(max m) { width: 140px; height: 140px }
+    width: 15.625rem;
+    height: 15.625rem;
+    @include breakpoint(max s) { width: 4.688rem; height: 4.688rem }
+    @include breakpoint(max m) { width: 8.75rem; height: 8.75rem }
     &.right {
-      right: -125px;
-      @include breakpoint(max s) { right: -37.5px }
-      @include breakpoint(max m) { right: -70px }
+      right: -7.8125rem;
+      @include breakpoint(max s) { right: -2.344rem }
+      @include breakpoint(max m) { right: -4.375rem }
     }
     &.left {
-      left: -125px;
-      @include breakpoint(max s) { left: -37.5px }
-      @include breakpoint(max m) { left: -70px }
+      left: -7.8125rem;
+      @include breakpoint(max s) { left: -2.344rem }
+      @include breakpoint(max m) { left: -4.375rem }
     }
   }
   &.sm {
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
     @include breakpoint(max m) { display: none }
     &.right {
-      right: -25px;
+      right: -1.5625rem;
     }
     &.left {
-      left: -25px;
+      left: -1.5625rem;
     }
   }
 

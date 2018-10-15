@@ -7,6 +7,9 @@ storiesOf('Components/', module).addWithJSX('Theme', () => ({
 
       <div class="w-50">
         <a-planet />
+        <a-planet size="sm" />
+        <a-planet size="lg" />
+        <a-planet size="xl" />
       </div>
 
       <h3 class="h3 font-weight-bold mb-4">Comets</h3>
