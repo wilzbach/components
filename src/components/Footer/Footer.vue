@@ -3,73 +3,81 @@
     <div class="columns">
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Product</h4>
+        <router-link to="/platform">Platform</router-link>
         <a
-          href="#"
-          title=""
-          @click.prevent="">Platform</a>
+          href="//docs.asyncy.com"
+          title="Documentation"
+          target="_blank">
+          Documentation
+        </a>
         <a
-          href="#"
-          title=""
-          @click.prevent="">Documentation</a>
+          href="//docs.asyncy.com/faq"
+          title="FAQ"
+          target="_blank">
+          FAQ
+        </a>
         <a
-          href="#"
-          title=""
-          @click.prevent="">FAQ</a>
-        <a
-          href="#"
-          title=""
-          @click.prevent="">Give Feedback</a>
+          href="//asyncy.click/feedback"
+          title="Give Feedbac
+          target="_blank"k">
+          Give Feedback
+        </a>
       </div>
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Resources</h4>
+        <router-link to="/events">Events</router-link>
         <a
-          href="#"
-          title=""
-          @click.prevent="">Events</a>
-        <a
-          href="#"
-          title=""
-          @click.prevent="">Blog</a>
+          href="//medium.com/asyncy"
+          title="Blog"
+          target="_blank">
+          Blog
+        </a>
       </div>
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Company</h4>
+        <router-link to="/about">About</router-link>
         <a
-          href="#"
-          title=""
-          @click.prevent="">About</a>
+          href="//angel.co/asyncy/jobs"
+          title="Jobs"
+          target="_blank">
+          Jobs
+        </a>
+        <router-link to="/contact">Contact</router-link>
         <a
-          href="#"
-          title=""
-          @click.prevent="">Jobs</a>
-        <a
-          href="#"
-          title=""
-          @click.prevent="">Contact</a>
-        <a
-          href="#"
-          title=""
+          href="//angels.co/asyncy/jobs"
+          title="We are Hiring !"
           class="text--green"
-          @click.prevent="">We are Hiring!</a>
+          target="_blank">
+          We are Hiring!
+        </a>
       </div>
       <div class="column">
         <div class="social">
           <a
-            href="#"
-            title=""
-            @click.prevent=""><font-awesome-icon :icon="['fab', 'slack']" /></a>
+            href="//asyncy.click/slack"
+            title="Slack"
+            target="_blank">
+            <font-awesome-icon :icon="['fab', 'slack']" />
+          </a>
           <a
-            href="#"
-            title=""
-            @click.prevent=""><font-awesome-icon :icon="['fab', 'github']" /></a>
+            href="//github.com/asyncy"
+            target="_blank"
+            title="Github">
+            <font-awesome-icon :icon="['fab', 'github']" />
+          </a>
           <a
-            href="#"
-            title=""
-            @click.prevent=""><font-awesome-icon :icon="['fab', 'twitter']" /></a>
+            href="twitter.com/asyncy"
+            title="Twitter"
+            target="_blank">
+            <font-awesome-icon :icon="['fab', 'twitter']" />
+          </a>
         </div>
         <p>&copy; 2018 Asyncy, Inc.</p>
       </div>
     </div>
-    <h4 :class="['signature', [dark ? 'text--light' : 'text--dark'], 'text--center']">Passionately built with <font-awesome-icon icon="heart" /> in Amsterdam</h4>
+    <h4 :class="['signature', [dark ? 'text--light' : 'text--dark'], 'text--center']">
+      Passionately built with <font-awesome-icon icon="heart" /> in Amsterdam
+    </h4>
   </div>
 </template>
 
