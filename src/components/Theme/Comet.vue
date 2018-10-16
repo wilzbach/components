@@ -9,7 +9,7 @@ export default {
     variant: {
       type: String,
       default: 'green',
-      validator: v => ['green', 'purple', 'red'].includes(v),
+      validator: v => ['asteroid', 'blue', 'green', 'purple', 'red'].includes(v),
       description: 'The comet variant (green|purple|red)'
     },
     animated: {
@@ -138,6 +138,8 @@ export default {
     }
   }
 
+  &.asteroid { background-image: url('../../assets/img/comets/asteroid.svg') }
+  &.blue { background-image: url('../../assets/img/comets/blue.svg') }
   &.green { background-image: url('../../assets/img/comets/green.svg') }
   &.purple { background-image: url('../../assets/img/comets/purple.svg') }
   &.red { background-image: url('../../assets/img/comets/red.svg') }

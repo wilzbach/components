@@ -9,7 +9,7 @@ export default {
     variant: {
       type: String,
       default: 'blue',
-      validator: v => ['blue', 'purple', 'red', 'yellow'].includes(v),
+      validator: v => ['blue-purple', 'blue', 'cyan', 'green', 'orange', 'purple', 'red', 'yellow'].includes(v),
       description: 'The planet variant (blue|purple|red|yellow)'
     },
     absolute: {
@@ -110,8 +110,20 @@ export default {
     }
   }
 
+  &.blue-purple {
+    background-image: url('../../assets/img/planets/blue-purple.svg')
+  }
   &.blue {
     background-image: url('../../assets/img/planets/blue.svg')
+  }
+  &.cyan {
+    background-image: url('../../assets/img/planets/cyan.svg')
+  }
+  &.green {
+    background-image: url('../../assets/img/planets/green.svg')
+  }
+  &.orange {
+    background-image: url('../../assets/img/planets/orange.svg')
   }
   &.purple {
     background-image: url('../../assets/img/planets/purple.svg')
