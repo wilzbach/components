@@ -2,14 +2,12 @@
   "name": "@asyncy/vue",
   "version": "0.0.21",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "yarn build:lib && yarn build:storybook && yarn copy:files",
-    "lint": "vue-cli-service lint",
-    "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/lib.js",
+    "build": "yarn build:book && yarn build:lib",
+    "build:book": "build-storybook -c .storybook -o dist_storybook",
+    "build:lib": "vue-cli-service build --target lib --name asyncy-vue ./src/lib.js && yarn copy:files",
     "copy:files": "ncp ./src/styles ./dist/sass",
-    "build:deploy": "yarn build:lib && yarn copy:files",
-    "storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook -c .storybook -o dist_storybook",
+    "lint": "vue-cli-service lint",
+    "serve": "start-storybook -p 6006",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {

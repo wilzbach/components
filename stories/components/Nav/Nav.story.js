@@ -10,7 +10,7 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
                 <div class="mb-3">
                     <small class="text-uppercase font-weight-bold">With text</small>
                 </div>
-                <a-nav expand effect="dark" type="primary" round title="Menu" :items="[{ name: 'Discover', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '/' }, { name: 'Others', hideDecoration: true, color: 'pink' }]" />
+                <a-nav expand effect="dark" type="primary" round title="Menu" :items="[{ name: 'Discover', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '//google.com', external: true }, { name: 'Others', hideDecoration: true, color: 'pink' }]" />
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
                 <div class="mb-3">
@@ -54,14 +54,6 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
             transparent
             class="mt-4"
             :items="[{ name: 'Platform' }, { name: 'Documentation', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
-        </div>
-        <div>
-            <p>
-                The menu items are passed as a prop array: <br />
-                <pre class="code">
-{ name: 'Item', link: '/', icon: 'fa fa-icon', iconRight: 'fa fa-icon', right: /* dropdown-menu-right */true, children: [{ name: 'Sub', link: '/' }, { type: 'divider' }], hideDecoration: true, color: '(primary|pink|...)' }
-                </pre>
-            </p>
         </div>
     </div>
     `,

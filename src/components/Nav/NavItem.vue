@@ -29,26 +29,50 @@
         class="icon right"
         :class="iconRight" />
     </span>
-    <router-link
-      v-else
-      class="nav-link"
-      :class="{
-        [`text--${color}`]: color,
-        [`bg--${color}--before`]: color,
-        'hide-decoration': hideDecoration,
-        'dark': dark && !color
-      }"
-      :to="link">
-      <i
-        v-if="icon"
-        class="icon"
-        :class="icon" />
-      {{ name }}
-      <i
-        v-if="iconRight"
-        class="icon right"
-        :class="iconRight" />
-    </router-link>
+    <template v-else>
+      <router-link
+        v-if="!external"
+        class="nav-link"
+        :class="{
+          [`text--${color}`]: color,
+          [`bg--${color}--before`]: color,
+          'hide-decoration': hideDecoration,
+          'dark': dark && !color
+        }"
+        :to="link">
+        <i
+          v-if="icon"
+          class="icon"
+          :class="icon" />
+        {{ name }}
+        <i
+          v-if="iconRight"
+          class="icon right"
+          :class="iconRight" />
+      </router-link>
+      <a
+        v-else
+        class="nav-link"
+        :class="{
+          [`text--${color}`]: color,
+          [`bg--${color}--before`]: color,
+          'hide-decoration': hideDecoration,
+          'dark': dark && !color
+        }"
+        :href="link"
+        :title="name"
+        target="_blank">
+        <i
+          v-if="icon"
+          class="icon"
+          :class="icon" />
+        {{ name }}
+        <i
+          v-if="iconRight"
+          class="icon right"
+          :class="iconRight" />
+      </a>
+    </template>
 
     <template v-if="children">
       <transition name="navbar-dropdown">
@@ -64,6 +88,7 @@
               :key="`dropdown-${id}-item-${idx}-divider`" />
             <template v-else>
               <router-link
+                v-if="!child.external"
                 :key="`dropdown-${id}-item-${idx}-name`"
                 :to="child.link ? child.link : ''"
                 class="dropdown-item">
@@ -79,6 +104,25 @@
                   class="icon right"
                   :class="child.iconRight" />
               </router-link>
+              <a
+                v-else
+                :key="`dropdown-${id}-item-${idx}-name`"
+                class="dropdown-item"
+                :href="child.link"
+                target="_blank"
+                :title="child.name">
+                <i
+                  v-if="child.icon"
+                  :key="`dropdown-${id}-item-${idx}-icon`"
+                  class="icon"
+                  :class="child.icon" />
+                {{ child.name}}
+                <i
+                  v-if="child.iconRight"
+                  :key="`dropdown-${id}-item-${idx}-icon-right`"
+                  class="icon right"
+                  :class="child.iconRight" />
+              </a>
             </template>
           </template>
         </div>
@@ -120,6 +164,11 @@ export default {
       type: [String, Object],
       default: '',
       description: 'Link of the navitem'
+    },
+    external: {
+      type: Boolean,
+      default: false,
+      description: 'Whether it is an external link'
     },
     icon: {
       type: String,

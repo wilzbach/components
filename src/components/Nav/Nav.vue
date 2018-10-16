@@ -54,6 +54,7 @@
               :icon="item.icon"
               :iconRight="item.iconRight"
               :link="item.link"
+              :external="item.external"
               :hideDecoration="item.hideDecoration"
               :color="item.color"
               :dark="effect === 'dark'"

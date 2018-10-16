@@ -3,17 +3,40 @@
 ## Project setup
 
 ```
-yarn install
+yarn
 ```
 
-### Compiles and minifies a package for production
+### Run storybook
 
 ```
-yarn run build
+yarn serve
+```
+
+### Compiles and minifies the library for production
+
+```
+yarn build:lib
+```
+
+### Compiles the storybook for production
+
+```
+yarn build:book
+```
+
+### Compiles everything
+```
+yarn build
 ```
 
 ### Lints and fixes files
 
 ```
-yarn run lint
+yarn lint
+```
+
+### Run the unit tests
+
+```
+yarn test:unit
 ```
