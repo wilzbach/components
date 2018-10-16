@@ -18,8 +18,8 @@
         </a>
         <a
           href="//asyncy.click/feedback"
-          title="Give Feedbac
-          target="_blank"k">
+          title="Give Feedback"
+          target="_blank">
           Give Feedback
         </a>
       </div>
@@ -44,7 +44,7 @@
         </a>
         <router-link to="/contact">Contact</router-link>
         <a
-          href="//angels.co/asyncy/jobs"
+          href="//angel.co/asyncy/jobs"
           title="We are Hiring !"
           class="text--green"
           target="_blank">
@@ -66,7 +66,7 @@
             <font-awesome-icon :icon="['fab', 'github']" />
           </a>
           <a
-            href="twitter.com/asyncy"
+            href="//twitter.com/asyncy"
             title="Twitter"
             target="_blank">
             <font-awesome-icon :icon="['fab', 'twitter']" />
