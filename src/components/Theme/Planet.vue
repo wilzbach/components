@@ -80,17 +80,17 @@ export default {
     }
   }
   &.xl {
-    width: 37.5rem;
-    height: 37.5rem;
+    width: 25rem;
+    height: 25rem;
     @include breakpoint(max s) { width: 12.5rem; height: 12.5rem }
     @include breakpoint(max m) { width: 18.75rem; height: 18.75rem }
     &.right {
-      right: -18.75rem;
+      right: -12.5rem;
       @include breakpoint(max s) { right: -6.25rem }
       @include breakpoint(max m) { right: -9.375rem }
     }
     &.left {
-      left: -18.75rem;
+      left: -12.5rem;
       @include breakpoint(max s) { left: -6.25rem }
       @include breakpoint(max m) { left: -9.375rem }
     }
