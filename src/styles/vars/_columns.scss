@@ -14,6 +14,12 @@
     align-items: flex-start;
     flex-wrap: wrap;
   }
+  &.center {
+    justify-content: center;
+  }
+  &.space-around {
+    justify-content: space-around;
+  }
   .column {
     flex-grow: 0;
     flex-shrink: 1;

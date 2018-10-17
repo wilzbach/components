@@ -1,6 +1,6 @@
 <template>
   <div :class="['footer', {dark: dark}]">
-    <div class="columns">
+    <div class="columns space-around">
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Product</h4>
         <router-link to="/platform">Platform</router-link>
