@@ -8,7 +8,9 @@
     "copy:files": "ncp ./src/styles ./dist/sass",
     "lint": "vue-cli-service lint",
     "serve": "start-storybook -p 6006",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "package:version": "yarn version --json | grep data | sed 's/[a-zA-Z\\\"\\{\\}\\:\\,\\ ]*//g'",
+    "update:patch": "yarn version --patch && git commit -am 'chore(app): update package version to `yarn --silent package:version`'"
   },
   "dependencies": {
     "asyncy-player": "^0.0.1",
