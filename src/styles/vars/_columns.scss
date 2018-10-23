@@ -14,6 +14,10 @@
     align-items: flex-start;
     flex-wrap: wrap;
   }
+  &.stretch {
+    align-items: stretch;
+    min-height: 100%;
+  }
   &.center {
     justify-content: center;
   }

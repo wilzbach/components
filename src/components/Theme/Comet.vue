@@ -68,7 +68,7 @@ export default {
 
   &.animated {
     animation-name: cometDrop;
-    animation-duration: 15s;
+    animation-duration: 21s;
     animation-iteration-count: infinite;
 
     @for $i from 1 to 10 {
