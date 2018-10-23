@@ -24,6 +24,7 @@
         </div>
       </span>
       <a-navbar-toggle-button
+        v-if="items && items.length > 0"
         :toggled="toggled"
         :target="contentId"
         @click.native.stop="toggled = !toggled"
@@ -44,6 +45,7 @@
             </div>
           </div>
           <ul
+            v-if="items && items.length > 0"
             class="navbar-nav"
             v-click-outside="close">
             <a-nav-item
@@ -137,6 +139,7 @@ export default {
     },
     items: {
       type: Array,
+      default: () => ([]),
       description: "Items to display in the menu. e.g.: { name: 'Item', link: '/', icon: 'fa fa-icon', iconRight: 'fa fa-icon', right: /* dropdown-menu-right */true, children: [{ name: 'Sub', link: '/' }, { type: 'divider' }], hideDecoration: true, color: '(primary|pink|...)' }"
     }
   },

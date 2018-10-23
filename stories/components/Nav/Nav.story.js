@@ -17,6 +17,7 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
                     <small class="text-uppercase font-weight-bold">With icons</small>
                 </div>
                 <a-nav expand effect="dark" type="success" round title="Menu" :items="[{ name: 'Discover', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '/' }, { name: 'Others', hideDecoration: true, color: 'pink' }]" />
+                <a-nav expand effect="dark" type="success" round title="Menu" />
             </div>
         </div>
       </div>
@@ -54,6 +55,13 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
             transparent
             class="mt-4"
             :items="[{ name: 'Platform' }, { name: 'Documentation', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
+        <a-nav
+            effect="dark"
+            logo="light"
+            tag="Beta"
+            tag-state="yellow"
+            transparent
+            class="mt-4" />
         </div>
     </div>
     `,
