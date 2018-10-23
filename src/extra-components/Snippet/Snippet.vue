@@ -24,21 +24,29 @@
       </div>
     </div>
     <div class="copy-btn-container">
-      <a-button type="neutral"
-        class="snippet-button shadow"
+      <a-button
+        state="neutral"
+        class="shadow"
         ref="copyBtn"
         size="sm"
         title="Copied!"
-        @click="doCopy"
-      >
+        @click="doCopy">
+        <transition-group
+          name="slideY"
+          class="transition">
+          <font-awesome-icon
+            v-show="!bShowTooltip"
+            key="copy"
+            class="text--primary"
+            icon="clipboard" />
+          <font-awesome-icon
+            v-show="bShowTooltip"
+            class="text--primary"
+            key="copied"
+            icon="clipboard-check" />
+        </transition-group>
         Copy
       </a-button>
-      <a-tooltip :show.sync="bShowTooltip"
-        :target="() => $refs.copyBtn"
-        placement="bottom"
-        title="Copied!"
-        triggers="click blur">
-      </a-tooltip>
     </div>
   </div>
 </template>
@@ -164,7 +172,7 @@ export default {
     .snippet-prepend,
     .snippet-append {
       display: flex;
-      color: $green;
+      color: color(green);
     }
 
     .snippet-prepend {
@@ -190,18 +198,18 @@ export default {
     }
 
     &.snippet-light {
-      background: white;
+      background: color(light);
 
       .snippet-body {
-        color: $snippet-light-color;
+        color: color(dark);
       }
     }
 
     &.snippet-dark {
-      background: black;
+      background: color(dark);
 
       .snippet-body {
-        color: $snippet-dark-color;
+        color: color(light);
       }
     }
 
@@ -219,15 +227,15 @@ export default {
     }
 
     &.snippet-sm {
-      font-size: $snippet-font-size-sm;
+      font-size: fontSize(s);
     }
 
     &.snippet-default {
-      font-size: $snippet-font-size;
+      font-size: fontSize(m);
     }
 
     &.snippet-lg {
-      font-size: $snippet-font-size-lg;
+      font-size: fontSize(l);
     }
 
     &.snippet-fixed-height {
@@ -243,9 +251,42 @@ export default {
 
   .copy-btn-container {
     position: absolute;
-    margin-top: 50%;
     bottom: -15px;
-    right: 10%;
+    right: 1rem;
+    vertical-align: middle;
+    .transition {
+      position: relative;
+      overflow: hidden;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
   }
+  .copied {
+    // &.show { opacity: 1 }
+    position: absolute;
+    color: #fff;
+    top: .5rem;
+    right: 1.25rem;
+  }
+}
+
+.slideY-enter-active {
+  transition: all .3s ease;
+}
+.slideY-leave-active {
+  transition: all .2s ease-in-out;
+}
+.slideY-enter, .slideY-leave-to {
+  transform: translateY(-30px);
+  opacity: 0;
 }
 </style>

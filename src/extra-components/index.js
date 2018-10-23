@@ -1,5 +1,6 @@
-// import Player from './Player'
+import Player from './Player'
 // import Wordmark from './Wordmark'
-// import Snippet from './Snippet'
+import Snippet from './Snippet'
 
 // export { Player, Wordmark, Snippet }
+export { Player, Snippet }
