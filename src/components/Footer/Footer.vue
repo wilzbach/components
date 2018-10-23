@@ -111,7 +111,7 @@ export default {
       a {
         color: color(dark);
         display: block;
-
+        white-space: nowrap;
         & + a {
           margin-top: 1rem;
         }
