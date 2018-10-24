@@ -1,51 +1,31 @@
 <template>
-  <div :class="['planet', variant, size, position, {absolute: absolute}]" />
+  <div :class="['astronaut', size]" />
 </template>
 
 <script>
 export default {
-  name: 'Planet',
+  name: 'Astronaut',
   props: {
-    variant: {
-      type: String,
-      default: 'blue',
-      validator: v => ['blue-purple', 'blue', 'cyan', 'green', 'moon', 'orange', 'purple', 'red-purple', 'red', 'yellow'].includes(v),
-      description: 'The planet variant (blue|purple|red|yellow)'
-    },
-    absolute: {
-      type: Boolean,
-      default: false,
-      description: 'Set the comet position to absolute'
-    },
-    position: {
-      type: String,
-      default: undefined,
-      validator: v => ['left', 'right'].includes(v),
-      description: 'The planet position'
-    },
     size: {
       type: String,
       default: undefined,
       validator: v => ['sm', 'lg', 'xl'].includes(v),
-      description: 'The planet variant (sm|lg|xl)'
+      description: 'The astronaut size (sm|lg|xl)'
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.planet {
-  width: 12.5rem;
-  height: 12.5rem;
+.astronaut {
+  width: 10rem;
+  height: 10rem;
   display: block;
   position: relative;
+  background-image: url('../../assets/img/astronaut.svg');
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-
-  &.absolute {
-    position: absolute;
-  }
 
   @include breakpoint(max s) { width: 3.125rem; height: 3.125rem }
   @include breakpoint(max m) { width: 9.375rem; height: 9.375rem }
@@ -108,37 +88,6 @@ export default {
       left: -4.6875rem;
       @include breakpoint(max m) { left: -1.5625rem }
     }
-  }
-
-  &.blue-purple {
-    background-image: url('../../assets/img/planets/blue-purple.svg')
-  }
-  &.blue {
-    background-image: url('../../assets/img/planets/blue.svg')
-  }
-  &.cyan {
-    background-image: url('../../assets/img/planets/cyan.svg')
-  }
-  &.green {
-    background-image: url('../../assets/img/planets/green.svg')
-  }
-  &.moon {
-    background-image: url('../../assets/img/planets/moon.svg')
-  }
-  &.orange {
-    background-image: url('../../assets/img/planets/orange.svg')
-  }
-  &.purple {
-    background-image: url('../../assets/img/planets/purple.svg')
-  }
-  &.red-purple {
-    background-image: url('../../assets/img/planets/red-purple.svg')
-  }
-  &.red {
-    background-image: url('../../assets/img/planets/red.svg')
-  }
-  &.yellow {
-    background-image: url('../../assets/img/planets/yellow.svg')
   }
 }
 </style>
