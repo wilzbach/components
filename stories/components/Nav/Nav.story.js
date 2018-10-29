@@ -45,7 +45,7 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
             tag-state="yellow"
             transparent
             class="mt-4"
-            :items="[{ name: 'Platform' }, { name: 'Documentation', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
+            :items="[{ name: 'Platform' }, { icon: 'github', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
         <div class="bg--dark">
         <a-nav
             effect="dark"

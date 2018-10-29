@@ -10,7 +10,7 @@
       :class="{
         [`text--${color}`]: color,
         [`bg--${color}--before`]: color,
-        'hide-decoration': hideDecoration,
+        'hide-decoration': hideDecoration || !name,
         'dark': dark && !color
       }"
       :id="id"
@@ -36,17 +36,23 @@
         :class="{
           [`text--${color}`]: color,
           [`bg--${color}--before`]: color,
-          'hide-decoration': hideDecoration,
+          'hide-decoration': hideDecoration || !name,
           'dark': dark && !color
         }"
         :to="link">
+        <font-awesome-icon
+          v-if="icon && brands.includes(icon)"
+          :icon="['fab', icon]" />
         <i
-          v-if="icon"
+          v-else-if="icon"
           class="icon"
           :class="icon" />
         {{ name }}
+        <font-awesome-icon
+          v-if="iconRight && brands.includes(iconRight)"
+          :icon="['fab', iconRight]" />
         <i
-          v-if="iconRight"
+          v-else-if="iconRight"
           class="icon right"
           :class="iconRight" />
       </router-link>
@@ -56,19 +62,25 @@
         :class="{
           [`text--${color}`]: color,
           [`bg--${color}--before`]: color,
-          'hide-decoration': hideDecoration,
+          'hide-decoration': hideDecoration || !name,
           'dark': dark && !color
         }"
         :href="link"
         :title="name"
         target="_blank">
+        <font-awesome-icon
+          v-if="icon && brands.includes(icon)"
+          :icon="['fab', icon]" />
         <i
-          v-if="icon"
+          v-else-if="icon"
           class="icon"
           :class="icon" />
         {{ name }}
+        <font-awesome-icon
+          v-if="iconRight && brands.includes(iconRight)"
+          :icon="['fab', iconRight]" />
         <i
-          v-if="iconRight"
+          v-else-if="iconRight"
           class="icon right"
           :class="iconRight" />
       </a>
@@ -92,14 +104,20 @@
                 :key="`dropdown-${id}-item-${idx}-name`"
                 :to="child.link ? child.link : ''"
                 class="dropdown-item">
+                <font-awesome-icon
+                  v-if="child.icon && brands.includes(child.icon)"
+                  :icon="['fab', child.icon]" />
                 <i
-                  v-if="child.icon"
+                  v-else-if="child.icon"
                   :key="`dropdown-${id}-item-${idx}-icon`"
                   class="icon"
                   :class="child.icon" />
                 {{ child.name }}
+                <font-awesome-icon
+                  v-if="child.iconRight && brands.includes(child.iconRight)"
+                  :icon="['fab', child.iconRight]" />
                 <i
-                  v-if="child.iconRight"
+                  v-else-if="child.iconRight"
                   :key="`dropdown-${id}-item-${idx}-icon-right`"
                   class="icon right"
                   :class="child.iconRight" />
@@ -111,14 +129,20 @@
                 :href="child.link"
                 target="_blank"
                 :title="child.name">
+                <font-awesome-icon
+                  v-if="child.icon && brands.includes(child.icon)"
+                  :icon="['fab', child.icon]" />
                 <i
-                  v-if="child.icon"
+                  v-else-if="child.icon"
                   :key="`dropdown-${id}-item-${idx}-icon`"
                   class="icon"
                   :class="child.icon" />
                 {{ child.name}}
+                <font-awesome-icon
+                  v-if="child.iconRight && brands.includes(child.iconRight)"
+                  :icon="['fab', child.iconRight]" />
                 <i
-                  v-if="child.iconRight"
+                  v-else-if="child.iconRight"
                   :key="`dropdown-${id}-item-${idx}-icon-right`"
                   class="icon right"
                   :class="child.iconRight" />
@@ -147,7 +171,7 @@ export default {
     },
     name: {
       type: String,
-      default: '',
+      default: undefined,
       description: 'Nav item name'
     },
     color: {
@@ -192,7 +216,8 @@ export default {
     }
   },
   data: () => ({
-    toggled: false
+    toggled: false,
+    brands: ['slack', 'github', 'twitter']
   }),
   methods: {
     close: function () {
@@ -229,7 +254,7 @@ export default {
       padding-left: 0;
     }
 
-    .icon {
+    .icon, svg {
       font-size: 1.25rem;
       &:not(.right) {
         margin-right: .25rem;
