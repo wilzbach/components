@@ -3,7 +3,14 @@
     <div class="columns space-around">
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Product</h4>
-        <router-link to="/platform">Platform</router-link>
+        <router-link v-if="internal" to="/platform">Platform</router-link>
+        <a
+          v-else
+          href="//asyncy.com/platform"
+          title="Platform"
+          target="_blank">
+          Platform
+        </a>
         <a
           href="//docs.asyncy.com"
           title="Documentation"
@@ -25,7 +32,14 @@
       </div>
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Resources</h4>
-        <router-link to="/events">Events</router-link>
+        <router-link v-if="internal" to="/events">Events</router-link>
+        <a
+          v-else
+          href="//asyncy.com/events"
+          title="Events"
+          target="_blank">
+          Events
+        </a>
         <a
           href="//medium.com/asyncy"
           title="Blog"
@@ -35,14 +49,28 @@
       </div>
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Company</h4>
-        <router-link to="/about">About</router-link>
+        <router-link v-if="internal" to="/about">About</router-link>
+        <a
+          v-else
+          href="//asyncy.com/about"
+          title="About"
+          target="_blank">
+          About
+        </a>
         <a
           href="//angel.co/asyncy/jobs"
           title="Jobs"
           target="_blank">
           Jobs
         </a>
-        <router-link to="/contact">Contact</router-link>
+        <router-link v-if="internal" to="/contact">Contact</router-link>
+        <a
+          v-else
+          href="//asyncy.com/contact"
+          title="Contact"
+          target="_blank">
+          Contact
+        </a>
         <a
           href="//angel.co/asyncy/jobs"
           title="We are Hiring !"
@@ -89,6 +117,11 @@ export default {
       type: Boolean,
       default: false,
       description: 'put the dark mode'
+    },
+    internal: {
+      type: Boolean,
+      default: false,
+      description: 'Internal router-link (for main landing purpose)'
     }
   }
 }
