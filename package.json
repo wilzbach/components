@@ -54,19 +54,19 @@
   "main": "dist/asyncy-vue.common.js",
   "web": "dist/asyncy-vue.umd.min.js",
   "bugs": {
-    "url": "https://github.com/asyncy/vue/issues"
+    "url": "https://github.com/asyncy/components/issues"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asyncy/vue.git"
+    "url": "git+https://github.com/asyncy/components.git"
   },
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/asyncy/vue#readme",
+  "homepage": "https://github.com/asyncy/components#readme",
   "style": "dist/asyncy-vue.css",
   "sass": "dist/sass/index.scss",
-  "description": "Shared vue components for Asyncy",
-  "author": "Asyncy"
+  "description": "Shared vue components for Λsyncy",
+  "author": "Λsyncy"
 }
