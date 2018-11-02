@@ -3,14 +3,14 @@
     <div class="columns space-around">
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Product</h4>
-        <router-link v-if="internal" to="/platform">Platform</router-link>
+        <!-- <router-link v-if="internal" to="/platform">Platform</router-link>
         <a
           v-else
           href="//asyncy.com/platform"
           title="Platform"
           target="_blank">
           Platform
-        </a>
+        </a> -->
         <a
           href="//docs.asyncy.com"
           title="Documentation"
@@ -30,7 +30,7 @@
           Give Feedback
         </a>
       </div>
-      <div class="column">
+      <!-- <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Resources</h4>
         <router-link v-if="internal" to="/events">Events</router-link>
         <a
@@ -46,7 +46,7 @@
           target="_blank">
           Blog
         </a>
-      </div>
+      </div> -->
       <div class="column">
         <h4 :class="dark ? 'text--light' : 'text--dark'">Company</h4>
         <router-link v-if="internal" to="/about">About</router-link>

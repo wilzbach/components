@@ -90,16 +90,17 @@ export default {
   box-shadow: shadow(button);
   outline: none;
   border: 0;
-  transition: all duration(s) $easing;
+  transition: all duration(xs) $easing;
   cursor: pointer;
   transform: translateY(0);
-  font-weight: 500;
+  font-weight: bold;
 
   & + .btn {
     margin-left: .5rem;
   }
 
-  &:hover {
+  &:hover, &:active {
+    transform: scale(1.025);
     box-shadow: shadow(button, hover);
   }
 
@@ -121,16 +122,17 @@ export default {
       background-color: $value;
       color: $white;
 
-      &:hover {
-        background-color: $value;
+      &:hover, &:active {
+        background-color: darken($value, 2%);
+        
       }
 
       &.btn--outline {
         color: $value;
         border-color: $value;
 
-        &:hover {
-          background-color: $value;
+        &:hover, &:active {
+          background-color: darken($value, 2%);
           color: $white;
         }
       }
@@ -140,8 +142,8 @@ export default {
   &.btn--light {
     background: color(light);
     color: color(dark);
-    &:hover {
-      transform: none;
+    &:hover, &:active {
+      // transform: none;
     }
   }
 
@@ -154,8 +156,8 @@ export default {
       border-color: color(dark);
       background: transparent;
 
-      &:hover {
-        background: color(dark);
+      &:hover, &:active {
+        background: darken(color(dark), 2%);
         color: color(light);
       }
     }
@@ -163,7 +165,7 @@ export default {
 
   &.btn--no-animation {
     transition: none;
-    &:hover {
+    &:hover, &:active {
       transform: none;
     }
   }
