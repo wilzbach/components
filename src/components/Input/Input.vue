@@ -1,12 +1,11 @@
 <template>
   <div class="form-group" :class="[
       {'input-group': hasIcon},
-      {'has-danger': error},
       {'focused': focused},
       {'input-group-alternative': alternative},
       {'has-label': label || $slots.label},
       {'has-success': valid === true},
-      {'has-danger': valid === false},
+      {'has-danger': error && valid === false},
       {[`size-${size}`]: size }
     ]">
     <slot name="label">
@@ -162,7 +161,7 @@ input {
   display: flex;
   flex: auto;
   width: auto;
-  align-items: center;
+  align-items: end;
   justify-content: flex-start;
   flex-wrap: wrap;
   color: color(dark);
