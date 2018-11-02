@@ -138,8 +138,8 @@ body {
 i {
   &,
   &:before {
-    line-height: 1;
-    display: inline-block;
+    line-height: inherit;
+    display: contents;
     overflow: hidden;
   }
 }
