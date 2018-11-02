@@ -19,7 +19,8 @@
     <div v-if="addonLeftIcon || $slots.addonLeft" class="input-group-prepend">
       <span class="input-group-text">
         <slot name="addonLeft">
-          <i :class="addonLeftIcon" />
+          <font-awesome-icon v-if="['search'].includes(addonLeftIcon)" :icon="addonLeftIcon" />
+          <i v-else :class="addonLeftIcon" />
         </slot>
       </span>
     </div>
@@ -36,14 +37,14 @@
         <span class="input-group-text">
           <slot name="addonRight">
             <i v-if="valid === undefined" :class="addonRightIcon" />
-            <i v-else-if="valid === true" :class="`fa fa-check${alternative ? '-circle' : ''}`" />
-            <i v-else-if="valid === false" :class="`fa fa-times${alternative ? '-circle' : ''}`" />
+            <font-awesome-icon v-else-if="valid === true" :icon="`check${alternative ? '-circle' : ''}`" />
+            <font-awesome-icon v-else-if="valid === false" :icon="`times${alternative ? '-circle' : ''}`" />
           </slot>
         </span>
       </div>
       <slot name="infoBlock"></slot>
       <slot name="helpBlock">
-        <div class="text--danger invalid-feedback" v-if="error">
+        <div class="text--danger invalid-feedback" v-if="error && valid === false">
           {{ error }}
         </div>
       </slot>

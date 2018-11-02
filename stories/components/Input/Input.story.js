@@ -7,64 +7,72 @@ storiesOf('Components/', module).addWithJSX(
     <div class="section pb-0 section-components">
         <div class="container mb-5">
             <!-- Inputs -->
-            <h3 class="h3 font-weight-bold mb-4">Inputs</h3>
-            <div class="mb-3">
-                <small class="text-uppercase font-weight-bold">Form controls</small>
+            <h3>Inputs</h3>
+            <div>
+                <h5>Form controls</h5>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6">
+            <div class="columns is-multiline">
+                <div class="column">
                     <a-input placeholder="Regular">
 
                     </a-input>
                     <a-input placeholder="Search"
-                                addon-left-icon="fa fa-search">
+                                addon-left-icon="search">
                     </a-input>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="column">
                     <a-input placeholder="Regular" disabled>
                     </a-input>
                     <a-input placeholder="Birthday"
                                 addon-right-icon="fa fa-calendar">
                     </a-input>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="column">
                     <a-input placeholder="Success" :valid="true">
                     </a-input>
 
                     <a-input placeholder="Error" :valid="false" error="Input error">
                     </a-input>
                 </div>
-                <div class="col-lg-12 mb-5">
+            </div>
+            <div>
+                <h5 class="text-uppercase font-weight-bold">Sizes</h5>
+            </div>
+            <div class="columns">
+                <div class="column is-full">
                     <a-input placeholder="Small" size="s" />
                     <a-input placeholder="Regular" />
                     <a-input placeholder="Large" size="l" />
                 </div>
-                <div class="col-12" style="flex-direction: row;
-                display: flex;
-                align-items: center;">
+            </div>
+            <div>
+                <h5 class="text-uppercase font-weight-bold">Inline</h5>
+            </div>
+            <div class="columns">
+                <div class="column is-full" style="flex-direction: row; display: flex; align-items: center">
                     <a-input placeholder="Regular" />
-                    <a-button state="neutral" style="margin-left: .3rem">Submit</a-button>
+                    <a-button state="neutral" style="margin-left: .5rem">Submit</a-button>
                 </div>
             </div>
         </div>
         <div class="py-5 bg-secondary">
             <div class="container">
                 <!-- Inputs (alternative) -->
-                <div class="mb-3">
-                    <small class="text-uppercase font-weight-bold">Form controls (alternative)</small>
+                <div>
+                    <h5 class="text-uppercase font-weight-bold">Form controls (alternative)</h5>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6">
+                <div class="columns">
+                    <div class="column">
                         <a-input alternative
                                     placeholder="Regular">
 
                         </a-input>
                         <a-input alternative
                                     placeholder="Search"
-                                    addon-left-icon="fa fa-search">
+                                    addon-left-icon="search">
                         </a-input>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
+                    <div class="column">
                         <a-input alternative
                                     placeholder="Regular" disabled>
                         </a-input>
@@ -73,7 +81,7 @@ storiesOf('Components/', module).addWithJSX(
                                     addon-right-icon="fa fa-calendar">
                         </a-input>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
+                    <div class="column">
                         <a-input alternative
                                     placeholder="Success" :valid="true">
                         </a-input>
