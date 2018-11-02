@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/vue'
 storiesOf('Components/', module).addWithJSX(
   'Inputs',
   () => ({
+    data: () => ({ email: '' }),
+    computed: { isEmail: function () { return this.email.trim().length === 0 ? undefined : (/^(([^<>()\\[\]\\.,;:\s@\\"]+(\.[^<>()\\[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\]\\.,;:\s@\\"]+\.)+[^<>()[\]\\.,;:\s@\\"]{2,})$/i).test(this.email) } },
     template: `
     <div class="section pb-0 section-components">
         <div class="container mb-5">
@@ -31,7 +33,7 @@ storiesOf('Components/', module).addWithJSX(
                     <a-input placeholder="Success" :valid="true">
                     </a-input>
 
-                    <a-input placeholder="Error" :valid="false" error="Input error">
+                    <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="email">
                     </a-input>
                 </div>
             </div>

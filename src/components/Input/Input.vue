@@ -242,7 +242,6 @@ input {
   .input-group-prepend,
   .input-group-append,
   .form-control {
-    transition: all duration(s) $easing;
     color: gray(400);
     border: 0.1rem solid gray(300);
     border-radius: 0.5rem;
@@ -268,7 +267,6 @@ input {
     flex: 1 1 auto;
     padding: 0.5rem 1.25rem;
     line-height: 1.5rem;
-    transition: all transition(s) $easing;
     box-shadow: none;
     &::placeholder {
       color: gray(400);
