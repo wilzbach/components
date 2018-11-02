@@ -14,7 +14,8 @@ storiesOf('Components/', module).addWithJSX('Theme', () => ({
         <a-planet variant="green" />
         <a-planet variant="orange" />
         <a-planet variant="red-purple" />
-        <a-planet variant="moon" />
+        <a-planet variant="moon-dark" />
+        <a-planet variant="earth" />
       </div>
 
       <h3 class="h3 font-weight-bold mb-4">Comets</h3>

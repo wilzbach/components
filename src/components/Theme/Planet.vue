@@ -9,8 +9,8 @@ export default {
     variant: {
       type: String,
       default: 'blue',
-      validator: v => ['blue-purple', 'blue', 'cyan', 'green', 'moon', 'orange', 'purple', 'red-purple', 'red', 'yellow'].includes(v),
-      description: 'The planet variant (blue|purple|red|yellow)'
+      validator: v => ['blue-purple', 'blue', 'cyan', 'earth', 'green', 'moon', 'moon-dark', 'orange', 'purple', 'red-purple', 'red', 'yellow'].includes(v),
+      description: 'The planet variant (blue|cyan|earth|green|moon|moon-dark|orange|purple|red|red-purple|yellow)'
     },
     absolute: {
       type: Boolean,
@@ -119,11 +119,17 @@ export default {
   &.cyan {
     background-image: url('../../assets/img/planets/cyan.svg')
   }
+  &.earth {
+    background-image: url('../../assets/img/planets/earth.svg')
+  }
   &.green {
     background-image: url('../../assets/img/planets/green.svg')
   }
   &.moon {
     background-image: url('../../assets/img/planets/moon.svg')
+  }
+  &.moon-dark {
+    background-image: url('../../assets/img/planets/moon-dark.svg')
   }
   &.orange {
     background-image: url('../../assets/img/planets/orange.svg')
