@@ -12,6 +12,7 @@ storiesOf('Components/', module).addWithJSX('Logo', () => ({
           <a-logo variant="primary" />
         </div>
         <div class="col-12">
+          <a-logo variant="pink" icon old />
           <a-logo variant="pink" icon />
         </div>
         <div class="col-12">
