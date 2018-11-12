@@ -74,7 +74,7 @@
         <a
           href="//angel.co/asyncy/jobs"
           title="We are Hiring !"
-          class="text--green"
+          class="text--pink"
           target="_blank">
           We are Hiring!
         </a>
