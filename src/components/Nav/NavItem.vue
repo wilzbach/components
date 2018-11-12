@@ -289,15 +289,6 @@ export default {
       }
     }
 
-    &.dark {
-      color: $white;
-      @include breakpoint((max, m)) { color: color(dark); }
-      &:before {
-        background-color: rgba($white, .65);
-        @include breakpoint((max, m)) { background-color: rgba(color(dark), .95); }
-      }
-    }
-
     &:not(.nav-button) {
       &:hover {
         &:before {
@@ -323,6 +314,16 @@ export default {
         @include breakpoint((max, m)) { background: rgba(color(dark), .95); }
       }
     }
+
+    &.dark {
+      color: $white;
+      @include breakpoint((max, m)) { color: color(dark); }
+      &:before {
+        background-color: rgba($white, .65);
+        @include breakpoint((max, m)) { background-color: rgba(color(dark), .95); }
+      }
+    }
+
   }
 }
 
