@@ -77,6 +77,7 @@
               :color="item.color"
               :dark="effect === 'dark'"
               :right="item.right"
+              :caret="item.caret"
               :button="item.button"
               :outline="item.outline"
               @itemClicked="$emit(item.emit, { id, name: item.name, link: item.link })" />

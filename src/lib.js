@@ -12,7 +12,7 @@ import * as directives from './directives'
 
 // fontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCheck, faCheckCircle, faTimes, faTimesCircle, faSearch, faHeart, faClipboard, faClipboardCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faCheckCircle, faTimes, faTimesCircle, faSearch, faHeart, faClipboard, faClipboardCheck, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faSlack, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -39,7 +39,7 @@ const VuePlugin = {
     Vue.use(VueClipboard)
     Vue.use(VueLazyload)
 
-    library.add(faCheck, faCheckCircle, faTimes, faTimesCircle, faSearch, faHeart, faGithub, faSlack, faTwitter, faClipboard, faClipboardCheck)
+    library.add(faCheck, faCheckCircle, faTimes, faTimesCircle, faSearch, faHeart, faGithub, faSlack, faTwitter, faClipboard, faClipboardCheck, faChevronDown)
     Vue.component('font-awesome-icon', FontAwesomeIcon)
   }
 }

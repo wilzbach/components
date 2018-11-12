@@ -24,8 +24,11 @@
         class="icon"
         :class="icon" />
       {{ name }}
+      <font-awesome-icon
+        v-if="caret"
+        icon="chevron-down" />
       <i
-        v-if="iconRight"
+        v-else-if="iconRight"
         class="icon right"
         :class="iconRight" />
     </span>
@@ -182,6 +185,11 @@ export default {
       default: undefined,
       description: 'Nav item name'
     },
+    caret: {
+      type: Boolean,
+      default: true,
+      description: 'Dropdown caret'
+    },
     color: {
       type: String,
       default: null,
@@ -252,7 +260,12 @@ export default {
   margin: 0;
 
   &:not(:last-child) {
-    margin-right: .5rem;
+    @include breakpoint (m) {
+      margin-right: .5rem;
+    }
+    @include breakpoint (max m) {
+      margin-top: .5rem;
+    }
   }
 
   .nav-button,
@@ -281,6 +294,12 @@ export default {
       &.right {
         margin-left: .25rem;
       }
+    }
+    svg.svg-inline--fa {
+      font-size: 1rem;
+      margin-left: .5rem;
+      margin-right: 0;
+      align-self: center;
     }
 
     &.hide-decoration {
@@ -344,7 +363,7 @@ export default {
     z-index: 1001;
 
     &.dark {
-      background: color(dark);
+      background: darken(color(dark), 15%);
       color: color(light);
 
       .dropdown-item {
@@ -367,6 +386,7 @@ export default {
     .dropdown-item {
       color: color(dark);
       padding: .25rem 1rem;
+      svg,
       .icon {
         font-size: 1rem;
         &:not(.right) {
