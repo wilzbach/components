@@ -30,8 +30,16 @@
         :class="iconRight" />
     </span>
     <template v-else>
+      <a-button
+        v-if="button"
+        @click="$emit('itemClicked')"
+        class="nav-button"
+        :state="button"
+        :outline="outline">
+        {{ name }}
+      </a-button>
       <router-link
-        v-if="!external"
+        v-else-if="!external"
         class="nav-link"
         :class="{
           [`text--${color}`]: color,
@@ -189,6 +197,16 @@ export default {
       default: '',
       description: 'Link of the navitem'
     },
+    button: {
+      type: String,
+      default: undefined,
+      description: 'If the item is a button'
+    },
+    outline: {
+      type: Boolean,
+      default: false,
+      description: 'If the item is a button and if it should be outline'
+    },
     external: {
       type: Boolean,
       default: false,
@@ -229,7 +247,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .nav-item {
   margin: 0;
 
@@ -237,6 +255,7 @@ export default {
     margin-right: .5rem;
   }
 
+  .nav-button,
   .nav-link {
     display: inline-flex;
     position: relative;
@@ -279,28 +298,30 @@ export default {
       }
     }
 
-    &:hover {
-      &:before {
-        left: 0;
-        right: 0;
+    &:not(.nav-button) {
+      &:hover {
+        &:before {
+          left: 0;
+          right: 0;
+        }
       }
-    }
 
-    &:before {
-      content: '';
-      position: absolute;
-      display: block;
-      left: 51%;
-      right: 51%;
-      @include breakpoint((max, m)) { left: 0; right: 100%; }
-      bottom: 4px;
-      opacity: .7;
-      height: 2px;
-      transition-property: left, right;
-      transition-duration: .3s;
-      transition-timing-function: ease-out;
-      background-color: rgba(color(dark), .65);
-      @include breakpoint((max, m)) { background: rgba(color(dark), .95); }
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 51%;
+        right: 51%;
+        @include breakpoint((max, m)) { left: 0; right: 100%; }
+        bottom: 4px;
+        opacity: .7;
+        height: 2px;
+        transition-property: left, right;
+        transition-duration: .3s;
+        transition-timing-function: ease-out;
+        background-color: rgba(color(dark), .65);
+        @include breakpoint((max, m)) { background: rgba(color(dark), .95); }
+      }
     }
   }
 }

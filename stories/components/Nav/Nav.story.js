@@ -36,16 +36,26 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
                   expand
                   :title="menu.type"
                   class="mt-4"
-                  :items="[{ name: 'Discover', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '/', children: [{ name: 'Action' }] }, { name: 'Others', hideDecoration: true, color: 'pink' }]" />
+                  has-search
+                  search-color="dark"
+                  @hello="doThis"
+                  :items="[{ name: 'Discover', button: 'primary', outline: true, emit: 'hello', link: '/', icon: 'fa fa-home', iconRight: 'fa fa-arrow-right' }, { name: 'Profile', link: '/', children: [{ name: 'Action' }] }, { name: 'Others', hideDecoration: true, color: 'pink' }]">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                Hello
+              </a>
+            </li>
+        </a-nav>
         <a-nav
             expand
             effect="light"
             logo="primary"
             tag="Beta"
-            tag-state="yellow"
+            tag-state="primary"
             transparent
             class="mt-4"
-            :items="[{ name: 'Platform' }, { icon: 'github', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
+            @helo="doThat"
+            :items="[{ name: 'Platform', button: 'primary', outline: true, emit: 'helo' }, { icon: 'github', link: '/' }, { name: 'About', link: '/' }, { name: 'Events', link: '/' }, { name: 'Contact', link: '/', color: 'orange' }, { name: 'Documentation', link: '/' }, { name: 'We are Hiring!', hideDecoration: true, color: 'pink' }]" />
         <div class="bg--dark">
         <a-nav
             effect="dark"
@@ -61,7 +71,11 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
             tag="Beta"
             tag-state="yellow"
             transparent
-            class="mt-4" />
+            class="mt-4">
+            <a href="#" class="nav-link">
+                Hello
+            </a>
+        </a-nav>
         </div>
     </div>
     `,
@@ -78,5 +92,18 @@ storiesOf('Components/', module).addWithJSX('Navs', () => ({
         { type: 'cyan' }
       ]
     }
+  },
+  methods: {
+    doThis: function () {
+        console.log('doing this')
+    },
+    doThat: function () {
+        console.log('doing that')
+    }
+  },
+  events: {
+      hello: function () {
+          console.log('try')
+      }
   }
 }))

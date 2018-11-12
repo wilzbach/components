@@ -8,7 +8,9 @@
       {[`bg--${type}`]: type && !transparent },
       {'rounded': round}
     ]">
-    <div class="container">
+    <div
+      class="container"
+      v-click-outside="close">
       <span
         class="navbar-brand"
         @click.prevent="onBrandClick">
@@ -44,10 +46,24 @@
                 @click="close" />
             </div>
           </div>
+          <transition name="fade">
+            <div
+              v-if="hasSearch"
+              class="column align-center is-hidden-mobile search-container">
+              <form
+                class="header-form"
+                @submit.prevent="onSearch">
+                <a-input
+                  placeholder="Search"
+                  v-model="search"
+                  class="header-search-bar"
+                  :input-classes="searchColor ? `text--${searchColor}` : 'text--light'" />
+              </form>
+            </div>
+          </transition>
           <ul
-            v-if="items && items.length > 0"
-            class="navbar-nav"
-            v-click-outside="close">
+            v-if="(items && items.length > 0) || ($slots && $slots.default)"
+            class="navbar-nav">
             <a-nav-item
               v-for="(item, idx) of items"
               :key="`nav-${id}-list-items-${idx}`"
@@ -60,7 +76,11 @@
               :hideDecoration="item.hideDecoration"
               :color="item.color"
               :dark="effect === 'dark'"
-              :right="item.right" />
+              :right="item.right"
+              :button="item.button"
+              :outline="item.outline"
+              @itemClicked="$emit(item.emit, { id, name: item.name, link: item.link })" />
+            <slot />
           </ul>
         </div>
       </transition>
@@ -141,10 +161,21 @@ export default {
       type: Array,
       default: () => ([]),
       description: "Items to display in the menu. e.g.: { name: 'Item', link: '/', icon: 'fa fa-icon', iconRight: 'fa fa-icon', right: /* dropdown-menu-right */true, children: [{ name: 'Sub', link: '/' }, { type: 'divider' }], hideDecoration: true, color: '(primary|pink|...)' }"
+    },
+    hasSearch: {
+      type: Boolean,
+      default: false,
+      description: 'Add a search bar on the navbar (get the input at @search="function (query) {}" event)'
+    },
+    searchColor: {
+      type: String,
+      default: undefined,
+      description: 'Change the search input color (default: light)'
     }
   },
   data: () => ({
-    toggled: false
+    toggled: false,
+    search: ''
   }),
   methods: {
     onBrandClick: function (evt) {
@@ -152,12 +183,16 @@ export default {
     },
     close: function () {
       this.toggled = false
+    },
+    onSearch: function () {
+      console.log(this.search)
+      this.$emit('search', this.search)
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .navbar {
   display: flex;
   flex-direction: row;
@@ -185,6 +220,26 @@ export default {
     justify-content: space-between;
     margin: 0 auto;
     @include breakpoint(m) { flex-wrap: nowrap; }
+
+    .search-container {
+      padding: 0;
+      @include breakpoint(m) {
+        margin-left: 50px;
+      }
+
+      .header-search-bar {
+        width: 250px;
+        @include breakpoint(max m) {
+          width: 100%;
+        }
+        .form-control {
+          @include breakpoint(max m) {
+            color: color(dark) !important;
+          }
+        }
+      }
+    }
+
     .navbar-brand {
       color: $white;
       margin-left: 1rem;
