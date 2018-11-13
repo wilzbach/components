@@ -186,8 +186,8 @@ export default {
       this.toggled = false
     },
     onSearch: function () {
-      console.log(this.search)
       this.$emit('search', this.search)
+      this.search = ''
     }
   }
 }
