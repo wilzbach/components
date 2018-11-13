@@ -252,7 +252,8 @@ input {
   .input-group-prepend,
   .input-group-append {
     display: inline-flex;
-    flex: 0.4 1 auto;
+    flex: 0 1 auto;
+    padding: 0 1rem;
     width: max-content;
     justify-content: center;
     .input-group-text {
