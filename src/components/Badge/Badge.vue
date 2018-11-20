@@ -4,6 +4,7 @@
     class="badge"
     :class="{
       [`badge--${state}`]: state,
+      'badge--outline': outline,
       lower
     }">
     <slot></slot>
@@ -28,6 +29,11 @@ export default {
       type: Boolean,
       default: false,
       description: 'Let the value as is. Default: uppercase'
+    },
+    outline: {
+      type: Boolean,
+      default: false,
+      description: 'Outline effect on the badge'
     }
   }
 }
@@ -37,12 +43,12 @@ export default {
 .badge {
   display: inline-flex;
   overflow: hidden;
-  padding: 0.35rem 0.375rem;
+  padding: 0.25rem 0.5rem;
   font-size: fontSize(s);
-  line-height: 1;
   white-space: nowrap;
   border-radius: 0.25rem;
   text-transform: none;
+  cursor: default;
 
   &:not(.lower) {
     text-transform: uppercase;
@@ -54,15 +60,29 @@ export default {
 
   @each $state, $value in $states {
     &.badge--#{$state} {
-      background-color: rgba($value, 0.8);
       color: darken($value, 10%);
+      &:not(.badge--outline) {
+        background-color: rgba($value, 0.8);
+      }
+      &.badge--outline {
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba($value, 0.8);
+      }
     }
   }
 
   @each $color, $value in $colors {
     &.badge--#{$color} {
-      background-color: rgba($value, 0.8);
       color: darken($value, 10%);
+      &:not(.badge--outline) {
+        background-color: rgba($value, 0.8);
+      }
+      &.badge--outline {
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba($value, 0.8);
+      }
     }
   }
 }
