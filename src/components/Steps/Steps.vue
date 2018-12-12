@@ -10,7 +10,7 @@
           ref="steps"
           :key="`nav-${_uid}-item-step-${idx}`"
           @click.prevent="goToStep(step)"
-          :class="{ active: step.active, previous: idx < activeStepIndex }">
+          :class="{ locked: lockHeaders, active: step.active, previous: idx < activeStepIndex }">
           <span v-if="step.title">{{ idx + 1 }}. <span v-text="step.title"></span></span>
           <span v-else-if="step.slot"><step-header :slot="step.slot" /></span>
           <span v-else>{{ idx + 1 }}.</span>
@@ -29,6 +29,13 @@ import StepHeader from './StepHeader'
 export default {
   name: 'aSteps',
   components: { StepHeader },
+  props: {
+    lockHeaders: {
+      type: Boolean,
+      default: false,
+      description: 'lock the links on the headers'
+    }
+  },
   data: () => ({
     steps: [],
     stepsSlots: [],
@@ -46,7 +53,6 @@ export default {
   },
   methods: {
     addStep (step, slot) {
-      console.log(step)
       this.steps.push(step)
       this.steps[this.steps.length - 1].slot = slot
     },
@@ -76,7 +82,7 @@ export default {
       return false
     },
     goToStep (step) {
-      if (step) {
+      if (step && !this.lockHeaders) {
         this.deactivateSteps()
         step.active = true
         this.activeStepIndex = this.steps.indexOf(step)
@@ -88,7 +94,9 @@ export default {
   },
   mounted: function () {
     this.$nextTick(() => {
-      this.goToStep(this.steps[0])
+      if (this.steps.length > 0) {
+        this.steps[0].active = true
+      }
     })
   }
 }
@@ -117,7 +125,10 @@ export default {
       color: color(dark);
       margin: 0 1rem;
       border-top: 2px solid rgba(state(primary), 0.4);
-      cursor: pointer;
+      cursor: default;
+      &:not(.locked) {
+        cursor: pointer;
+      }
       &.previous, &.active { border-color: state(primary); }
       span {
         padding: .5rem 1rem;
