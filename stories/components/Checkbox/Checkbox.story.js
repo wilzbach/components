@@ -9,7 +9,7 @@ storiesOf('Components/', module).addWithJSX(
             <h3 class="h3 font-weight-bold mb-4">Checkboxes</h3>
             <div>
               <a-checkbox class="mb-3" v-model="checkboxes.unchecked">
-                  Unchecked
+                Unchecked (checked ? {{ checkboxes.unchecked ? 'yes' : 'no' }})
               </a-checkbox>
               <a-checkbox class="mb-3" v-model="checkboxes.checked">
                   Checked

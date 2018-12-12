@@ -8,10 +8,11 @@ import Nav from './Nav'
 import Logo from './Logo'
 import Card from './Card'
 import Tabs from './Tabs'
+import Steps from './Steps'
 import Categories from './Categories'
 import Theme from './Theme'
 import Footer from './Footer'
-// import Checkbox from './Checkbox'
+import Checkbox from './Checkbox'
 // import CookiesBanner from './CookiesBanner'
 // import Cookie from './Cookie'
 // import Dropdown from './Dropdown'
@@ -29,6 +30,7 @@ export {
   Badge,
   Alert,
   Button,
+  Checkbox,
   Title,
   Link,
   Input,
@@ -36,6 +38,7 @@ export {
   Logo,
   Card,
   Tabs,
+  Steps,
   Categories,
   Theme,
   Footer
