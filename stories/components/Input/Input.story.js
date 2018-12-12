@@ -15,7 +15,7 @@ storiesOf('Components/', module).addWithJSX(
             </div>
             <div class="columns is-multiline">
                 <div class="column">
-                    <a-input placeholder="Regular">
+                    <a-input v-model="email" placeholder="Regular">
 
                     </a-input>
                     <a-input placeholder="Search"

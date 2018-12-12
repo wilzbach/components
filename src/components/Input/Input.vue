@@ -242,7 +242,7 @@ input {
   .input-group-prepend,
   .input-group-append,
   .form-control {
-    color: gray(400);
+    color: gray(800);
     border: 0.1rem solid gray(300);
     border-radius: 0.5rem;
     height: 3rem;
@@ -270,7 +270,7 @@ input {
     line-height: 1.5rem;
     box-shadow: none;
     &::placeholder {
-      color: gray(400);
+      color: gray(500);
     }
 
     &:disabled {
