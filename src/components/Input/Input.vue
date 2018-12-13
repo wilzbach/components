@@ -14,46 +14,58 @@
         <span v-if="required">*</span>
       </label>
     </slot>
-
-    <div v-if="addonLeftIcon || $slots.addonLeft" class="input-group-prepend">
-      <span class="input-group-text">
-        <slot name="addonLeft">
-          <font-awesome-icon v-if="['search'].includes(addonLeftIcon)" :icon="addonLeftIcon" />
-          <i v-else :class="addonLeftIcon" />
-        </slot>
-      </span>
-    </div>
-    <slot v-bind="slotData">
-      <input
-        :value="value"
-        v-on="listeners"
-        v-bind="$attrs"
-        class="form-control"
-        :class="[{'is-valid': valid === true}, {'is-invalid': valid === false}, {'has-left-icon': (addonLeftIcon || $slots.addonLeft)}, {'has-right-icon': (addonRightIcon || $slots.addonRight || valid !== undefined)}, inputClasses]"
-        aria-describedby="addon-right addon-left">
-    </slot>
-      <div v-if="addonRightIcon || $slots.addonRight || valid !== undefined" class="input-group-append">
-        <span class="input-group-text">
-          <slot name="addonRight">
-            <i v-if="valid === undefined" :class="addonRightIcon" />
-            <font-awesome-icon v-else-if="valid === true" :icon="`check${alternative ? '-circle' : ''}`" />
-            <font-awesome-icon v-else-if="valid === false" :icon="`times${alternative ? '-circle' : ''}`" />
-          </slot>
-        </span>
-      </div>
-      <slot name="infoBlock"></slot>
-      <slot name="helpBlock">
-        <div class="text--danger invalid-feedback" v-if="error && valid === false">
-          {{ error }}
+    <div class="input-group-nowrap">
+      <template v-if="options !== undefined">
+        <v-select :value="value"
+            v-on="listenersSelect"
+            v-bind="$attrs"
+            :options="options" />
+      </template>
+      <template v-else>
+        <div v-if="addonLeftIcon || $slots.addonLeft" class="input-group-prepend">
+          <span class="input-group-text">
+            <slot name="addonLeft">
+              <font-awesome-icon v-if="['search'].includes(addonLeftIcon)" :icon="addonLeftIcon" />
+              <i v-else :class="addonLeftIcon" />
+            </slot>
+          </span>
         </div>
-      </slot>
+        <slot v-bind="slotData">
+          <input
+            :value="value"
+            v-on="listeners"
+            v-bind="$attrs"
+            class="form-control"
+            :class="[{'is-valid': valid === true}, {'is-invalid': valid === false}, {'has-left-icon': (addonLeftIcon || $slots.addonLeft)}, {'has-right-icon': (addonRightIcon || $slots.addonRight || valid !== undefined)}, inputClasses]"
+            aria-describedby="addon-right addon-left">
+        </slot>
+        <div v-if="addonRightIcon || $slots.addonRight || valid !== undefined" class="input-group-append">
+          <span class="input-group-text">
+            <slot name="addonRight">
+              <i v-if="valid === undefined" :class="addonRightIcon" />
+              <font-awesome-icon v-else-if="valid === true" :icon="`check${alternative ? '-circle' : ''}`" />
+              <font-awesome-icon v-else-if="valid === false" :icon="`times${alternative ? '-circle' : ''}`" />
+            </slot>
+          </span>
+        </div>
+      </template>
+    </div>
+    <slot name="infoBlock"></slot>
+    <slot name="helpBlock">
+      <div class="text--danger invalid-feedback" v-if="error && valid === false">
+        {{ error }}
+      </div>
+    </slot>
   </div>
 </template>
 
 <script>
+import vSelect from 'vue-select'
+
 export default {
   inheritAttrs: false,
   name: 'a-input',
+  components: { vSelect },
   props: {
     required: {
       type: Boolean,
@@ -71,6 +83,11 @@ export default {
     label: {
       type: String,
       description: 'Input label (text before input)'
+    },
+    options: {
+      type: Array,
+      description: 'The options (select input)',
+      default: () => undefined
     },
     error: {
       type: String,
@@ -113,6 +130,16 @@ export default {
       return {
         ...this.$listeners,
         input: this.updateValue,
+        change: this.onChange,
+        focus: this.onFocus,
+        blur: this.onBlur
+      }
+    },
+    listenersSelect () {
+      return {
+        ...this.$listeners,
+        input: this.updateValueSelect,
+        change: this.onChange,
         focus: this.onFocus,
         blur: this.onBlur
       }
@@ -139,6 +166,9 @@ export default {
       let value = evt.target.value
       this.$emit('input', value)
     },
+    updateValueSelect (value) {
+      this.$emit('input', value)
+    },
     onFocus (value) {
       this.focused = true
       this.$emit('focus', value)
@@ -146,11 +176,66 @@ export default {
     onBlur (value) {
       this.focused = false
       this.$emit('blur', value)
+    },
+    onChange (value) {
+      this.$emit('change', value)
     }
   }
 }
 </script>
 
+<style lang="scss">
+.form-group {
+  .input-group-nowrap {
+    .v-select.searchable {
+      width: 100%;
+      &.disabled {
+        .dropdown-toggle {
+          background-color: darken(gray(100), 1%);
+        }
+      }
+
+      .dropdown-toggle {
+        border-radius: 0.5rem;
+        border-color: gray(300);
+        .vs__selected-options {
+          padding: 0.4rem 1rem;
+
+          .selected-tag {
+            margin: .25rem 1rem 0 0;
+            font-size: 1rem;
+            background-color: gray(200);
+            border-color: gray(300);
+
+            .close {
+              margin-top: 4px;
+              margin-left: .3rem;
+            }
+          }
+          input {
+            font-size: 1rem;
+          }
+        }
+        .vs__actions {
+          padding: 0 1rem 0 1rem;
+          .clear {
+            span {
+              position: absolute;
+              top: 0.9rem;
+              right: 2.5rem;
+            }
+          }
+        }
+      }
+      .dropdown-menu {
+        width: 100%;
+        top: -.5rem;
+        border-color: gray(300);
+      }
+    }
+  }
+}
+</style>
 <style lang="scss" scoped>
 input {
   overflow: visible;
@@ -158,14 +243,19 @@ input {
 }
 
 .form-group {
-  display: flex;
-  flex: auto;
+  display: block;
+  flex: 0 0 auto;
   width: auto;
   align-items: end;
   justify-content: flex-start;
   flex-wrap: wrap;
   color: color(dark);
-  font-size: fontSize(m);
+  font-size: 1rem;
+
+  .input-group-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 
   &.size-s {
     font-size: fontSize(s);
@@ -247,6 +337,7 @@ input {
     border-radius: 0.5rem;
     height: 3rem;
     background-color: transparent;
+    font-size: inherit;
   }
 
   .input-group-prepend,
@@ -274,8 +365,11 @@ input {
     }
 
     &:disabled {
-      background-color: gray(200);
-      &,
+      cursor: not-allowed;
+      background-color: darken(gray(100), 1%);
+      & {
+        color: gray(800);
+      }
       &::placeholder {
         color: gray(500);
       }

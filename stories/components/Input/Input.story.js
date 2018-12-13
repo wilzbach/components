@@ -4,7 +4,7 @@ storiesOf('Components/', module).addWithJSX(
   'Inputs',
   () => ({
     data: () => ({ email: '' }),
-    computed: { isEmail: function () { return this.email.trim().length === 0 ? undefined : (/^(([^<>()\\[\]\\.,;:\s@\\"]+(\.[^<>()\\[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\]\\.,;:\s@\\"]+\.)+[^<>()[\]\\.,;:\s@\\"]{2,})$/i).test(this.email) } },
+    computed: { isEmail: function () { return typeof this.email === 'string' && this.email.trim().length === 0 ? undefined : (/^(([^<>()\\[\]\\.,;:\s@\\"]+(\.[^<>()\\[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\]\\.,;:\s@\\"]+\.)+[^<>()[\]\\.,;:\s@\\"]{2,})$/i).test(this.email) } },
     template: `
     <div class="section pb-0 section-components">
         <div class="container mb-5">
@@ -35,6 +35,10 @@ storiesOf('Components/', module).addWithJSX(
 
                     <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="email">
                     </a-input>
+                </div>
+                <div class="column">
+                <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="output" multiple :options="['toto@toto.com', 'tata@toto.com', 'hey']">
+                </a-input>
                 </div>
             </div>
             <div>
