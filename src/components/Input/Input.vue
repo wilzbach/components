@@ -195,6 +195,17 @@ export default {
         }
       }
 
+      &:not(.single) {
+        .dropdown-toggle {
+          .vs__selected-options {
+            .selected-tag {
+              background-color: gray(200);
+              border-color: gray(300);
+            }
+          }
+        }
+      }
+
       .dropdown-toggle {
         border-radius: 0.5rem;
         border-color: gray(300);
@@ -204,8 +215,6 @@ export default {
           .selected-tag {
             margin: .25rem 1rem 0 0;
             font-size: 1rem;
-            background-color: gray(200);
-            border-color: gray(300);
 
             .close {
               margin-top: 4px;

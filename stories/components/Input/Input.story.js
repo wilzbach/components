@@ -39,6 +39,8 @@ storiesOf('Components/', module).addWithJSX(
                 <div class="column">
                 <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="output" multiple :options="['toto@toto.com', 'tata@toto.com', 'hey']">
                 </a-input>
+                <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="output" :options="['toto@toto.com', 'tata@toto.com', 'hey']">
+                </a-input>
                 </div>
             </div>
             <div>
