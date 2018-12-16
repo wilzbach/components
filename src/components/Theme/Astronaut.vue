@@ -22,7 +22,7 @@ export default {
   height: 10rem;
   display: block;
   position: relative;
-  background-image: url('../../assets/img/astronaut_with_flag.svg');
+  background-image: url('../../assets/img/astronaut.svg');
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
