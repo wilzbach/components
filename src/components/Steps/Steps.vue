@@ -89,7 +89,7 @@ export default {
       }
     },
     goToStepIndex (id) {
-      if (id && id < this.steps.length) {
+      if (id !== undefined && id >= 0 && id < this.steps.length) {
         this.deactivateSteps()
         this.steps[id].active = true
         this.activeStepIndex = id
