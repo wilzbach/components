@@ -167,7 +167,6 @@ export default {
       this.$emit('input', value)
     },
     updateValueSelect (value) {
-      console.log('select=', value)
       this.$emit('input', value)
     },
     onFocus (value) {
