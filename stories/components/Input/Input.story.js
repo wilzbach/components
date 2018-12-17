@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 storiesOf('Components/', module).addWithJSX(
   'Inputs',
   () => ({
-    data: () => ({ email: '' }),
+    data: () => ({ email: '', output1: '', output2: [] }),
     computed: { isEmail: function () { return typeof this.email === 'string' && this.email.trim().length === 0 ? undefined : (/^(([^<>()\\[\]\\.,;:\s@\\"]+(\.[^<>()\\[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\]\\.,;:\s@\\"]+\.)+[^<>()[\]\\.,;:\s@\\"]{2,})$/i).test(this.email) } },
     template: `
     <div class="section pb-0 section-components">
@@ -37,9 +37,9 @@ storiesOf('Components/', module).addWithJSX(
                     </a-input>
                 </div>
                 <div class="column">
-                <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="output" multiple :options="['toto@toto.com', 'tata@toto.com', 'hey']">
+                <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="output2" multiple :options="['toto@toto.com', 'tata@toto.com', 'hey']">
                 </a-input>
-                <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="output" :options="['toto@toto.com', 'tata@toto.com', 'hey']">
+                <a-input placeholder="Email" :valid="isEmail" error="Invalid Email" v-model="output1" :options="['toto@toto.com', 'tata@toto.com', 'hey']">
                 </a-input>
                 </div>
             </div>
