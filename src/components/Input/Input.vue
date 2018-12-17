@@ -256,7 +256,7 @@ export default {
       }
       .dropdown-menu {
         width: 100%;
-        top: -.5rem;
+        top: 2.6rem;
         border-color: gray(300);
       }
     }
