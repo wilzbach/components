@@ -88,6 +88,13 @@ export default {
         this.activeStepIndex = this.steps.indexOf(step)
       }
     },
+    goToStepIndex (id) {
+      if (id && id < this.steps.length) {
+        this.deactivateSteps()
+        this.steps[id].active = true
+        this.activeStepIndex = id
+      }
+    },
     deactivateSteps () {
       this.steps.forEach(step => (step.active = false))
     }
