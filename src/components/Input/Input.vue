@@ -21,6 +21,14 @@
             v-bind="$attrs"
             :options="options" />
       </template>
+      <template v-else-if="textarea">
+        <textarea
+          ref="textarea"
+          class="form-control"
+          :value="value"
+          v-on="listeners"
+          v-bind="$attrs" />
+      </template>
       <template v-else>
         <div v-if="addonLeftIcon || $slots.addonLeft" class="input-group-prepend">
           <span class="input-group-text">
@@ -60,6 +68,7 @@
 </template>
 
 <script>
+import autosize from 'autosize'
 import vSelect from 'vue-select'
 
 export default {
@@ -113,6 +122,10 @@ export default {
       type: String,
       description: 'Addont left icon'
     },
+    textarea: {
+      type: Boolean,
+      default: false
+    },
     size: {
       type: String,
       default: undefined,
@@ -159,6 +172,11 @@ export default {
         this.addonLeftIcon !== undefined ||
         this.valid !== undefined
       )
+    }
+  },
+  mounted: function () {
+    if (this.textarea) {
+      autosize(this.$refs.textarea)
     }
   },
   methods: {
@@ -338,10 +356,15 @@ input {
     padding: 0.5rem 0.7rem 0.25rem;
   }
 
+  textarea.form-control {
+    min-height: 4.25rem;
+  }
+
   .input-group-prepend,
   .input-group-append,
   .form-control {
     color: gray(800);
+    outline: none;
     border: 0.1rem solid gray(300);
     border-radius: 0.5rem;
     height: 3rem;

@@ -54,6 +54,14 @@ storiesOf('Components/', module).addWithJSX(
                 </div>
             </div>
             <div>
+                <h5 class="text-uppercase font-weight-bold">Textarea</h5>
+            </div>
+            <div class="columns">
+                <div class="column is-full">
+                    <a-input textarea placeholder="Area text" />
+                </div>
+            </div>
+            <div>
                 <h5 class="text-uppercase font-weight-bold">Inline</h5>
             </div>
             <div class="columns">
