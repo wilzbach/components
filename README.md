@@ -39,4 +39,3 @@ yarn lint
 
 ```
 yarn test:unit
-```
